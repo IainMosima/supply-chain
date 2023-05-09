@@ -9,7 +9,7 @@ const links = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [hubsToggle, setHubsToggle] = useState(false);
 
-    console.log(hubsToggle)
+    
     return (
         <div className="hidden sm:flex sm:justify-evenly sm:gap-5 sm:place-items-center font-semibold">
                 <Link href='/'>
