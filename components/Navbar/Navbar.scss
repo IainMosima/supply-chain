@@ -1,0 +1,9 @@
+.translate-up {
+  transform: translateY(-150%);
+  transition: transform 0.5s ease-out;
+}
+
+.translate-down {
+  transform: translateY(10%);
+  transition: transform 0.5s ease-out;
+}
