@@ -27,7 +27,7 @@ const links = () => {
                         <motion.div 
                             whileInView={{y: [0, 10]}}
                             transition={{ duration: 0.1, ease: 'easeOut' }}
-                            className={`absolute z-1 right-[21.1rem] translate-down bg-purple rounded p-3 flex flex-col text-xs font-normal`}
+                            className={`absolute z-1 right-[9.5rem] translate-down bg-purple rounded p-3 flex flex-col text-xs font-normal`}
                         >
                             {['KNOWLEDGE HUB', 'BUYERS HUB', 'CREDITORS HUB', 'INVESTORS HUB', 'TENDER HUB', 'JOBS HUB'].map((hub) => 
                                 (<Link href={hub.toLowerCase().replace(' ', '-')} key={hub} className="py-2 px-3">{hub}</Link>)

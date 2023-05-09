@@ -7,6 +7,12 @@ import uganda from "../public/icons/uganda.png";
 import rwanda from "../public/icons/rwanda.png";
 import burundi from "../public/icons/burundi.png";
 
+import courosel1 from "../public/assets/carousel-1.jpg";
+import courosel2 from "../public/assets/carousel-2.png";
+import courosel3 from "../public/assets/carousel-3.jpg";
+import courosel4 from "../public/assets/carousel-4.png";
+import courosel5 from "../public/assets/carousel-5.png";
+
 
 
 import dropDown from "../public/icons/down-arrow.png";
@@ -19,5 +25,10 @@ export default {
     rwanda,
     burundi,
     uganda,
-    dropDown
+    dropDown,
+    courosel1,
+    courosel2,
+    courosel3,
+    courosel4,
+    courosel5,
 }
