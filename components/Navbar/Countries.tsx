@@ -32,13 +32,13 @@ const Countries = () => {
 
   return (
     <div
-      className={`cursor-pointer px-2 py-2 border-2 border-purple rounded bg-purple text-white ${
-        countryToggle ? 'bg-white text-black' : ''
+      className={`cursor-pointer px-1 py-1 border-2 border-purple rounded-lg bg-white text-black ${
+        countryToggle ? 'bg-purple text-white' : ''
       }`}
       onClick={() => setCountryToggle((prev) => !prev)}
     >
       <div
-        className={`text-sm sm:text-base w-[7rem] sm:w-[10rem] ${
+        className={`text-sm sm:text-base w-[7rem] sm:w-[10rem] relative ${
           countryToggle ? 'bg-white text-black' : ''
         }`}
       >
@@ -48,6 +48,7 @@ const Countries = () => {
             alt={selectedCountry.name}
             width={20}
             height={15}
+            className="w-auto h-auto"
           />
           <h2 className="ml-2">{selectedCountry.name}</h2>
           <Image
@@ -55,35 +56,37 @@ const Countries = () => {
             alt="drop-down"
             width={13}
             height={10}
-            className="mt-1 ml-1"
+            className="mt-1 ml-1 w-auto h-auto"
           />
         </div>
+
+          {countryToggle && (
+          <div
+            className={`absolute z-1 translate-down bg-white text-black rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
+              countryToggle ? 'translate-down' : ''
+            }`}
+          >
+            {countries.map((country) => (
+              <div
+                className="flex items-center text-sm sm:text-base py-1"
+                key={country.name}
+                onClick={() => {
+                  setCountries((prev) => [
+                    { img: selectedCountry.img, name: selectedCountry.name },
+                    ...prev.filter((info) => info.name !== country.name)
+                  ]);
+                  setSelectedCountry(country);
+                }}
+              >
+                <Image src={country.img} alt={country.name} width={20} height={15} className="w-auto h-auto"/>
+                <h2 className="ml-2">{country.name}</h2>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {countryToggle && (
-        <div
-          className={`absolute z-1 sm:right-[46.8rem] right-[5.5rem] translate-down bg-purple rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
-            countryToggle ? 'translate-down' : ''
-          }`}
-        >
-          {countries.map((country) => (
-            <div
-              className="flex items-center text-sm sm:text-base py-1"
-              key={country.name}
-              onClick={() => {
-                setCountries((prev) => [
-                  { img: selectedCountry.img, name: selectedCountry.name },
-                  ...prev.filter((info) => info.name !== country.name)
-                ]);
-                setSelectedCountry(country);
-              }}
-            >
-              <Image src={country.img} alt={country.name} width={20} height={15} />
-              <h2 className="ml-2">{country.name}</h2>
-            </div>
-          ))}
-        </div>
-      )}
+      
     </div>
   );
 };

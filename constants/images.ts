@@ -6,6 +6,9 @@ import tanzania from "../public/icons/tanzania.png";
 import uganda from "../public/icons/uganda.png";
 import rwanda from "../public/icons/rwanda.png";
 import burundi from "../public/icons/burundi.png";
+import next from "../public/icons/next.png";
+import downBlue from "../public/icons/down-blue.png";
+import close from "../public/icons/close.png";
 
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
@@ -31,4 +34,7 @@ export default {
     courosel3,
     courosel4,
     courosel5,
+    next,
+    downBlue,
+    close
 }

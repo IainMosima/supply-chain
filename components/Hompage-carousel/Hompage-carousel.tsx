@@ -4,9 +4,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper";
 import ImageContainer from "./image-container";
+import Image from "next/image";
 
+import { Images } from "../../constants";
+import "./Hompage-carousel.scss";
 
-import { Images } from "../../constants"
 
 
 const HompageCarousel = () => {
@@ -35,22 +37,27 @@ const HompageCarousel = () => {
 
   ]
   return (
-    <div className=''>
-        <Swiper
-            
-            modules={[Pagination, Autoplay]}
-            className="mySwiper"
-            autoplay={{ 
-                delay: 3000,
-                disableOnInteraction: false 
-            }}
+    <div className='w-full mt-[6rem]  h-5/6 border rounded-md '>
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        className="mySwiper relative"
+        autoplay={{ 
+          delay: 8000,
+          disableOnInteraction: false 
+        }}
         >
+          {/* <Image src={Images.next} alt={'next-icon'} className="sm:w-[10rem] w-[4rem] sm:h-[10rem] absolute bottom-[6rem] sm:bottom-[14rem] hidden sm:block z-20"/> */}
+
           {imagesInfo.map(info => (
               <SwiperSlide key={info.name} className="w-full">
                 <ImageContainer name={info.name} caption={info.caption} image={info.image}/>
               </SwiperSlide>
           ))}
-        </Swiper>
+          
+          {/* <div className="absolute z-20 bottom-1 bounce flex justify-center w-full ">
+            <Image src={Images.downBlue} alt="down-blue" className="bounce w-[4rem] h-[4rem] sm:w-[8rem] sm:h-[8rem]"/>
+          </div> */}
+      </Swiper>
     </div>
   )
 }

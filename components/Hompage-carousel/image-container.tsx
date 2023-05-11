@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
-import { Images } from "../../constants"
+import { Images } from "../../constants";
+import CaptionTrimmer from "../CaptionTrimmer/CaptionTrimmer";
 
 interface ImageInfoProps {
   name: string,
@@ -9,13 +10,17 @@ interface ImageInfoProps {
 
 const imageContainer = ({ name, caption, image }: ImageInfoProps) => {
   return (
-    <div>
-       <Image
-          src={image}
-          className="object-fill w-full h-[25rem] sm:h-screen"
-          alt={name}
-          key={name}
-         />
+    <div className="relative w-full">
+        <Image
+            src={image}
+            className="object-fill w-full h-[60vh] rounded-md z-0"
+            alt={name}
+            key={name}
+          />
+
+        {/* <div className="absolute bottom-[5rem] sm:bottom-[15rem] sm:ml-[7rem]  place-items-center sm:w-[40rem]">
+          <CaptionTrimmer text={caption} maxLength={137}/>
+        </div> */}
         
     </div>
   )
