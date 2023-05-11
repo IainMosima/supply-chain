@@ -7,7 +7,7 @@ import Countries from "./Countries";
 
 const Navbar = () => {
   return (
-    <nav className="w-full fixed sm:w-11/12 flex justify-between z-50 p-4 place-items-center bg-purple">
+    <nav className="w-full flex justify-between z-50 p-4 place-items-center bg-purple">
 
             <div className="flex justify-start sm:basis-2/6">
                 <Image

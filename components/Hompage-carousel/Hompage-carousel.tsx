@@ -37,7 +37,7 @@ const HompageCarousel = () => {
 
   ]
   return (
-    <div className='w-full mt-[6rem]  h-5/6 border rounded-md '>
+    <div className='w-full mt-2  h-5/6 border rounded-md '>
       <Swiper
         modules={[Pagination, Autoplay]}
         className="mySwiper relative"
