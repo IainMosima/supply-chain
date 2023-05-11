@@ -9,6 +9,7 @@ import burundi from "../public/icons/burundi.png";
 import next from "../public/icons/next.png";
 import downBlue from "../public/icons/down-blue.png";
 import close from "../public/icons/close.png";
+import aboutUs from "../public/icons/about-us.png";
 
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
@@ -36,5 +37,6 @@ export default {
     courosel5,
     next,
     downBlue,
-    close
+    close,
+    aboutUs
 }

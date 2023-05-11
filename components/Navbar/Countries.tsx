@@ -62,7 +62,7 @@ const Countries = () => {
 
           {countryToggle && (
           <div
-            className={`absolute z-1 translate-down bg-white text-black rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
+            className={`absolute z-30 translate-down bg-white text-black rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
               countryToggle ? 'translate-down' : ''
             }`}
           >

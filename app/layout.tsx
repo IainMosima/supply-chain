@@ -14,8 +14,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className='sm:w-11/12 mx-auto'>
-          <Navbar/>
+        <Navbar/>
+        <div className='sm:w-11/12 mx-auto overflow-x-hidden'>
           {children}
         </div>
       </body>
