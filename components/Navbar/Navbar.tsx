@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
-  const [menuToggle, setMenuToggle] = useState(false);
+  const [menuToggle, setMenuToggle] = useState(true);
 
 
   return (
@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
 
         <div className="sm:basis-2/5">
-          <Links />
+          <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
         <Image src={Images.menu} alt="menu-icon" className="sm:hidden" width={30} onClick={()=>setMenuToggle(true)}/>
@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="w-full h-full sm:hidden absolute">
         <div className={`w-[13rem] ml-auto  relative h-full`}>
             <div
-              className={`flex flex-col ease-out duration-300 translate-y-[-7rem] pt-[10rem] bg-purple w-full pl-[2rem] h-full text-white ${menuToggle ? 'translate-x-[13rem]' : 'translate-x-[26rem]'}`}
+              className={`flex flex-col ease-out duration-300 translate-y-[-7rem] pt-[10rem] bg-purple w-full pl-[2rem] h-full text-white ${!menuToggle ? 'translate-x-[13rem]' : 'translate-x-[26rem]'}`}
             >
               <Image src={Images.close} alt="close-icon" className="ml-[6rem] mb-[3rem]" onClick={()=>setMenuToggle(false)}/>
 

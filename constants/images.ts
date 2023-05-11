@@ -10,6 +10,9 @@ import next from "../public/icons/next.png";
 import downBlue from "../public/icons/down-blue.png";
 import close from "../public/icons/close.png";
 import aboutUs from "../public/icons/about-us.png";
+import vision from "../public/icons/vision.png";
+import coreValue from "../public/icons/core-value.png";
+import mission from "../public/icons/mission.png";
 
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
@@ -38,5 +41,8 @@ export default {
     next,
     downBlue,
     close,
-    aboutUs
+    mission,
+    aboutUs,
+    vision,
+    coreValue
 }

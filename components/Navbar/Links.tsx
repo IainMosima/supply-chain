@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import "./Navbar.scss";
@@ -6,13 +5,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Images } from "../../constants";
 
-const links = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [hubsToggle, setHubsToggle] = useState(false);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [menuToggle, setMenuToggle] = useState(false);
+interface LinksProps {
+  hubsToggle: boolean,
+  setHubsToggle: React.Dispatch<React.SetStateAction<boolean>>,
+}
 
-  console.log(menuToggle);
+const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
   return (
     <>
       <div className="hidden sm:flex sm:justify-evenly sm:gap-2 sm:place-items-center font-semibold text-center text-white">
