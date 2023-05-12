@@ -35,16 +35,16 @@ const OurInfo = () => {
 
       <div className="grid sm:grid-cols-4 grid-cols-1 mt-[4rem] sm:gap-2 gap-10">
         {infos.map(info => (
-          <div key={info.title} className="relative border-2 border-gray-700 rounded-3xl w-full h-[15rem] px-5 flex place-items-center">
+          <div key={info.title} className="relative border-2 border-gray-700 rounded-3xl w-full h-[17rem] p-5 flex flex-col">
 
-            <div className="sm:bottom-[13.5rem] bottom-[13.4rem] absolute w-auto bg-white sm:ml-[4rem] ml-[5rem]">
               <div className="flex place-items-center justify-center">
                 <Image src={info.icon} alt={info.title} />
                 <h2 className="text-purple uppercase font-bold text-lg text-center">{info.title}</h2>
               </div>
-            </div>
 
-            <p className="text-md text-center">{info.info}</p>
+            <div className="h-full flex place-items-center">
+              <p className="text-md text-center">{info.info}</p>
+            </div>
             
           </div>
         ))}
