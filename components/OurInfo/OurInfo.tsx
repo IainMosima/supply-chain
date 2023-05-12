@@ -17,7 +17,7 @@ const OurInfo = () => {
     },
     {
       icon: Images.vision,
-      title: "Vision",
+      title: "Our Vision",
       info: "To be the most reliable supply chain Solutions partner"
     },
     {
@@ -27,20 +27,20 @@ const OurInfo = () => {
     }
   ];
   return (
-    <div className="w-full mt-7 h-2/3">
+    <div className="w-full mt-[3rem] mb-[3rem]">
       <h2 className="text-center font-extrabold text-2xl text-purple">
         OUR INFO
       </h2>
       <div className="bg-purple w-10 h-1 mx-auto" />
 
-      <div className="grid sm:grid-cols-4 grid-cols-1 mt-7 sm:gap-2 gap-10">
+      <div className="grid sm:grid-cols-4 grid-cols-1 mt-[4rem] sm:gap-2 gap-10">
         {infos.map(info => (
           <div key={info.title} className="relative border-2 border-gray-700 rounded-3xl w-full h-[15rem] px-5 flex place-items-center">
 
-            <div className="sm:bottom-[13.5rem] bottom-[13.4rem] absolute w-[20rem]">
-              <div className="flex place-items-center justify-center bg-white w-[14rem] mx-auto">
-                <Image src={info.icon} alt="about-us-icon" />
-                <h2 className="text-purple uppercase font-bold text-lg">{info.title}</h2>
+            <div className="sm:bottom-[13.5rem] bottom-[13.4rem] absolute w-auto bg-white sm:ml-[4rem] ml-[5rem]">
+              <div className="flex place-items-center justify-center">
+                <Image src={info.icon} alt={info.title} />
+                <h2 className="text-purple uppercase font-bold text-lg text-center">{info.title}</h2>
               </div>
             </div>
 

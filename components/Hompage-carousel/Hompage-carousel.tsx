@@ -2,12 +2,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import ImageContainer from "./image-container";
 import Image from "next/image";
 
 import { Images } from "../../constants";
 import "./Hompage-carousel.scss";
+import "swiper/css/navigation";
 
 
 
@@ -39,7 +40,11 @@ const HompageCarousel = () => {
   return (
     <div className='w-full mt-[7rem]  h-5/6 border rounded-xl '>
       <Swiper
-        modules={[Pagination, Autoplay]}
+        navigation={true}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination, Autoplay, Navigation]}
         className="mySwiper relative"
         autoplay={{ 
           delay: 8000,
