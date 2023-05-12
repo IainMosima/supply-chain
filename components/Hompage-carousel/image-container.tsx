@@ -13,7 +13,7 @@ const imageContainer = ({ name, caption, image }: ImageInfoProps) => {
     <div className="relative w-full">
         <Image
             src={image}
-            className="object-fill w-full h-[60vh] rounded-xl z-0"
+            className="object-fill w-full h-[60vh] z-0"
             alt={name}
             key={name}
           />

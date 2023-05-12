@@ -38,7 +38,7 @@ const HompageCarousel = () => {
 
   ]
   return (
-    <div className='w-full mt-[7rem]  h-5/6 border rounded-xl '>
+    <div className='w-full mt-[7rem]  h-5/6 border'>
       <Swiper
         navigation={true}
         pagination={{
