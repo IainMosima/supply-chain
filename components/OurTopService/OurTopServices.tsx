@@ -4,8 +4,8 @@ import { Images } from '@/constants';
 
 const OurTopService = () => {
   return (
-    <div>
-      <div className='flex w-full bg-purple text-white place-items-center justify-between p-3'>
+    <div className='mb-5'>
+      <div className='flex w-full bg-purple text-white place-items-center justify-between p-4'>
           <h2 className='font-semibold text-xl'>Our Top Services</h2>
 
           <div className='flex place-items-center gap-2'>
