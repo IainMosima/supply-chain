@@ -26,7 +26,7 @@ const OurInfo = () => {
 
       <div className="grid sm:grid-cols-3 grid-cols-1 mt-[3rem] sm:gap-2 gap-10">
         {infos.map(info => (
-          <div key={info.title} className="relative border-2 border-gray-700 rounded-[40px] sm:w-full w-[20rem] mx-auto h-[17rem] p-5 flex flex-col">
+          <div key={info.title} className="relative border-2 border-gray-700 rounded-[40px] sm:w-[28rem] w-[20rem] mx-auto h-[17rem] p-5 flex flex-col custom-shadow">
 
               <div className="flex place-items-center justify-center">
                 <Image src={info.icon} alt={info.title} />

@@ -32,7 +32,7 @@ const HompageCarousel = () => {
     },
   ];
   return (
-    <div className="w-full h-5/6 mt-[9rem] md:flex-col-reverse flex flex-col-reverse sm:flex-row sm:place-items-center gap-6">
+    <div className="w-full h-5/6 sm:mt-[9rem] mt-[7rem] flex flex-col-reverse md:flex-col-reverse lg:flex-row sm:place-items-center gap-6">
       
       <div className="basis-1/2 place-self-center flex flex-col">
         <h3 className="text-3xl text-center font-bold text-purple">
@@ -40,7 +40,7 @@ const HompageCarousel = () => {
         </h3>
 
         <div className="flex place-items-center">
-          <Image src={Images.next} alt="next-icon" className="hidden sm:block"/>
+          <Image src={Images.next} alt="next-icon" className="hidden sm:block md:block"/>
           <p className="sm:text-left text-center">
           Supply Chain Solutions Hub provides custom solutions for all supply chain needs, with expert advisors for cost savings, efficiency, and foresight. Their one-stop-shop approach saves clients time, effort, and resources, ensuring tailor-made solutions that meet specific needs.
           </p>

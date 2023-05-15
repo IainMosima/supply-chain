@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import "./Navbar.scss";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Images } from "../../constants";
 
 interface LinksProps {
   hubsToggle: boolean,
@@ -66,7 +64,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
 
         <Link
           href="/contact-us"
-          className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150 "
+          className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150 w-[9rem]"
         >
           CONTACT US
         </Link>
