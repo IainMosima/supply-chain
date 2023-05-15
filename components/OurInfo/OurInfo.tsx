@@ -33,7 +33,7 @@ const OurInfo = () => {
       </h2>
       <div className="bg-purple w-10 h-1 mx-auto" />
 
-      <div className="grid sm:grid-cols-4 grid-cols-1 mt-[4rem] sm:gap-2 gap-10">
+      <div className="grid sm:grid-cols-4 grid-cols-1 mt-[3rem] sm:gap-2 gap-10">
         {infos.map(info => (
           <div key={info.title} className="relative border-2 border-gray-700 rounded-3xl w-full h-[17rem] p-5 flex flex-col">
 
