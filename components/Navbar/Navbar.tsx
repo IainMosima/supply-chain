@@ -14,20 +14,20 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full fixed flex justify-between z-50 p-4 place-items-center bg-purple">
+      <nav className="w-full fixed flex justify-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
         <div className="flex justify-start sm:basis-2/6">
           <Image
             src={Images.logo}
             width={40}
             height={40}
             alt="logo"
-            className="w-auto h-auto"
+            className="w-auto h-auto sm:ml-5"
           />
 
-          <h1 className="text-white font-extrabold text-sm">
+          <h1 className="text-black font-extrabold text-sm">
             SUPPLY CHAIN
             <br className="leading-normal" />
-            <span className="text-black">SOLUTION HUB</span>
+            <span className="text-purple">SOLUTION HUB</span>
             <br className="leading-normal" />
             LIMITED
           </h1>
@@ -41,7 +41,7 @@ const Navbar = () => {
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
-        <Image src={Images.menu} alt="menu-icon" className="sm:hidden" width={30} onClick={()=>setMenuToggle(true)}/>
+        <Image src={Images.menu} alt="menu-icon" className="sm:hidden" onClick={()=>setMenuToggle(true)}/>
 
       </nav>
 

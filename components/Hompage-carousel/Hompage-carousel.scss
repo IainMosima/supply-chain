@@ -5,7 +5,7 @@
     animation-iteration-count: infinite;
   }
   
-  @keyframes bounce {
+@keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
       transform: translateY(0);
     }
@@ -15,5 +15,9 @@
     60% {
       transform: translateY(-1px);
     }
-  }
-  
+}
+
+.swiper-slide-shadow{
+  display: none !important;
+}
+

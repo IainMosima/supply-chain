@@ -14,6 +14,8 @@ import vision from "../public/icons/vision.png";
 import coreValue from "../public/icons/core-value.png";
 import mission from "../public/icons/mission.png";
 import nextWhite from "../public/icons/next-white.png";
+import dropDown from "../public/icons/down-arrow.png";
+
 
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
@@ -23,7 +25,6 @@ import courosel5 from "../public/assets/carousel-5.png";
 
 
 
-import dropDown from "../public/icons/down-arrow.png";
 
 export default {
     logo,
