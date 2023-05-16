@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import TopServiceCard from './TopServiceCard';
+import { useState } from 'react';
 
 
 const OurTopService = () => {
@@ -44,6 +45,11 @@ const OurTopService = () => {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
       serviceImg: Images.serviceWoman
     },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceMan
+    },
   ]
   return (
     <div className='mb-5 flex flex-col gap-3'>
@@ -69,7 +75,7 @@ const OurTopService = () => {
         >
           {services.map((service, index) => 
             <SwiperSlide key={index}>
-              <TopServiceCard/>
+              <TopServiceCard serviceName={service.serviceName} description={service.description} serviceImg={service.serviceImg} />
             </SwiperSlide>
           )
 

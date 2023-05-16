@@ -1,10 +1,19 @@
 .mySwiper{
     div{
         div {
-            width: 20rem !important;
-            height: 12rem !important;
+            width: 22rem !important;
+            height: 15rem !important;
             margin-right: 2rem !important;
             border-radius: 7px;
+
+            img{
+                border-radius: inherit !important;
+            }
         }
     }
+}
+
+.moreinfo {
+    width: 10rem !important;
+    height: 5rem !important;
 }
