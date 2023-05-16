@@ -32,7 +32,7 @@ const Countries = () => {
 
   return (
     <div
-      className={`cursor-pointer px-1 py-1 bg-purple rounded-lg text-white ${
+      className={`cursor-pointer sm:px-[4px] px-3 py-1 bg-purple rounded-lg text-white ${
         countryToggle ? 'bg-white' : ''
       }`}
       onClick={() => setCountryToggle((prev) => !prev)}

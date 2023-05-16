@@ -21,6 +21,9 @@ import newPage from "../public/icons/new-tab.png";
 import facebook from "../public/icons/facebook.png";
 import twitter from "../public/icons/twitter.png";
 import linkedin from "../public/icons/linkedin.png";
+import serviceMan from "../public/icons/service-man.png";
+import serviceWoman from "../public/icons/service.png";
+
 
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
@@ -59,4 +62,6 @@ export default {
     facebook,
     twitter,
     linkedin,
+    serviceMan,
+    serviceWoman,
 }
