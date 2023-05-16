@@ -2,16 +2,49 @@
 
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import { Images } from '@/constants';
 
 import "./OurTopServices.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import TopServiceCard from './TopServiceCard';
 
 
 const OurTopService = () => {
+  const services = [
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceMan
+    },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceWoman
+    },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceMan
+    },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceWoman
+    },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceMan
+    },
+    {
+      serviceName: 'Supplier prequalification',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
+      serviceImg: Images.serviceWoman
+    },
+  ]
   return (
     <div className='mb-5 flex flex-col gap-3'>
       <div className='flex w-full bg-purple text-white place-items-center justify-between p-4'>
@@ -25,31 +58,22 @@ const OurTopService = () => {
 
       <div className='w-full flex justify-between'>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={4}
           spaceBetween={5}
-          modules={[Pagination]}
+          modules={[Autoplay, Pagination]}
           className="mySwiper"
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
         >
-          <SwiperSlide className=''>
-            <div className='bg-purple'></div>
-          </SwiperSlide>
+          {services.map((service, index) => 
+            <SwiperSlide key={index}>
+              <TopServiceCard/>
+            </SwiperSlide>
+          )
 
-          <SwiperSlide>
-            <div className='bg-purple'></div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className='bg-purple'></div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className='bg-purple'></div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className='bg-purple'></div>
-          </SwiperSlide>
-
+          }
         </Swiper>
       </div>
 

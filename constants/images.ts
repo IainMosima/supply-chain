@@ -21,8 +21,8 @@ import newPage from "../public/icons/new-tab.png";
 import facebook from "../public/icons/facebook.png";
 import twitter from "../public/icons/twitter.png";
 import linkedin from "../public/icons/linkedin.png";
-import serviceMan from "../public/icons/service-man.png";
-import serviceWoman from "../public/icons/service.png";
+import serviceMan from "../public/assets/serviceMan.jpg";
+import serviceWoman from "../public/assets/service.jpg";
 
 
 import courosel1 from "../public/assets/carousel-1.jpg";
