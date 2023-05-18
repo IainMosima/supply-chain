@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full fixed flex justify-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
-        <div className="flex justify-start sm:basis-2/6">
+        <div className="flex justify-start sm:basis-2/6 cursor-pointer">
           <Image
             src={Images.logo}
             width={40}

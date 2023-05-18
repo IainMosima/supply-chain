@@ -21,12 +21,12 @@ const OurTopService = () => {
       serviceImg: Images.serviceMan
     },
     {
-      serviceName: 'Supplier prequalification',
+      serviceName: 'Spend analysis and category management',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
       serviceImg: Images.serviceWoman
     },
     {
-      serviceName: 'Supplier prequalification',
+      serviceName: 'Procurement processes and policies review and re-engineering',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
       serviceImg: Images.serviceMan
     },
