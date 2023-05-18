@@ -1,5 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
+import { Images } from "../../constants"
 import { useState } from "react";
 import './OurTopServices.scss';
 
@@ -12,19 +13,21 @@ interface TopServiceCardProps {
 const TopServiceCard = ({serviceName, description, serviceImg}: TopServiceCardProps) => {
   const [infoToggle, setInfoToggle] = useState(false);
 
-
   return (
     <div className="w-full">
-        <Image src={serviceImg} alt={serviceName} className='object-fill opacity-90 relative'/>
+        <Image src={serviceImg} alt={serviceName} className='object-fill opacity-[.85] relative'/>
         
         
-        <div className="absolute top-[8rem] w-full flex flex-col place-items-center">
-          <h4>{serviceName}</h4>
-          <button className="py-2 font-sembold w-[10rem] bg-purple text-white rounded-full" onClick={()=>setInfoToggle(prev => !prev)}>More Info</button>
+        <div className={`absolute top-[8rem] w-full flex flex-col place-items-center ${infoToggle ?  'translate-y-[10rem]': ''}`}>
+          <h4 className="font-bold text-xl">{serviceName}</h4>
+          <button className={`py-2 mt-5 ease-out duration-200 font-sembold w-[10rem] bg-purple text-white rounded-full `} onClick={()=>setInfoToggle(prev => !prev)}>More Info</button>
         </div>
 
-        <div className="w-full bottom-[5rem] absolute">
-          <article className="bg-black w-[10rem] h-[4rem]"></article>
+        <div className={`w-[25rem] absolute top-5 ${infoToggle ? '' : 'translate-y-[14rem]'}`}>
+          <article className="w-[20rem] h-auto mx-auto rounded-2xl backdrop-blur-md bg-white/30 p-6  grid">
+            <Image src={Images.closeDescription} alt='close-icon' className="justify-self-end cursor-pointer" onClick={()=>setInfoToggle(false)}/>
+            <p className="text-sm text-center">{description}</p>
+          </article>
 
         </div>
     </div>
