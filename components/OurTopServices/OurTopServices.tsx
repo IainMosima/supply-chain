@@ -52,7 +52,7 @@ const OurTopService = () => {
     },
   ]
   return (
-    <div className='mb-5 flex flex-col gap-3'>
+    <div className='mb-[10rem] flex flex-col gap-3'>
       <div className='flex w-full bg-purple text-white place-items-center justify-between p-4'>
           <h2 className='font-semibold text-xl'>Our Top Services</h2>
 

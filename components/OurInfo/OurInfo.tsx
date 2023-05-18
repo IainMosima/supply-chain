@@ -22,7 +22,7 @@ const OurInfo = () => {
     }
   ];
   return (
-    <div className="w-full mt-[4rem] mb-[3rem]">
+    <div className="w-full mb-[7rem]">
 
       <div className="grid sm:grid-cols-3 grid-cols-1 mt-[3rem] sm:gap-2 gap-10">
         {infos.map(info => (
