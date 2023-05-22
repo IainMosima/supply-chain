@@ -32,7 +32,7 @@ const HompageCarousel = () => {
     },
   ];
   return (
-    <div className="w-full h-5/6 flex flex-col-reverse md:flex-col-reverse lg:flex-row sm:place-items-center gap-6">
+    <div className="w-full h-5/6 flex flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
       
       <div className="basis-1/2 place-self-center flex flex-col">
         <h3 className="text-3xl text-center font-bold text-purple">
@@ -61,7 +61,7 @@ const HompageCarousel = () => {
         >
           {imagesInfo.map((image, index) => 
             <SwiperSlide key={index}>
-              <div className="sm:w-[40rem] w-[20rem] h-[30rem] rounded-3xl">
+              <div className="sm:w-[40rem] w-[20rem] h-[20rem] rounded-3xl">
                 <Image src={image.image} alt={image.name} className="object-fill w-full h-full rounded-3xl"/>
               </div>
           </SwiperSlide>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
+import { Autoplay } from "swiper";
 import { Images } from '@/constants';
 
 import "./OurTopServices.scss";
@@ -50,25 +50,28 @@ const OurTopService = () => {
     },
   ]
   return (
-    <div className='sm:mt-[8rem] mt-[7rem] mb-[4rem] flex flex-col'>
+    <div className='sm:mt-[8rem] mt-[7rem] mb-[2rem] flex flex-col'>
       <h2 className='font-semibold text-xl text-center text-purple'>Our Top Services</h2>
-      <div className='w-[3rem] h-[.2rem] bg-purple mx-auto'/>
+      <div className='w-[2rem] h-[.2rem] bg-purple mx-auto'/>
       <br/>
       
 
       <div className='w-full flex h-[30rem] justify-between'>
           <Swiper
             slidesPerView={3}
-            spaceBetween={10}
+            spaceBetween={0}
             pagination={{
               clickable: true,
             }}
-            modules={[]}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             className="mySwiper"
           >
           {services.map((service, index) => 
             <SwiperSlide key={index} className='custom-cards'>
-              {/* <div className="sm:w-[40rem] w-[10rem] h-[30rem] bg-black"/> */}
               <TopServiceCard serviceName={service.serviceName} description={service.description} serviceImg={service.serviceImg} />
             </SwiperSlide>
           )
