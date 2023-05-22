@@ -23,21 +23,11 @@ const Footer = () => {
   ];
   return (
     <div className="w-full bg-purple h-96 pl-4 flex flex-col sm:flex-row justify-center sm:gap-[15rem] p-2 sm:place-items-center text-white">
-      <div className="flex mb-5 justify-start cursor-pointer">
-        <Image
-          src={Images.logo}
-          alt="logo"
-          className="w-auto h-auto"
+       <Image
+            src={Images.logo}
+            alt="logo"
+            className="sm:ml-5 cursor-pointer"
         />
-
-        <h1 className="text-white font-extrabold text-sm">
-          SUPPLY CHAIN
-          <br className="leading-normal" />
-          <span>SOLUTION HUB</span>
-          <br className="leading-normal" />
-          LIMITED
-        </h1>
-      </div>
 
       <div className="h-[10rem]">
         <h3 className="font-semibold">HELP DESK</h3>

@@ -9,8 +9,8 @@ import "./OurTopServices.scss";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+
 import TopServiceCard from './TopServiceCard';
-import { useState } from 'react';
 
 
 const OurTopService = () => {
@@ -52,21 +52,18 @@ const OurTopService = () => {
     },
   ]
   return (
-    <div className='mb-[10rem] flex flex-col gap-3'>
-      <div className='flex w-full bg-purple text-white place-items-center justify-between p-4'>
-          <h2 className='font-semibold text-xl'>Our Top Services</h2>
-
-          <div className='flex place-items-center gap-2'>
-            <h3 className='font-bold cursor-pointer'>See All</h3>
-            <Image src={Images.nextWhite} alt='next-icon' width={10}/>
-          </div>
-      </div>
+    <div className='sm:mt-[9rem] mt-[7rem] mb-[10rem] flex flex-col'>
+      <h2 className='font-semibold text-xl text-center text-purple'>Our Top Services</h2>
+      <div className='w-[3rem] h-[.2rem] bg-purple mx-auto'/>
+      <br/>
+      
 
       <div className='w-full flex justify-between'>
         <Swiper
-          slidesPerView={4}
-          spaceBetween={5}
           modules={[Autoplay, Pagination]}
+          pagination={{
+            dynamicBullets: true,
+          }}
           className="mySwiper"
           autoplay={{
             delay: 10000,
@@ -74,7 +71,7 @@ const OurTopService = () => {
           }}
         >
           {services.map((service, index) => 
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} >
               <TopServiceCard serviceName={service.serviceName} description={service.description} serviceImg={service.serviceImg} />
             </SwiperSlide>
           )

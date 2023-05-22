@@ -15,29 +15,19 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full fixed flex justify-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
-        <div className="flex justify-start sm:basis-2/6 cursor-pointer">
+        <div className="flex justify-start sm:basis-2/6 ">
           <Image
             src={Images.logo}
-            width={40}
-            height={40}
             alt="logo"
-            className="w-auto h-auto sm:ml-5"
+            className="sm:ml-5 cursor-pointer"
           />
-
-          <h1 className="text-black font-extrabold text-sm">
-            SUPPLY CHAIN
-            <br className="leading-normal" />
-            <span className="text-purple">SOLUTION HUB</span>
-            <br className="leading-normal" />
-            LIMITED
-          </h1>
         </div>
 
         <div>
           <Countries />
         </div>
 
-        <div className="sm:basis-2/5">
+        <div className="sm:basis-1/3">
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 

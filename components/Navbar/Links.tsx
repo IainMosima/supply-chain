@@ -11,26 +11,26 @@ interface LinksProps {
 const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
   return (
     <>
-      <div className="hidden sm:flex sm:justify-evenly sm:gap-2 sm:place-items-center font-semibold text-center text-black">
+      <div className="hidden sm:flex sm:justify-evenly sm:place-items-center font-semibold text-center text-black">
         <div>
           
         </div>
         <Link
           href="/"
-          className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150 "
+          className="hover:text-white hover:bg-purple px-1 py-2 rounded ease-in duration-150 "
         >
           HOME
         </Link>
 
         <Link
           href="/services"
-          className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150"
+          className="hover:text-white hover:bg-purple px-1 py-2 rounded ease-in duration-150"
         >
           SERVICES
         </Link>
 
         <div
-          className={`cursor-pointer relative px-2 py-2 rounded hover:text-white hover:bg-purple ease-in duration-150 w-20 ${
+          className={`cursor-pointer relative px-1 py-2 rounded hover:text-white hover:bg-purple ease-in duration-150 w-20 ${
             hubsToggle ? "text-white bg-purple" : ""
           }`}
           onClick={() => setHubsToggle((prev) => !prev)}
@@ -64,7 +64,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
 
         <Link
           href="/contact-us"
-          className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150 w-[9rem]"
+          className="hover:text-white hover:bg-purple px-1 py-2 rounded ease-in duration-150"
         >
           CONTACT US
         </Link>

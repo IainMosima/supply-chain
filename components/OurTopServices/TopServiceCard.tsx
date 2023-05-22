@@ -15,10 +15,10 @@ const TopServiceCard = ({serviceName, description, serviceImg}: TopServiceCardPr
 
   return (
     <div className="w-full">
-        <Image src={serviceImg} alt={serviceName} className='object-fill opacity-75 relative'/>
+        <Image src={serviceImg} alt={serviceName} className='object-fill w-full relative'/>
         
         
-        <div className={`absolute top-[5rem] w-full flex flex-col place-items-center ${infoToggle ?  'translate-y-[10rem]': ''}`}>
+        {/* <div className={`absolute top-[5rem] w-full flex flex-col place-items-center ${infoToggle ?  'translate-y-[10rem]': ''}`}>
           <h4 className="font-bold text-xl text-center">{serviceName}</h4>
           <button className={`py-2 mt-5 ease-out duration-200 font-sembold w-[10rem] bg-purple text-white rounded-full `} onClick={()=>setInfoToggle(prev => !prev)}>More Info</button>
         </div>
@@ -29,7 +29,7 @@ const TopServiceCard = ({serviceName, description, serviceImg}: TopServiceCardPr
             <p className="text-sm text-center">{description}</p>
           </article>
 
-        </div>
+        </div> */}
     </div>
   )
 }
