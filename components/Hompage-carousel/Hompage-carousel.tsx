@@ -32,7 +32,7 @@ const HompageCarousel = () => {
     },
   ];
   return (
-    <div className="w-full h-5/6 sm:mt-[9rem] mb-[7rem] mt-[7rem] flex flex-col-reverse md:flex-col-reverse lg:flex-row sm:place-items-center gap-6">
+    <div className="w-full h-5/6 flex flex-col-reverse md:flex-col-reverse lg:flex-row sm:place-items-center gap-6">
       
       <div className="basis-1/2 place-self-center flex flex-col">
         <h3 className="text-3xl text-center font-bold text-purple">

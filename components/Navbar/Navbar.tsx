@@ -19,6 +19,7 @@ const Navbar = () => {
           <Image
             src={Images.logo}
             alt="logo"
+            height={100}
             className="sm:ml-5 cursor-pointer"
           />
         </div>

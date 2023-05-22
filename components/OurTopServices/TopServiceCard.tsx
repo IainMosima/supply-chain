@@ -14,8 +14,8 @@ const TopServiceCard = ({serviceName, description, serviceImg}: TopServiceCardPr
   const [infoToggle, setInfoToggle] = useState(false);
 
   return (
-    <div className="w-full">
-        <Image src={serviceImg} alt={serviceName} className='object-fill w-full relative'/>
+    <div className="w-full h-full">
+        <Image src={serviceImg} alt={serviceName} className='w-full h-full object-cover relative'/>
         
         
         {/* <div className={`absolute top-[5rem] w-full flex flex-col place-items-center ${infoToggle ?  'translate-y-[10rem]': ''}`}>
