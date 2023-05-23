@@ -32,7 +32,7 @@ const Countries = () => {
 
   return (
     <div
-      className={`cursor-pointer sm:px-[4px] px-3 py-1 bg-purple rounded-lg text-white ${
+      className={`cursor-pointer sm:px-[4px] px-1 py-1 bg-purple rounded-lg text-white ${
         countryToggle ? 'bg-white' : ''
       }`}
       onClick={() => setCountryToggle((prev) => !prev)}
@@ -60,7 +60,7 @@ const Countries = () => {
 
           {countryToggle && (
           <div
-            className={`absolute z-30 translate-down bg-purple text-white rounded p-2 flex flex-col text-xs font-normal w-[5rem] sm:w-[10rem] ${
+            className={`absolute z-30 translate-down bg-purple text-white rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
               countryToggle ? 'translate-down' : ''
             }`}
           >

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import logo from "../public/icons/logo.png";
+import logo2 from "../public/icons/logo2.png";
 import menu from "../public/icons/menu.png";
 import kenya from "../public/icons/kenya.png";
 import tanzania from "../public/icons/tanzania.png";
@@ -36,6 +37,7 @@ import courosel5 from "../public/assets/carousel-5.png";
 
 export default {
     logo,
+    logo2,
     menu,
     kenya,
     tanzania,

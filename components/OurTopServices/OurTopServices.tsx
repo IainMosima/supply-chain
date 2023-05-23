@@ -65,7 +65,7 @@ const OurTopService = () => {
             }}
             modules={[Autoplay]}
             autoplay={{
-              delay: 2500,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             className="mySwiper"

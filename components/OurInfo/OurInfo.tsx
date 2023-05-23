@@ -24,16 +24,16 @@ const OurInfo = () => {
   return (
     <div className="w-full mb-[7rem]">
 
-      <div className="grid sm:grid-cols-3 grid-cols-1 sm:gap-2 gap-[5rem]">
+      <div className="flex sm:flex-row flex-col place-items-center justify-evenly">
         {infos.map(info => (
-          <div key={info.title} className="relative border-2 border-gray-700 rounded-[40px] sm:w-full w-[20rem] mx-auto h-[20rem] p-5 flex flex-col custom-shadow">
+          <div key={info.title} className="relative border-2 border-gray-700 w-[20rem] h-[20rem] p-5 ease-in-out duration-150 custom-shadow">
 
+
+            <div className="h-full flex place-items-center justify-center flex-col gap-5">
               <div className="flex place-items-center justify-center">
                 <Image src={info.icon} alt={info.title} />
                 <h2 className="text-purple uppercase font-bold text-lg text-center">{info.title}</h2>
               </div>
-
-            <div className="h-full flex place-items-center justify-center">
               <p className="text-md text-center">{info.info}</p>
             </div>
             

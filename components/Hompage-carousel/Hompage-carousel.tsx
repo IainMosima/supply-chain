@@ -11,6 +11,8 @@ import { EffectCards, Autoplay } from "swiper";
 import Image from "next/image";
 import { Images } from "../../constants";
 import "./Hompage-carousel.scss";
+import { motion } from 'framer-motion';
+
 
 const HompageCarousel = () => {
   const imagesInfo = [
@@ -34,7 +36,11 @@ const HompageCarousel = () => {
   return (
     <div className="w-full h-5/6 flex flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
       
-      <div className="basis-1/2 place-self-center flex flex-col">
+      <motion.div 
+        whileInView={{ y: [100, 0], opacity: [0,1 ] }}
+        transition={{ duration: 0.5 }}
+        className="basis-1/2 place-self-center flex flex-col"
+      >
         <h3 className="text-3xl text-center font-bold text-purple">
           Who Are We
         </h3>
@@ -46,7 +52,7 @@ const HompageCarousel = () => {
           </p>
         </div>
 
-      </div>
+      </motion.div>
 
       <div className="basis-1/2 w-full flex justify-center sm:ml-8">
         <Swiper
