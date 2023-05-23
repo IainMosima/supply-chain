@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full fixed flex sm:justify-between space-sm:justify-evenly z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
-        <div className="flex justify-start sm:basis-2/6 ">
+      <nav className="w-full fixed flex lg:justify-between place-content-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
+        <div className="flex justify-start lg:basis-2/6 ">
           <Image
             src={Images.logo}
             alt="logo"
@@ -28,11 +28,11 @@ const Navbar = () => {
         <Countries />
         
 
-        <div className="sm:basis-1/3">
+        <div className="lg:basis-1/3">
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
-        <Image src={Images.menu} alt="menu-icon" className="sm:hidden ml-4" onClick={()=>setMenuToggle(true)}/>
+        <Image src={Images.menu} alt="menu-icon" className="lg:hidden ml-2" onClick={()=>setMenuToggle(true)}/>
 
       </nav>
 
