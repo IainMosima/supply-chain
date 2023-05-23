@@ -17,7 +17,9 @@ import mission from "../public/icons/mission.png";
 import nextWhite from "../public/icons/next-white.png";
 import dropDown from "../public/icons/down-arrow.png";
 import email from "../public/icons/email.png";
+import mail from "../public/icons/mail.png";
 import phone from "../public/icons/phone.png";
+import phone2 from "../public/icons/phone2.png";
 import newPage from "../public/icons/new-tab.png";
 import facebook from "../public/icons/facebook.png";
 import twitter from "../public/icons/twitter.png";
@@ -59,7 +61,9 @@ export default {
     coreValue,
     nextWhite,
     email,
+    mail,
     phone,
+    phone2,
     newPage,
     facebook,
     twitter,

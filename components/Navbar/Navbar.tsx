@@ -24,9 +24,9 @@ const Navbar = () => {
           />
         </div>
 
-        <div>
-          <Countries />
-        </div>
+        
+        <Countries />
+        
 
         <div className="sm:basis-1/3">
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
