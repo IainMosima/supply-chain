@@ -38,7 +38,7 @@ const Navbar = () => {
 
       {/* mobile menu */}
       <div className="fixed z-[50] h-[120vh]">
-        <div className="w-full h-full sm:hidden absolute">
+        <div className="w-full h-full lg:hidden absolute">
         <div className={`w-[15rem] ml-auto  relative h-full`}>
             <div
               className={`flex flex-col ease-out duration-300 translate-y-[-7rem] pt-[10rem] bg-purple w-full pl-[2rem] h-full text-white ${menuToggle ? 'translate-x-[11rem]' : 'translate-x-[26rem]'}`}
