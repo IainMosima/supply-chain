@@ -7,12 +7,10 @@ import "swiper/css/effect-cards";
 
 import { EffectCards, Autoplay } from "swiper";
 
-
 import Image from "next/image";
 import { Images } from "../../constants";
 import "./Hompage-carousel.scss";
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 const HompageCarousel = () => {
   const imagesInfo = [
@@ -35,9 +33,8 @@ const HompageCarousel = () => {
   ];
   return (
     <div className="w-full h-5/6 flex flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
-      
-      <motion.div 
-        whileInView={{ opacity: [0,1 ] }}
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
         className="basis-1/2 place-self-center flex flex-col"
       >
@@ -46,12 +43,22 @@ const HompageCarousel = () => {
         </h3>
 
         <div className="flex place-items-center">
-          <Image src={Images.next} alt="next-icon" className="hidden sm:block md:block"/>
+          <Image
+            src={Images.next}
+            alt="next-icon"
+            className="hidden sm:block md:block"
+          />
           <p className="sm:text-left text-center">
-          Supply Chain Solutions Hub provides custom solutions for all supply chain needs, with expert advisors for cost savings, efficiency, and foresight. Their one-stop-shop approach saves clients time, effort, and resources, ensuring tailor-made solutions that meet specific needs.
+            Supply Chain Solutions Hub Limited is start up advisory and
+            consulting firm that offers a one stop shop for all your supply
+            chain needs. Our team of experts has a wealth of practical
+            experience acquired over the years of practice which enables us to
+            study a client’s operations to identify gaps and propose customised
+            solutions in the areas of strategy, business processes, digitization
+            and skills. As a partner with us, you are assured of enormous cost
+            savings, efficiency and foresight of what the future holds.
           </p>
         </div>
-
       </motion.div>
 
       <div className="basis-1/2 w-full flex justify-center sm:ml-8">
@@ -65,19 +72,19 @@ const HompageCarousel = () => {
             disableOnInteraction: false,
           }}
         >
-          {imagesInfo.map((image, index) => 
+          {imagesInfo.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="sm:w-[40rem] w-[20rem] h-[20rem] rounded-3xl">
-                <Image src={image.image} alt={image.name} className="object-fill w-full h-full rounded-3xl"/>
+                <Image
+                  src={image.image}
+                  alt={image.name}
+                  className="object-fill w-full h-full rounded-3xl"
+                />
               </div>
-          </SwiperSlide>
-          )
-          }
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
-
-
-
     </div>
   );
 };

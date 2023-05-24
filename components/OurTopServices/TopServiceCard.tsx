@@ -28,7 +28,7 @@ const TopServiceCard = ({
       <div className="absolute w-full bottom-[-1px] h-full dark-gradient scale-105 ease-in-out duration-300'" />
 
       <div
-        className={`absolute sm:ml-6 md:ml-0 top-[-5px] mb-5 h-[12rem] sm:w-[15rem] w-[5rem] flex flex-col justify-end`}
+        className={`absolute ml-2 top-[-5px] mb-5 h-[12rem] sm:w-[15rem] w-[5rem] flex flex-col justify-end`}
       >
         <h4 className="font-extrabold sm:text-xl text-md text-left text-white">
           {serviceName}

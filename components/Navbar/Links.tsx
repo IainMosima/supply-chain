@@ -17,7 +17,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
         </div>
         <Link
           href="/"
-          className="hover:text-white hover:bg-purple px-1 py-2 rounded ease-in duration-150 "
+          className="hover:text-white hover:bg-purple px-1 py-2 rounded ease-in duration-150"
         >
           HOME
         </Link>
@@ -30,7 +30,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
         </Link>
 
         <div
-          className={`cursor-pointer relative px-1 py-2 rounded hover:text-white hover:bg-purple ease-in duration-150 w-20 ${
+          className={`cursor-pointer relative px-1 py-2 rounded hover:text-white hover:bg-purple ease-in duration-150 ${
             hubsToggle ? "text-white bg-purple" : ""
           }`}
           onClick={() => setHubsToggle((prev) => !prev)}
@@ -64,7 +64,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
 
         <Link
           href="/contact-us"
-          className="hover:text-white w-[8rem] hover:bg-purple px-1 py-2 rounded ease-in duration-150"
+          className="hover:text-white w-[7.7rem] hover:bg-purple px-1 py-2 rounded ease-in duration-150"
         >
           CONTACT US
         </Link>
