@@ -22,7 +22,7 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="w-full bg-purple h-[30rem] gap-8 sm:h-[17rem] pl-4 flex flex-col sm:flex-row justify-evenly sm:gap-[6rem] p-2 sm:place-items-center text-white">
+    <div className="w-full bg-purple h-[30rem] gap-8 sm:h-[17rem] pl-4 flex flex-col sm:flex-row justify-center sm:gap-[6rem] p-2 sm:place-items-center text-white">
        <Image
             src={Images.logo2}
             alt="logo"

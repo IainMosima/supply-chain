@@ -1,16 +1,8 @@
-"use client";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
-import { Images } from '@/constants';
-
-import "./OurTopServices.scss";
-import "swiper/css";
-
-import TopServiceCard from './TopServiceCard';
+import Image from 'next/image';
+import { Images } from '../../constants';
 
 
-const OurTopService = () => {
+const Services = () => {
   const services = [
     {
       serviceName: 'Supplier prequalification',
@@ -50,39 +42,21 @@ const OurTopService = () => {
   ]
   return (
     <div className='sm:mt-[8rem] mt-[7rem] mb-[2rem] flex flex-col'>
-      <marquee className='text-purple italic text-md font-extrabold'>Your Trusted Supply Chain Solution Partner</marquee>
-      <h2 className='font-semibold text-xl text-center text-purple'>Our Top Services</h2>
-      <div className='w-[2rem] h-[.2rem] bg-purple mx-auto'/>
-      <br/>
-      
+         <h2 className='font-semibold text-xl text-center text-purple'>Our Services</h2>
+        <div className='w-[1.5rem] h-[.2rem] bg-purple mx-auto'/>
 
-      <div className='w-full flex h-[30rem] justify-between'>
-          <Swiper
-            slidesPerView={3}
-            spaceBetween={0}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            className="mySwiper"
-          >
+        <div className='grid grid-cols-3 sm:gap-5 gap-1'>
           {services.map((service, index) => 
-            <SwiperSlide key={index} className='custom-cards'>
-              <TopServiceCard serviceName={service.serviceName} description={service.description} serviceImg={service.serviceImg} />
-            </SwiperSlide>
+            <div key={index} className='border-2 h-[15rem] rounded-[20px] border-gray-400 p-1 sm:p-5 flex flex-col place-items-start'>
+              <h3 className='text-[.7rem] sm:text-[1.5rem] text-purple font-bold basis-7'>{service.serviceName}</h3>
+              <Image src={service.serviceImg} width={800} height={100} alt={service.serviceName}/>
+            </div>
           )
-
+            
           }
-        </Swiper>
-      </div>
-
-
+        </div>
     </div>
   )
 }
 
-export default OurTopService
+export default Services

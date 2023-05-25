@@ -4,3 +4,4 @@ export { default as OurInfo } from './OurInfo/OurInfo';
 export { default as OurTopService } from './OurTopServices/OurTopServices';
 export { default as Footer } from './Footer/Footer';
 export { default as contactUs } from './ContactUs/ContactUs';
+export { default as OurServices } from './Services/Services';

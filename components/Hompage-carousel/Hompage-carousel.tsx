@@ -32,7 +32,7 @@ const HompageCarousel = () => {
     },
   ];
   return (
-    <div className="w-full h-5/6 flex flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
+    <div className="w-full h-5/6 flex flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
