@@ -5,7 +5,6 @@ import Image from "next/image";
 
 
 const NoResults = (query: any) => {
-    console.log(query);
     return ( 
         <div className="app__no_results">
             <Image src={Images.binoculars} alt="binoculars"/>
