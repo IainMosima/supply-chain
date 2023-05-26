@@ -26,6 +26,7 @@ import twitter from "../public/icons/twitter.png";
 import linkedin from "../public/icons/linkedin.png";
 import closeDescription from "../public/icons/close-description.png"
 import searchIcon from "../public/icons/search.png";
+import binoculars from "../public/icons/binoculars.png";
 
 import serviceMan from "../public/assets/serviceMan.jpg";
 import serviceWoman from "../public/assets/service.jpg";
@@ -57,6 +58,7 @@ export default {
     downBlue,
     close,
     mission,
+    binoculars,
     aboutUs,
     vision,
     coreValue,

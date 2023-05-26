@@ -1,4 +1,4 @@
-function searchNames(names: string[], searchTerm: string): number[] {
+export default function searchNames(names: any[], searchTerm: string): number[] {
   const matchedIndices: number[] = [];
 
   for (let i = 0; i < names.length; i++) {
