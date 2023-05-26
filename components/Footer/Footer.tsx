@@ -22,11 +22,11 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="w-full bg-purple h-[30rem] gap-8 sm:h-[17rem] pl-4 flex flex-col sm:flex-row justify-center sm:gap-[6rem] p-2 sm:place-items-center text-white">
+    <div className="w-full bg-purple h-[30rem] md:h-[40rem] gap-8 sm:h-[17rem] pl-4 flex flex-col sm:flex-row md:flex-col md:place-items-start sm:gap-[6rem] p-2 sm:place-items-center text-white">
        <Image
             src={Images.logo2}
             alt="logo"
-            className="sm:ml-5 cursor-pointer"
+            className="cursor-pointer"
         />
 
       <div className="h-[10rem]">

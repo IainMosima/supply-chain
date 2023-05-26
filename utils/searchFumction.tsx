@@ -1,11 +1,14 @@
-function searchNames(names: string[], searchTerm: string): string[] {
-  const filteredNames: string[] = [];
+function searchNames(names: string[], searchTerm: string): number[] {
+  const matchedIndices: number[] = [];
 
-  for (const name of names) {
-    if (name.toLowerCase().includes(searchTerm.toLowerCase())) {
-      filteredNames.push(name);
+  for (let i = 0; i < names.length; i++) {
+    const lowercaseName = names[i].toLowerCase();
+    const lowercaseSearchTerm = searchTerm.toLowerCase();
+
+    if (lowercaseName.includes(lowercaseSearchTerm)) {
+      matchedIndices.push(i);
     }
   }
 
-  return filteredNames;
+  return matchedIndices;
 }
