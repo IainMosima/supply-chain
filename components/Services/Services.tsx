@@ -1,9 +1,12 @@
+"use client";
+
 import Image from 'next/image';
 import { Images } from '../../constants';
-
+import SearchBar from './SearchBar';
+import { useState } from 'react';
 
 const Services = () => {
-  const services = [
+  const list = [
     {
       serviceName: 'Supplier prequalification',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu. Nulla facilisi morbi tempus iaculis urna id.',
@@ -40,10 +43,15 @@ const Services = () => {
       serviceImg: Images.serviceMan
     },
   ]
+
+  const [services, setServices] = useState(list);
   return (
     <div className='sm:mt-[8rem] mt-[7rem] mb-[2rem] flex flex-col'>
         <h2 className='font-semibold text-xl text-center text-purple'>All Our Services</h2>
         <div className='w-[1.5rem] h-[.2rem] bg-purple mx-auto'/>
+        <div className='justify-self-center'>
+          <SearchBar services={services} setServices={setServices}/>
+        </div>
 
         <div className='grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 sm:gap-5 md:gap-1 gap-1 mt-[2rem]'>
           {services.map((service, index) => 

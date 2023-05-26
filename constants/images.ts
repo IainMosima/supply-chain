@@ -25,9 +25,10 @@ import facebook from "../public/icons/facebook.png";
 import twitter from "../public/icons/twitter.png";
 import linkedin from "../public/icons/linkedin.png";
 import closeDescription from "../public/icons/close-description.png"
+import searchIcon from "../public/icons/search.png";
+
 import serviceMan from "../public/assets/serviceMan.jpg";
 import serviceWoman from "../public/assets/service.jpg";
-
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
 import courosel3 from "../public/assets/carousel-3.jpg";
@@ -62,6 +63,7 @@ export default {
     nextWhite,
     email,
     mail,
+    searchIcon,
     phone,
     phone2,
     newPage,
