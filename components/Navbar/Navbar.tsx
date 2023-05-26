@@ -36,12 +36,12 @@ const Navbar = () => {
 
       </nav>
 
-      mobile menu
+      {/* mobile menu */}
       <div className="fixed z-[50] h-[120vh]">
         <div className="w-full h-full lg:hidden absolute">
         <div className={`w-[15rem] ml-auto  relative h-full`}>
             <div
-              className={`flex flex-col ease-out duration-300 translate-y-[-7rem] pt-[10rem] bg-purple w-full pl-[2rem] h-full text-white ${menuToggle ? 'translate-x-[11rem]' : 'translate-x-[26rem]'}`}
+              className={`flex flex-col ease-out duration-300 translate-y-[-7rem] pt-[10rem] bg-purple w-full pl-[2rem] h-full text-white ${menuToggle ? 'translate-x-[11rem] md:translate-x-[36rem]' : 'translate-x-[26rem] md:translate-x-[52rem]'}`}
             >
               <Image src={Images.close} alt="close-icon" className="ml-[7.5rem] mb-[3rem]" onClick={()=>setMenuToggle(false)}/>
 

@@ -45,7 +45,7 @@ const Services = () => {
         <h2 className='font-semibold text-xl text-center text-purple'>All Our Services</h2>
         <div className='w-[1.5rem] h-[.2rem] bg-purple mx-auto'/>
 
-        <div className='grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 sm:gap-5 gap-1 mt-[2rem]'>
+        <div className='grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 sm:gap-5 md:gap-1 gap-1 mt-[2rem]'>
           {services.map((service, index) => 
             <div key={index} className='border-2 h-[30rem] rounded-[10px] w-full border-gray-400 p-1 sm:p-5 flex flex-col sm:gap-2 place-items-start'>
               <div className='flex place-items-center basis-[6rem]'>
