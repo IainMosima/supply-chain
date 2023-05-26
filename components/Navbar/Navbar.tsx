@@ -36,7 +36,7 @@ const Navbar = () => {
 
       </nav>
 
-      {/* mobile menu */}
+      mobile menu
       <div className="fixed z-[50] h-[120vh]">
         <div className="w-full h-full lg:hidden absolute">
         <div className={`w-[15rem] ml-auto  relative h-full`}>

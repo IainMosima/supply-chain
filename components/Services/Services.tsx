@@ -42,14 +42,21 @@ const Services = () => {
   ]
   return (
     <div className='sm:mt-[8rem] mt-[7rem] mb-[2rem] flex flex-col'>
-         <h2 className='font-semibold text-xl text-center text-purple'>Our Services</h2>
+        <h2 className='font-semibold text-xl text-center text-purple'>All Our Services</h2>
         <div className='w-[1.5rem] h-[.2rem] bg-purple mx-auto'/>
 
-        <div className='grid grid-cols-3 sm:gap-5 gap-1'>
+        <div className='grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 sm:gap-5 gap-1 mt-[2rem]'>
           {services.map((service, index) => 
-            <div key={index} className='border-2 h-[15rem] rounded-[20px] border-gray-400 p-1 sm:p-5 flex flex-col place-items-start'>
-              <h3 className='text-[.7rem] sm:text-[1.5rem] text-purple font-bold basis-7'>{service.serviceName}</h3>
-              <Image src={service.serviceImg} width={800} height={100} alt={service.serviceName}/>
+            <div key={index} className='border-2 h-[30rem] rounded-[10px] w-full border-gray-400 p-1 sm:p-5 flex flex-col sm:gap-2 place-items-start'>
+              <div className='flex place-items-center basis-[6rem]'>
+                <h3 className='text-[.7rem] sm:text-[1.2rem] text-purple font-bold'>{service.serviceName}</h3>
+              </div>
+              <div className='w-full sm:h-[17rem] h-[16.5rem]'>
+                <Image src={service.serviceImg} className='w-full h-full rounded-[10px] object-cover' alt={service.serviceName}/>
+              </div>
+              <div>
+                <p className='text-sm'>{service.description}</p>
+              </div>
             </div>
           )
             
