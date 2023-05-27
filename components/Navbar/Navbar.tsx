@@ -32,7 +32,7 @@ const Navbar = () => {
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
-        <div className="bg-purple w-[3.5rem] h-[3rem] p-2 lg:hidden ml-2 rounded-[15px] flex justify-center">
+        <div className="bg-purple w-[3rem] h-[2.6rem] p-2 lg:hidden ml-2 rounded-[15px] flex justify-center">
           <Image src={Images.menu} width={40} alt="menu-icon" className="" onClick={()=>setMenuToggle(true)}/>
         </div>
 

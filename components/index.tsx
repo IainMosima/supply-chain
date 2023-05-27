@@ -6,3 +6,4 @@ export { default as Footer } from './Footer/Footer';
 export { default as contactUs } from './ContactUs/ContactUs';
 export { default as OurServices } from './Services/Services';
 export { default as NoResults} from './NoResults/NoResults';
+export { default as UnderConstruction } from './UnderConstruction/UnderConstruction';

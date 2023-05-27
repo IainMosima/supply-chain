@@ -3,7 +3,7 @@ import { Images } from '../../constants';
 import { Services } from '@/models/Services';
 import searchNames from '../../utils/searchFunction';
 import IndexItemFetcher from '../../utils/IndexItemFetcher';
-import React, { useRef } from "react";
+import React from "react";
 
 interface searchBarProps {
   services: Services[],
@@ -33,4 +33,4 @@ const SearchBar = ({services, setResults, setSearchValue}: searchBarProps) => {
   )
 }
 
-export default SearchBar
+export default SearchBar;
