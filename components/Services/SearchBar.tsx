@@ -3,7 +3,7 @@ import { Images } from '../../constants';
 import { Services } from '@/models/Services';
 import searchNames from '../../utils/searchFunction';
 import IndexItemFetcher from '../../utils/IndexItemFetcher';
-import React from "react";
+import React, { useRef } from "react";
 
 interface searchBarProps {
   services: Services[],
@@ -25,7 +25,7 @@ const SearchBar = ({services, setResults, setSearchValue}: searchBarProps) => {
 
   return (
     <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
-     <input type='text' className='border-2 h-[2.3rem] p-5 rounded-full outline-purple' placeholder='Search for a service' onChange={searchHandler}/> 
+     <input type='text' className='border-2 h-[2.3rem] p-5 w-[17rem] rounded-full outline-purple' placeholder='Search for a service' onChange={searchHandler}/> 
      <div className='bg-purple rounded-full p-2'>
         <Image width={33} src={Images.searchIcon} alt='search icon'/>
      </div>

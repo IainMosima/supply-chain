@@ -7,7 +7,7 @@ import Image from "next/image";
 const NoResults = (query: any) => {
     return ( 
         <div className="app__no_results">
-            <Image src={Images.binoculars} alt="binoculars"/>
+            <Image src={Images.binoculars} alt="binoculars" width={200}/>
 
             <div>
                 <h2>No Results Found for <span>{`"${query.query}"`}</span></h2>
@@ -19,9 +19,7 @@ const NoResults = (query: any) => {
                     </li>
                     <li>Try different keywords.</li>
                 </ul>
-                <Link href='/services'>
-                    <button>Go To Homepage</button>
-                </Link>
+                <button>Try Again</button>
             </div>
         </div>
      );
