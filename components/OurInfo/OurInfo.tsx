@@ -26,7 +26,7 @@ const OurInfo = () => {
 
       <div className="flex sm:flex-row flex-col place-items-center place-content-evenly gap-5">
         {infos.map(info => (
-          <div key={info.title} className="border-2 border-gray-700 rounded-[30px] w-[25rem] h-[20rem] p-5 ease-in-out duration-150 custom-shadow">
+          <div key={info.title} className="border-2 border-gray-700 rounded-[30px] sm:w-[25rem] w-[20rem] h-[20rem] p-5 ease-in-out duration-150 custom-shadow">
 
             <div className="h-full flex place-items-center justify-center flex-col gap-5">
               <div className="flex place-items-center justify-center">
