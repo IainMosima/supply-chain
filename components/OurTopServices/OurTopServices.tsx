@@ -49,8 +49,7 @@ const OurTopService = () => {
     },
   ]
   return (
-    <div className='sm:mt-[8rem] mt-[7rem] mb-[2rem] flex flex-col'>
-      <marquee className='text-purple italic text-md font-extrabold'>Your Trusted Supply Chain Solution Partner</marquee>
+    <div className='lg:mt-[9rem] md:mt-[9rem] mt-[7.4rem] mb-[2rem] flex flex-col'>
       <h2 className='font-semibold text-xl text-center text-purple'>Our Top Services</h2>
       <div className='w-[2rem] h-[.2rem] bg-purple mx-auto'/>
       <br/>

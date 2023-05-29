@@ -4,7 +4,7 @@ import React from 'react'
 const Form = () => {
   return (
     <form className='border-2 p-5 rounded-lg border-gray-200'>
-      <label>Full Names</label>
+      <label>Full Name</label>
       <br/>
       <input type='text' placeholder='Enter your Full Name' className='text-[1rem] p-2 border-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/>
       <br/>
@@ -14,7 +14,7 @@ const Form = () => {
       <input type='text' placeholder='Enter your Email' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/>
       <br/>
       <br/>
-      <label>Organisation</label>
+      <label>Organisation <span className='text-xs italic'>(Optional)</span></label>
       <br/>
       <input type='text' placeholder='Enter your Organisation' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/> 
       <br/>
@@ -26,7 +26,8 @@ const Form = () => {
       <br/>
       <label>Message</label>
       <br/>
-      <input type='text' placeholder='Enter your Message...' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/>
+      <textarea placeholder='Enter your Message....' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem] h-[9rem]'></textarea>
+      
 
       <br/>
       <br/>

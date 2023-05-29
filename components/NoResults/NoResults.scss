@@ -1,10 +1,11 @@
 .app__no_results {
-    margin: 4rem auto;
+    margin: 4rem auto 7rem;
     display: flex;
     justify-content: center;
     place-items: center;
     gap: 35px;
     width: 80%;
+    
 
     h2{
         font-size: 1.3rem;
@@ -33,7 +34,7 @@
         border-radius: 7px;
         text-transform: uppercase;
         font-weight: 700;
-        padding: 4px;
+        padding: 6px;
     }
 
     @media screen and (max-width: 768px) {

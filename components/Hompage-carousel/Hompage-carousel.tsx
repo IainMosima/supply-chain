@@ -48,7 +48,7 @@ const HompageCarousel = () => {
             alt="next-icon"
             className="hidden sm:block md:block"
           />
-          <p className="sm:text-left text-center">
+          <p className="sm:text-left text-center">{`
             Supply Chain Solutions Hub Limited is start up advisory and
             consulting firm that offers a one stop shop for all your supply
             chain needs. Our team of experts has a wealth of practical
@@ -57,7 +57,7 @@ const HompageCarousel = () => {
             solutions in the areas of strategy, business processes, digitization
             and skills. As a partner with us, you are assured of enormous cost
             savings, efficiency and foresight of what the future holds.
-          </p>
+          `}</p>
         </div>
       </motion.div>
 
