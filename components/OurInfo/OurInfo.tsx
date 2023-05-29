@@ -8,7 +8,7 @@ const OurInfo = () => {
     {
       icon: Images.mission,
       title: "Our Mission",
-      info: "To work hand in hand with our clients to understand their supply chain needs for the best in class tailor made solutions."
+      info: "To work hand in hand with our clients to understand their supply chain needs for the best-in-class tailor-made solutions."
     },
     {
       icon: Images.vision,
@@ -18,7 +18,7 @@ const OurInfo = () => {
     {
       icon: Images.coreValue,
       title: "Core Values",
-      info: "Customer focus., Present and futurist mind-set., Excellent service., Together we succeed."
+      info: "Customer focus., Present and futurist mindset., Excellent service., Together we succeed."
     }
   ];
   return (

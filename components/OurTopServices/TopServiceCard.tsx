@@ -1,4 +1,3 @@
-"use client";
 import Image, { StaticImageData } from "next/image";
 import { Images } from "../../constants";
 import { useState } from "react";
@@ -15,7 +14,6 @@ const TopServiceCard = ({
   description,
   serviceImg,
 }: TopServiceCardProps) => {
-  const [infoToggle, setInfoToggle] = useState(false);
 
   return (
     <div className="group w-full h-full cursor-pointer">
@@ -34,8 +32,8 @@ const TopServiceCard = ({
           {serviceName}
         </h4>
 
-        <div className={`w-[30rem] absolute lg:translate-y-[28rem] translate-y-[18rem] md:translate-y-[18rem] sm:group-hover:translate-y-[15rem] ease-in duration-500`}>
-          <article className="lg:w-[20rem] md:w-[13.5rem] w-[8rem]  h-auto mr-auto rounded-2xl backdrop-blur-md bg-white/30 p-6">
+        <div className={`w-[30rem] h-[15rem] absolute lg:translate-y-[32rem] translate-y-[17rem] md:translate-y-[18rem] sm:group-hover:translate-y-[20rem] ease-in duration-500`}>
+          <article className="lg:w-[20rem] md:w-[13.5rem] w-[8rem] h-full mr-auto rounded-2xl backdrop-blur-md bg-white/30 p-6">
             <p className="sm:text-sm text-[9px] text-left">{description}</p>
           </article>
 
