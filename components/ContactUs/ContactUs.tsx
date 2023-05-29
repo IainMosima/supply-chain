@@ -18,12 +18,12 @@ const ContactUs = () => {
 
           <div className='flex flex-col gap-2'>
             <div className='flex place-items-center gap-1'>
-              <Image src={Images.mail} alt='mailbox' />
+              <Image src={Images.mail} height={30} alt='mailbox' />
               <p>supplychainsolutionshub@gmail.com</p>
             </div>
 
             <div className='flex place-items-center gap-1'>
-              <Image src={Images.phone2} alt='mailbox' />
+              <Image src={Images.phone2} height={30} alt='mailbox' />
               <p>(+254)716 137 693</p>
             </div>
           </div>

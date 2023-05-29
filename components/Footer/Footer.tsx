@@ -48,7 +48,7 @@ const Footer = () => {
       </div>
 
 
-      <div className="flex flex-col place-items-start gap-2">
+      <div className="flex flex-col place-items-start justify-start gap-2">
         <div className="flex gap-2 sm:flex-col place-items-center">
           <h3 className="font-semibold text-sm text-left">OUR SOCIALS:</h3>
           <div className="flex place-items-center gap-3">

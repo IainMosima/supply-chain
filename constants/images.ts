@@ -24,7 +24,6 @@ import newPage from "../public/icons/new-tab.png";
 import facebook from "../public/icons/facebook.png";
 import twitter from "../public/icons/twitter.png";
 import linkedin from "../public/icons/linkedin.png";
-import closeDescription from "../public/icons/close-description.png"
 import searchIcon from "../public/icons/search.png";
 import binoculars from "../public/icons/binoculars.png";
 import underConstruction from "../public/icons/under-construction.png";
@@ -76,5 +75,4 @@ export default {
     linkedin,
     serviceMan,
     serviceWoman,
-    closeDescription,
 }
