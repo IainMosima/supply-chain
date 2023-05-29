@@ -44,7 +44,7 @@ const OurTopService = () => {
     },
   ]
   return (
-    <div className='lg:mt-[9rem] md:mt-[9rem] mt-[7.4rem] mb-[2rem] flex flex-col'>
+    <div className='lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col'>
       <h2 className='font-semibold text-xl text-center text-purple'>Our Top Services</h2>
       <div className='w-[2rem] h-[.2rem] bg-purple mx-auto'/>
       <br/>

@@ -38,7 +38,7 @@ const Navbar = () => {
 
       </nav>
 
-      <marquee className='text-purple absolute lg:top-[7.9rem] md:top-[8rem] top-[6rem] italic text-md font-extrabold'>Your Trusted Supply Chain Solutions Partner</marquee>
+      <marquee className='text-purple absolute lg:top-[7.9rem] md:top-[8rem] top-[6.6rem] italic text-md font-extrabold'>Your Trusted Supply Chain Solutions Partner</marquee>
 
       {/* mobile menu */}
       <div className="fixed z-[50] h-[120vh]">
