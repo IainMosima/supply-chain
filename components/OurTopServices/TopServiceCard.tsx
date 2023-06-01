@@ -26,15 +26,15 @@ const TopServiceCard = ({
       <div className="absolute w-full bottom-[-1px] h-full dark-gradient scale-105 ease-in-out duration-300'" />
 
       <div
-        className={`absolute sm:ml-2 top-[-5px] mb-5 h-[12rem] sm:w-[15rem] w-[5rem] flex flex-col justify-end`}
+        className={`absolute sm:ml-2 ml-1 top-[-3px] mb-5 h-[12rem] sm:w-[15rem] w-[5rem] flex flex-col justify-end`}
       >
         <h4 className="font-extrabold sm:text-xl text-md text-left text-white">
           {serviceName}
         </h4>
 
-        <div className={`w-[30rem] h-[15rem] absolute lg:translate-y-[32rem] translate-y-[17rem] md:translate-y-[18rem] sm:group-hover:translate-y-[20rem] ease-in duration-500`}>
-          <article className="lg:w-[20rem] md:w-[13.5rem] w-[8rem] h-full mr-auto rounded-2xl backdrop-blur-md bg-white/30 p-6">
-            <p className="sm:text-sm text-[9px] text-left">{description}</p>
+        <div className={`w-[30rem] h-[15rem] absolute lg:translate-y-[32rem] translate-y-[16rem] md:translate-y-[18rem] sm:group-hover:translate-y-[17rem] ease-in duration-500`}>
+          <article className="lg:w-[20rem] md:w-[13.5rem] w-[10rem] h-full mr-auto rounded-2xl backdrop-blur-md bg-white/30 sm:p-6 p-3">
+            <p className="sm:text-[1.1rem] text-[12px] text-left ">{description}</p>
           </article>
 
         </div>

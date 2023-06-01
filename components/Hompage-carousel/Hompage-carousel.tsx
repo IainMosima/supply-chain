@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
+import "swiper/css/navigation";
 
-import { EffectCards, Autoplay } from "swiper";
+import { EffectCards, Autoplay, Navigation } from "swiper";
 
 import Image from "next/image";
 import { Images } from "../../constants";
@@ -58,7 +59,8 @@ const HompageCarousel = () => {
         <Swiper
           effect={"cards"}
           grabCursor={true}
-          modules={[Autoplay, EffectCards]}
+          modules={[Autoplay, EffectCards, Navigation]}
+          navigation={true}
           className="sm:w-[40rem] w-[20rem] rounded-3xl"
           autoplay={{
             delay: 3500,

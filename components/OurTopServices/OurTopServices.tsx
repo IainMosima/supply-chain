@@ -1,11 +1,12 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import { Images } from '@/constants';
 
 import "./OurTopServices.scss";
 import "swiper/css";
+import "swiper/css/navigation";
 
 import TopServiceCard from './TopServiceCard';
 
@@ -24,7 +25,7 @@ const OurTopService = () => {
     },
     {
       serviceName: 'Procurement processes and policies review and re-engineering',
-      description: 'in case you are not an expert in this space or you are considering outsourcing your procurement function, worry not for we got your back and best interests at heart. Our highly trained and experienced supply chain specialists will ensure that you get value for your money.',
+      description: 'In case you are not an expert in this space or you are considering outsourcing your procurement function, worry not for we got your back and best interests at heart. Our highly trained and experienced supply chain specialists will ensure that you get value for your money.',
       serviceImg: Images.serviceMan
     },
     {
@@ -57,7 +58,13 @@ const OurTopService = () => {
             pagination={{
               clickable: true,
             }}
-            modules={[Autoplay]}
+            breakpoints={{
+              375: {
+                slidesPerView: 2,
+              }
+            }}
+            modules={[Autoplay, Navigation]}
+            navigation={true}
             autoplay={{
               delay: 5500,
               disableOnInteraction: false,
