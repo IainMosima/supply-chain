@@ -55,12 +55,12 @@ const HompageCarousel = () => {
         </div>
       </motion.div>
 
-      <div className="basis-1/2 w-full flex justify-center sm:ml-8">
+      <div className="basis-1/2 w-full flex flex-col sm:ml-8 place-items-center gap-1">
         <Swiper
           effect={"cards"}
           grabCursor={true}
           modules={[Autoplay, EffectCards, Navigation]}
-          navigation={true}
+          // navigation={true}
           className="sm:w-[40rem] w-[20rem] rounded-3xl"
           autoplay={{
             delay: 3500,
@@ -69,16 +69,21 @@ const HompageCarousel = () => {
         >
           {imagesInfo.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="sm:w-[40rem] w-[20rem] h-[20rem] rounded-3xl">
+              <div className="w-full h-[20rem] rounded-3xl">
                 <Image
                   src={image.image}
                   alt={image.name}
-                  className="object-fill w-full h-full rounded-3xl"
+                  className="object-fill w-full h-full rounded-3xl basis-4"
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        
+        <div className="flex gap-1 text-white font-bold">
+          <button className="bg-purple  w-[4rem] rounded-full p-1 cursor-pointer">Prev</button>
+          <button className="bg-purple w-[4rem] rounded-full p-1 cursor-pointer">Next</button>
+        </div>
       </div>
     </div>
   );

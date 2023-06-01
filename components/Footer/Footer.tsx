@@ -94,11 +94,11 @@ const Footer = () => {
         <div className="hidden sm:inline-block">|</div>
         <div>
           Designed and built by{" "}
-          <Link href={""} className="underline">
+          <Link href={"https://my-portfolio-theta-seven-51.vercel.app/"} target="_blank" className="underline">
             Iain Mosima
-          </Link>{" "}
+          </Link>
           and{" "}
-          <Link href={""} className="underline">
+          <Link href={"https://www.linkedin.com/in/nyamu-murage-bb9a321a1/"} target="_blank" className="underline">
             Allan Murage
           </Link>
         </div>

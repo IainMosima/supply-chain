@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full fixed flex lg:justify-between place-content-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
+      <nav className="w-full fixed flex gap-1 lg:justify-between place-content-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
         <div className="flex justify-start lg:basis-2/6 ">
           <Image
             src={Images.logo}
@@ -32,13 +32,16 @@ const Navbar = () => {
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
-        <div className="bg-purple w-[2.8rem] h-[2.8rem] p-2 lg:hidden ml-2 rounded-[15px] flex justify-center">
-          <Image src={Images.menu} width={37} alt="menu-icon" className="" onClick={()=>setMenuToggle(true)}/>
+        <div className="bg-purple w-[2.3rem] md:w-[3rem] h-[2.3rem] md:h-[3rem] p-2 lg:hidden ml-2 rounded-full flex flex-col md:gap-[4px] gap-[3px] justify-center place-items-center" onClick={()=>setMenuToggle(true)}>
+          {/* <Image src={Images.menu} width={37} alt="menu-icon" className=""*/}
+          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
+          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
+          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
         </div>
 
       </nav>
 
-      <marquee className='text-purple absolute lg:top-[8rem] md:top-[8rem] top-[6.6rem] italic text-sm sm:text-md font-extrabold'>Your Trusted Supply Chain Solutions Partner</marquee>
+      <marquee className='text-purple absolute lg:top-[8rem] md:top-[8rem] top-[6.8rem] italic text-sm sm:text-md font-extrabold'>Your Trusted Supply Chain Solutions Partner</marquee>
 
       {/* mobile menu */}
       <div className="fixed z-[50] h-[120vh]">

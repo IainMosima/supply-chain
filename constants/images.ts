@@ -7,7 +7,7 @@ import tanzania from "../public/icons/tanzania.png";
 import uganda from "../public/icons/uganda.png";
 import rwanda from "../public/icons/rwanda.png";
 import burundi from "../public/icons/burundi.png";
-import next from "../public/icons/next.png";
+import next from "../public/icons/next-dec.png";
 import downBlue from "../public/icons/down-blue.png";
 import close from "../public/icons/close.png";
 import aboutUs from "../public/icons/about-us.png";
@@ -27,6 +27,7 @@ import linkedin from "../public/icons/linkedin.png";
 import searchIcon from "../public/icons/search.png";
 import binoculars from "../public/icons/binoculars.png";
 import underConstruction from "../public/icons/under-construction.png";
+import nextIcon from "../public/icons/next.png";
 
 import serviceMan from "../public/assets/serviceMan.jpg";
 import serviceWoman from "../public/assets/service.jpg";
@@ -66,6 +67,7 @@ export default {
     email,
     mail,
     underConstruction,
+    nextIcon,
     searchIcon,
     phone,
     phone2,
