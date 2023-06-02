@@ -2,7 +2,7 @@ import { Navbar, Footer } from '@/components';
 import './globals.css';
 
 export const metadata = {
-  title: 'Supply Chain Solution Hub Limited',
+  title: 'Supply Chain Solutions Hub Limited',
   description: 'Start up advisory and consulting firm',
 }
 

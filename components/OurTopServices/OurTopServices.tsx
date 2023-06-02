@@ -1,6 +1,6 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import { Images } from "@/constants";
 
@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import TopServiceCard from "./TopServiceCard";
-import Image from "next/image";
+import NavigationButtons from "./NavigationButtons";
 
 const OurTopService = () => {
   const services = [
@@ -52,25 +52,18 @@ const OurTopService = () => {
     },
   ];
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
+    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.7rem] mb-[2rem] flex flex-col">
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Top Services
       </h2>
-      <div className="w-[2rem] h-[.2rem] bg-purple mx-auto" />
-      
+      <div className="w-[1.7rem] h-[.2rem] bg-purple mx-auto" />
 
       <div className="w-full flex h-[30rem] justify-between place-items-center gap-1 mt-3">
-        <Image
-          src={Images.nextIcon}
-          width={30}
-          alt="previous-icon"
-          className="rotate-180 cursor-pointer"
-        />
         <Swiper
           spaceBetween={0}
-          pagination={{
-            clickable: true,
-          }}
+          observer={true}
+          rewind={true}
+         
           breakpoints={{
             375: {
               slidesPerView: 1,
@@ -82,14 +75,14 @@ const OurTopService = () => {
               slidesPerView: 3,
             },
           }}
-          modules={[Autoplay, Navigation]}
-          // navigation={true}s
+          modules={[Autoplay]}
           autoplay={{
             delay: 5500,
             disableOnInteraction: false,
           }}
-          className="mySwiper h-full"
+          className="mySwiper h-full relative"
         >
+          <NavigationButtons/>
           {services.map((service, index) => (
             <SwiperSlide key={index} className="custom-cards">
               <TopServiceCard
@@ -100,13 +93,6 @@ const OurTopService = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        <Image
-          src={Images.nextIcon}
-          width={30}
-          alt="previous-icon"
-          className="cursor-pointer"
-        />
       </div>
     </div>
   );

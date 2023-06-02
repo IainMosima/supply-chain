@@ -1,6 +1,6 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
@@ -12,8 +12,10 @@ import Image from "next/image";
 import { Images } from "../../constants";
 import "./Hompage-carousel.scss";
 import { motion } from "framer-motion";
+import NavigationButtons from "./NavigationButtons";
 
 const HompageCarousel = () => {
+  const swiper = useSwiper();
   const imagesInfo = [
     {
       name: "carousel-1",
@@ -49,7 +51,7 @@ const HompageCarousel = () => {
             alt="next-icon"
             className="hidden sm:block md:block"
           />
-          <p className="sm:text-left text-center">{`
+          <p className="sm:text-left text-center px-2">{`
            Supply Chain Solutions Hub Limited is a start-up advisory and consulting firm that offers a one-stop shop for all your supply chain needs. Our team of experts has a wealth of practical experience acquired over years of practice which enables us to study a client’s operations to identify gaps and propose customized solutions in the areas of strategy, business processes, digitization, and skills. As a partner with us, you are assured of enormous cost savings, efficiency, and foresight to what the future holds.
           `}</p>
         </div>
@@ -78,12 +80,9 @@ const HompageCarousel = () => {
               </div>
             </SwiperSlide>
           ))}
+         <NavigationButtons/>
         </Swiper>
         
-        <div className="flex gap-1 text-white font-bold">
-          <button className="bg-purple  w-[4rem] rounded-full p-1 cursor-pointer">Prev</button>
-          <button className="bg-purple w-[4rem] rounded-full p-1 cursor-pointer">Next</button>
-        </div>
       </div>
     </div>
   );

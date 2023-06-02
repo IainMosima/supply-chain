@@ -95,9 +95,9 @@ const Footer = () => {
         <div>
           Designed and built by{" "}
           <Link href={"https://my-portfolio-theta-seven-51.vercel.app/"} target="_blank" className="underline">
-            Iain Mosima
+            Iain Mosima {" "}
           </Link>
-          and{" "}
+          and {" "}
           <Link href={"https://www.linkedin.com/in/nyamu-murage-bb9a321a1/"} target="_blank" className="underline">
             Allan Murage
           </Link>
