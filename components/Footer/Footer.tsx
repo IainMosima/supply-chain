@@ -13,12 +13,12 @@ const Footer = () => {
     {
       name: "twitter",
       icon: Images.twitter,
-      url: "https://www.facebook.com/",
+      url: "https://www.twitter.com/",
     },
     {
       name: "linkedin",
       icon: Images.linkedin,
-      url: "https://www.facebook.com/",
+      url: "https://www.linkedin.com/",
     },
   ];
   return (

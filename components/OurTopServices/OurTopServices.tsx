@@ -52,7 +52,7 @@ const OurTopService = () => {
     },
   ];
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.7rem] mb-[2rem] flex flex-col">
+    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.7rem] mb-[2rem] flex flex-col z-20">
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Top Services
       </h2>

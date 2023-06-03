@@ -61,6 +61,7 @@ const HompageCarousel = () => {
         <Swiper
           effect={"cards"}
           grabCursor={true}
+          rewind={true}
           modules={[Autoplay, EffectCards, Navigation]}
           // navigation={true}
           className="sm:w-[40rem] w-[20rem] rounded-3xl"
