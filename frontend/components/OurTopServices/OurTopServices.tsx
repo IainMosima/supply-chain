@@ -77,7 +77,7 @@ const OurTopService = () => {
           }}
           modules={[Autoplay]}
           autoplay={{
-            delay: 5500,
+            delay: 8000,
             disableOnInteraction: false,
           }}
           className="mySwiper h-full relative"

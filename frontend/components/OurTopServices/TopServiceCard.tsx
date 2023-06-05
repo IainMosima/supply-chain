@@ -30,8 +30,8 @@ const TopServiceCard = ({
           {serviceName}
         </h4>
 
-        <div className={`w-[30rem] h-[15rem] absolute lg:translate-y-[36rem] translate-y-[19.2rem] md:translate-y-[22rem] lg:group-hover:translate-y-[20rem] ease-in duration-500`}>
-          <article className="lg:w-[20rem] md:w-[19.5rem] w-[17rem] h-full mr-auto rounded-2xl backdrop-blur-md bg-white/30 sm:p-6 p-3 ">
+        <div className={`w-[30rem] h-[15rem] absolute lg:translate-y-[36rem] translate-y-[22rem] md:translate-y-[24rem] lg:group-hover:translate-y-[23rem] ease-in duration-500`}>
+          <article className="lg:w-[25rem] md:w-[22rem] w-[21rem] h-full mr-auto rounded-2xl backdrop-blur-md bg-white/30 sm:p-6 p-3 ">
             <p className="sm:text-[1.1rem] text-[15px] text-left ">{description}</p>
           </article>
 

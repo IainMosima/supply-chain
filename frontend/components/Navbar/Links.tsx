@@ -11,7 +11,7 @@ interface LinksProps {
 const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
   return (
     <>
-      <div className="hidden md:hidden lg:flex lg:justify-evenly lg:place-items-center font-semibold text-center text-black">
+      <div className="hidden md:hidden lg:flex lg:justify-evenly lg:place-items-center font-semibold text-center text-black gap-6">
         <div>
           
         </div>
