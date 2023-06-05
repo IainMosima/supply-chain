@@ -44,7 +44,7 @@ const Footer = () => {
               Terms and Conditions
             </Link>
             <Link
-              href="/terms-and-conditions"
+              href="/privacy-and-cookie-policy"
               target="_blank"
               className="text-xs hover:underline"
             >

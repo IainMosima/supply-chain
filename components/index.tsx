@@ -8,3 +8,4 @@ export { default as OurServices } from './Services/Services';
 export { default as NoResults} from './NoResults/NoResults';
 export { default as UnderConstruction } from './UnderConstruction/UnderConstruction';
 export { default as TermsandConditions } from './TermsandConditions/TermsandConditions';
+export { default as PrivacyAndCookierPolicy } from './PrivacyAndCookiePolicy/PrivacyAndCookiePolicy';
