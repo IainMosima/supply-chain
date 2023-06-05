@@ -9,8 +9,12 @@ module.exports = {
     extend: {
       colors: {
         purple: '#4169E1'
+      },
+      listStyleType: {
+        roman: 'upper-roman',
       }
     },
+
   },
   plugins: [],
 }
