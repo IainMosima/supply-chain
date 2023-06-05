@@ -10,8 +10,8 @@ const ContactUs = () => {
       <h2 className='font-semibold text-xl text-center text-purple'>Contact Us</h2>
       <div className='w-[1.5rem] h-[.2rem] bg-purple mx-auto'/>
 
-      <div className='flex lg:gap-5 justify-center place-items-center lg:flex-row md:flex-col flex-col mt-5'>
-        <div className='flex flex-col lg:gap-[5rem] gap-3 mb-2 lg:mb-0'>
+      <div className='flex lg:gap-1 justify-center place-items-center lg:flex-row md:flex-col flex-col mt-5'>
+        <div className='flex flex-col lg:gap-[2rem] gap-2 mb-2 lg:mb-0'>
           <div className='lg:w-[20rem] md:w-[30rem]'>
             <h3 className='font-extrabold text-center sm:text-left sm:text-4xl text-xl'>{`We'd`} like to hear <span className='text-purple'>from you</span></h3>
           </div>

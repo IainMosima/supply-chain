@@ -11,7 +11,7 @@ const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
 
-
+  console.log(menuToggle);
   return (
     <>
       <nav className="w-full fixed flex gap-1 lg:justify-between place-content-between z-50 p-4 place-items-center backdrop-blur-md bg-white/30">
@@ -32,12 +32,17 @@ const Navbar = () => {
           <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle}/>
         </div>
 
-        <div className="bg-purple w-[3rem] md:w-[3.7rem] h-[2.3rem] md:h-[3.7rem] p-2 lg:hidden ml-2 rounded-full flex flex-col md:gap-[4px] gap-1 justify-center place-items-center" onClick={()=>setMenuToggle(true)}>
-          {/* <Image src={Images.menu} width={37} alt="menu-icon" className=""*/}
-          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
-          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.3rem] h-[0.15rem] bg-white"></span>
-          <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
+        <div>
+          <div className="bg-purple w-[3rem] md:w-[3.7rem] h-[2.3rem] md:h-[3.7rem] p-2 lg:hidden ml-2 rounded-full flex flex-col md:gap-[4px] gap-1 justify-center place-items-center" onClick={()=>setMenuToggle(true)}>
+            {/* <Image src={Images.menu} width={37} alt="menu-icon" className=""*/}
+            <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
+            <span className="w-[1rem] md:w-[1.5rem] md:h-[0.3rem] h-[0.15rem] bg-white"></span>
+            <span className="w-[1rem] md:w-[1.5rem] md:h-[0.2rem] h-[0.15rem] bg-white"></span>
+          </div>
         </div>
+
+
+
       
       </nav>
 

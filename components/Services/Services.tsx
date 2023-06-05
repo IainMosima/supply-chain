@@ -59,7 +59,7 @@ const Services = () => {
         {results.length > 0 ? (
           <div className='grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 lg:gap-2 md:gap-1 gap-1 mt-[2rem]'>
           {results.map((result, index) => 
-            <div key={index} className='border-2 h-[30rem] rounded-[11px] w-full border-gray-400 flex flex-col place-items-start'>
+            <div key={index} className='border-2 h-[30rem] rounded-[12px] w-full border-gray-400 flex flex-col place-items-start'>
               <div className='w-full lg:h-[16rem] md:h-[14rem] h-[13rem] rounded-t-[10px]'>
                 <Image src={result.serviceImg} className='w-full h-full rounded-t-[10px] object-cover' alt={result.serviceName}/>
               </div>
