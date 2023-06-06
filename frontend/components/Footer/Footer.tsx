@@ -41,14 +41,14 @@ const Footer = () => {
               target="_blank"
               className="text-xs hover:underline"
             >
-              Terms and Conditions
+              Terms and Conditions of Use
             </Link>
             <Link
               href="/privacy-and-cookie-policy"
               target="_blank"
               className="text-xs hover:underline"
             >
-              Privacy and Cookie Policy
+              Privacy and Cookies Policy
             </Link>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t-2 border-white lg:w-[70rem] md:w-[45rem] sm:w-[7rem] flex text-white pt-2 text-xs justify-center flex-col lg:gap-2 gap-1 itallic sm:flex-row text-center">
-        <div>© 2023 Supply Chain Solutions Hub</div>
+        <div>© 2023 Supply Chain Solutions Hub Limited. All rights reserved</div>
         <div className="hidden sm:inline-block">|</div>
         <div>
           Designed and built by{" "}

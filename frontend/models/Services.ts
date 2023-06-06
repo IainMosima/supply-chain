@@ -1,8 +1,6 @@
-import { StaticImageData } from "next/image";
-
 export interface Services {
-    
+    serviceId: string,
+    serviceImageKey: string,
     serviceName: string,
-    description: string,
-    serviceImg: StaticImageData
+    serviceDescription: string,
 }

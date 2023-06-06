@@ -37,7 +37,7 @@ const OurInfo = () => {
                 <p className="text-md text-center">{info.info}</p>
               ):
               (
-                <ul className="list-disc ml-4">
+                <ul className="list-disc ml-4 italic">
                   {info.info.split(',').map((value, index) => 
                     <li key={index}>{value}</li>
                   )}
