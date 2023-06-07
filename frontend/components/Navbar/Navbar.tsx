@@ -59,7 +59,7 @@ const Navbar = () => {
           >
             <span
               className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-                menuToggle ? "rotate-45 w-[2.4rem] md:w-[3rem]" : "rotate-0"
+                menuToggle ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]" : "rotate-0"
               }`}
             ></span>
             <span
@@ -69,7 +69,7 @@ const Navbar = () => {
             ></span>
             <span
               className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-                menuToggle ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem]" : "rotate-0"
+                menuToggle ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]" : "rotate-0"
               }`}
             ></span>
           </div>
