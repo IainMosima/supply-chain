@@ -57,6 +57,7 @@ const Services = () => {
       const response = await getAllServices();
       setServices(response);
       setResults(response);
+      console.log('called!!');
     }
 
     fetchAllServices();
