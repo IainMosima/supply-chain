@@ -57,7 +57,7 @@ const Services = () => {
       const response = await getAllServices();
       setServices(response);
       setResults(response);
-      console.log('called!!');
+      console.log(response);
     }
 
     fetchAllServices();
@@ -88,7 +88,7 @@ const Services = () => {
             >
               <div className="w-full lg:h-[16rem] md:h-[14rem] h-[13rem] rounded-t-[10px]">
                 <Image
-                  src={`${process.env.SERVICESBUCKET}/${result.serviceImageKey}`}
+                  src={`https://e-soko.s3.amazonaws.com/de5ad7a187fb62778aa6660aa1388ae4`}
                   className="w-full h-full rounded-t-[10px] object-cover"
                   alt={result.serviceName}
                   width={500}
