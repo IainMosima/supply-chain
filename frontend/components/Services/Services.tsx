@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Images } from "../../constants";
 import SearchBar from "./SearchBar";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Services } from "@/models/Services";
 import NoResults from "../NoResults/NoResults";
 import { getAllServices, imageStreamer } from "@/network/Services";
@@ -49,19 +49,21 @@ const Services = () => {
   // ]
 
   const [searchValue, setSearchValue] = useState("");
-  const [services, setServices] = useState<Services[]>([]);
-  const [results, setResults] = useState<Services[]>([]);
+  // const [services, setServices] = useState<Services[]>([]);
+  
+  const services = use(getAllServices());
+  const [results, setResults] = useState<Services[]>(services);
+  
+  // useEffect(() => {
+  //   async function fetchAllServices() {
+  //     const response = await getAllServices();
+  //     setServices(response);
+  //     setResults(response);
+  //     console.log(response);
+  //   }
 
-  useEffect(() => {
-    async function fetchAllServices() {
-      const response = await getAllServices();
-      setServices(response);
-      setResults(response);
-      console.log(response);
-    }
-
-    fetchAllServices();
-  }, []);
+  //   fetchAllServices();
+  // }, []);
 
   
   return (
