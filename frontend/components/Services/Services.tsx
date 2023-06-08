@@ -54,7 +54,7 @@ const Services = () => {
 
   useEffect(() => {
     async function fetchAllServices() {
-      getAllServices().then((response)=>{setServices(response); setResults(response);}).then(() => console.log('Data fetched successfully!!'));
+      getAllServices().then((response)=>{setServices(response); setResults(response);}).then(() => console.log(process.env.BACKENDIP));
     }
 
     fetchAllServices();
