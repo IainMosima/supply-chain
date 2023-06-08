@@ -54,13 +54,13 @@ const Services = () => {
 
   useEffect(() => {
     async function fetchAllServices() {
-      getAllServices().then((response)=>{setServices(response); setResults(response);}).then(() => console.log(process.env.BACKENDIP));
+      getAllServices().then((response)=>{setServices(response); setResults(response);});
     }
 
     fetchAllServices();
   }, []);
 
-  
+  console.log(process.env.BACKENDIP);
   return (
     <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
       <h2 className="font-semibold text-xl text-center text-purple">
