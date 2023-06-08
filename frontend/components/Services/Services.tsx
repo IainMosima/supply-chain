@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Images } from "../../constants";
 import SearchBar from "./SearchBar";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Services } from "@/models/Services";
 import NoResults from "../NoResults/NoResults";
 import { getAllServices, imageStreamer } from "@/network/Services";
@@ -49,21 +49,16 @@ const Services = () => {
   // ]
 
   const [searchValue, setSearchValue] = useState("");
-  // const [services, setServices] = useState<Services[]>([]);
-  
-  const services = use(getAllServices());
-  const [results, setResults] = useState<Services[]>(services);
-  
-  // useEffect(() => {
-  //   async function fetchAllServices() {
-  //     const response = await getAllServices();
-  //     setServices(response);
-  //     setResults(response);
-  //     console.log(response);
-  //   }
+  const [services, setServices] = useState<Services[]>([]);
+  const [results, setResults] = useState<Services[]>([]);
 
-  //   fetchAllServices();
-  // }, []);
+  useEffect(() => {
+    async function fetchAllServices() {
+      getAllServices().then((response)=>{setServices(response); setResults(response);}).then(() => console.log('Data fetched successfully!!'));
+    }
+
+    fetchAllServices();
+  }, []);
 
   
   return (
@@ -90,11 +85,11 @@ const Services = () => {
             >
               <div className="w-full lg:h-[16rem] md:h-[14rem] h-[13rem] rounded-t-[10px]">
                 <Image
-                  src={`https://e-soko.s3.amazonaws.com/de5ad7a187fb62778aa6660aa1388ae4`}
-                  className="w-full h-full rounded-t-[10px] object-cover"
+                  src={`${process.env.SERVICESBUCKET}/${result.serviceImageKey}`}
+                  className="rounded-t-[10px] object-cover"
                   alt={result.serviceName}
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={400}
                 />
               </div>
 
