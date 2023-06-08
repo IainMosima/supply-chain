@@ -9,3 +9,4 @@ export { default as NoResults} from './NoResults/NoResults';
 export { default as UnderConstruction } from './UnderConstruction/UnderConstruction';
 export { default as TermsandConditions } from './TermsandConditions/TermsandConditions';
 export { default as PrivacyAndCookierPolicy } from './PrivacyAndCookiePolicy/PrivacyAndCookiePolicy';
+export { default  as Loading } from './Loading/Loading';

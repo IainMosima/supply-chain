@@ -1,9 +1,11 @@
 import { OurServices } from '@/components'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const Services = () => {
   return (
-    <OurServices/>
+    <Suspense>
+      <OurServices/>
+    </Suspense>
   )
 }
 
