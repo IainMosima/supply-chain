@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-white lg:w-[70rem] md:w-[45rem] sm:w-[7rem] flex text-white pt-2 text-xs justify-center flex-col lg:gap-2 gap-1 itallic sm:flex-row text-center">
+      <div className="border-t-2 border-white lg:w-[70rem] md:w-[45rem] sm:w-[7rem] flex text-white pt-2 text-[7px] justify-center flex-col lg:gap-2 gap-1 itallic sm:flex-row text-center">
         <div>© 2023 Supply Chain Solutions Hub Limited. All rights reserved</div>
         <div className="hidden sm:inline-block">|</div>
         <div>
