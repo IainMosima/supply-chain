@@ -24,6 +24,11 @@ const Form = () => {
       <input type='text' placeholder='Enter your Phone Number' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/>
       <br/>
       <br/>
+      <label>Subject</label>
+      <br/>
+      <input type='text' placeholder={`Enter the message's subject`} className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem]'/> 
+      <br/>
+      <br/>
       <label>Message</label>
       <br/>
       <textarea placeholder='Enter your Message....' className='text-[1rem] border-2 p-2 rounded-md border-gray-200 w-[20rem] sm:w-[27rem] h-[9rem]'></textarea>

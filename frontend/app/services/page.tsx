@@ -1,11 +1,9 @@
-import { OurServices } from '@/components'
+import { Loading, OurServices } from '@/components'
 import React, { Suspense } from 'react'
 
 const Services = () => {
   return (
-    <Suspense>
-      <OurServices/>
-    </Suspense>
+    <OurServices/>
   )
 }
 

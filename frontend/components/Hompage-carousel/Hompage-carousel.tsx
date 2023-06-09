@@ -13,27 +13,20 @@ import { Images } from "../../constants";
 import "./Hompage-carousel.scss";
 import { motion } from "framer-motion";
 import NavigationButtons from "./NavigationButtons";
+import { Carousel } from "@/models/Carousel";
+import { useEffect, useState } from "react";
+import { getCarouselImages } from "@/network/carousel";
+import Loading from "../Loading/Loading";
 
 const HompageCarousel = () => {
-  const swiper = useSwiper();
-  const imagesInfo = [
-    {
-      name: "carousel-1",
-      image: Images.courosel4,
-    },
-    {
-      name: "carousel-2",
-      image: Images.courosel3,
-    },
-    {
-      name: "carousel-3",
-      image: Images.courosel1,
-    },
-    {
-      name: "carousel-4",
-      image: Images.courosel2,
-    },
-  ];
+  const [imagesInfo, setImagesInfo] = useState<Carousel[]>([]);
+  useEffect(() => {
+    async function fetchCarouselImages() {
+      getCarouselImages().then((res) => setImagesInfo(res));
+    }
+    fetchCarouselImages();
+  }, [])
+  
   return (
     <div className="w-full h-5/6 flex flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
@@ -51,14 +44,15 @@ const HompageCarousel = () => {
             alt="next-icon"
             className="hidden sm:block md:block"
           />
-          <p className="sm:text-left text-center px-2">{`
+          <p className="sm:text-left text-center px-2 text-[14px]">{`
            Supply Chain Solutions Hub Limited is a start-up advisory and consulting firm that offers a one-stop shop for all your supply chain needs. Our team of experts has a wealth of practical experience acquired over years of practice which enables us to study a client’s operations to identify gaps and propose customized solutions in the areas of strategy, business processes, digitization, and skills. As a partner with us, you are assured of enormous cost savings, efficiency, and foresight to what the future holds.
           `}</p>
         </div>
       </motion.div>
 
       <div className="basis-1/2 w-full flex flex-col sm:ml-8 place-items-center gap-1">
-        <Swiper
+        {imagesInfo.length > 0 ? (
+          <Swiper
           effect={"cards"}
           grabCursor={true}
           rewind={true}
@@ -73,16 +67,22 @@ const HompageCarousel = () => {
           {imagesInfo.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="w-full h-[20rem] rounded-3xl">
-                <Image
-                  src={image.image}
-                  alt={image.name}
+                {/* <Image
+                  src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
+                  alt={image.imageName}
+                  width={800}
+                  height={600}
                   className="object-fill w-full h-full rounded-3xl basis-4"
-                />
+                /> */}
               </div>
             </SwiperSlide>
           ))}
          <NavigationButtons/>
         </Swiper>
+        ) : (
+          <Loading/>
+        )}
+        
         
       </div>
     </div>

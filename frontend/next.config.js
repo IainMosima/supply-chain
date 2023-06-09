@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "e-soko.s3.amazonaws.com",
+        hostname: "supply-chain-solutions-hub-limited-carousel-bucket.s3.amazonaws.com",
         port: "",
         pathname: "/**",
       },

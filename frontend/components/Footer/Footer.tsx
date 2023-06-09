@@ -8,17 +8,17 @@ const Footer = () => {
     {
       name: "facebook",
       icon: Images.facebook,
-      url: "https://www.facebook.com/",
+      url: "https://www.facebook.com/profile.php?id=100092513951427&mibextid=ZbWKwL",
     },
     {
       name: "twitter",
       icon: Images.twitter,
-      url: "https://www.twitter.com/",
+      url: "https://twitter.com/SupplyChainSHub?t=GnUtVT0_VU9i99u--liSaQ&s=08",
     },
     {
       name: "linkedin",
       icon: Images.linkedin,
-      url: "https://www.linkedin.com/",
+      url: "https://www.linkedin.com/company/supply-chain-solutions-hub/",
     },
   ];
   return (
@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-white lg:w-[70rem] md:w-[45rem] sm:w-[7rem] flex text-white pt-2 text-[7px] justify-center flex-col lg:gap-2 gap-1 itallic sm:flex-row text-center">
+      <div className="border-t-2 border-white lg:w-[70rem] md:w-[45rem] sm:w-[7rem] flex text-white pt-2 text-xs justify-center flex-col lg:gap-2 gap-1 itallic sm:flex-row text-center">
         <div>© 2023 Supply Chain Solutions Hub Limited. All rights reserved</div>
         <div className="hidden sm:inline-block">|</div>
         <div>
