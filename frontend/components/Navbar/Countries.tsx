@@ -54,7 +54,8 @@ const Countries = () => {
           <Image
             src={Images.dropDown}
             alt="drop-down"
-            className="mt-1 ml-1 w-auto h-auto"
+            className="ml-1"
+            height={15}
           />
         </div>
 
