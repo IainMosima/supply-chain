@@ -40,11 +40,12 @@ const HompageCarousel = () => {
         </h3>
 
         <div className="flex place-items-center">
-          <Image
+          {/* <Image
             src={Images.next}
             alt="next-icon"
+            height={70}
             className="hidden sm:block md:block"
-          />
+          /> */}
           <p className="sm:text-left text-center px-2 text-[17px] leading-6">{`
            Supply Chain Solutions Hub Limited is a start-up advisory and consulting firm that offers a one-stop shop for all your supply chain needs. Our team of experts has a wealth of practical experience acquired over years of practice which enables us to study a client’s operations to identify gaps and propose customized solutions in the areas of strategy, business processes, digitization, and skills. As a partner with us, you are assured of enormous cost savings, efficiency, and foresight to what the future holds.
           `}</p>
