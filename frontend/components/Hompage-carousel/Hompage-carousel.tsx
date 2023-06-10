@@ -25,7 +25,8 @@ const HompageCarousel = () => {
       getCarouselImages().then((res) => setImagesInfo(res));
     }
     fetchCarouselImages();
-  }, [])
+  }, []);
+  // console.log(imagesInfo);
   
   return (
     <div className="w-full h-5/6 flex flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
@@ -44,7 +45,7 @@ const HompageCarousel = () => {
             alt="next-icon"
             className="hidden sm:block md:block"
           />
-          <p className="sm:text-left text-center px-2 text-[14px]">{`
+          <p className="sm:text-left text-center px-2 text-[17px] leading-6">{`
            Supply Chain Solutions Hub Limited is a start-up advisory and consulting firm that offers a one-stop shop for all your supply chain needs. Our team of experts has a wealth of practical experience acquired over years of practice which enables us to study a client’s operations to identify gaps and propose customized solutions in the areas of strategy, business processes, digitization, and skills. As a partner with us, you are assured of enormous cost savings, efficiency, and foresight to what the future holds.
           `}</p>
         </div>
@@ -57,7 +58,6 @@ const HompageCarousel = () => {
           grabCursor={true}
           rewind={true}
           modules={[Autoplay, EffectCards, Navigation]}
-          // navigation={true}
           className="sm:w-[40rem] w-[20rem] rounded-3xl"
           autoplay={{
             delay: 3500,
@@ -67,13 +67,13 @@ const HompageCarousel = () => {
           {imagesInfo.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="w-full h-[20rem] rounded-3xl">
-                {/* <Image
+                <Image
                   src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
                   alt={image.imageName}
                   width={800}
                   height={600}
                   className="object-fill w-full h-full rounded-3xl basis-4"
-                /> */}
+                />
               </div>
             </SwiperSlide>
           ))}

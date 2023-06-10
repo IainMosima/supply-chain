@@ -42,13 +42,13 @@ const Services = () => {
 
       {services.length > 0 ? (
         results.length > 0 ? (
-          <div className="grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 lg:gap-2 md:gap-1 gap-1 mt-[2rem]">
+          <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-2 mt-[2rem]">
             {results.map((result, index) => (
               <div
                 key={index}
                 className="border-2 h-[30rem] rounded-[12px] w-full border-gray-400 flex flex-col place-items-start"
               >
-                <div className="w-full lg:h-[16rem] md:h-[14rem] h-[13rem] rounded-t-[10px]">
+                <div className="rounded-t-[10px]">
                   <Image
                     src={`${process.env.SERVICESBUCKET}/${result.serviceImageKey}`}
                     className="rounded-t-[10px] object-cover"
@@ -60,12 +60,12 @@ const Services = () => {
 
                 <div className="p-2 flex flex-col gap-3">
                   <div className="flex place-items-center">
-                    <h3 className="text-[.7rem] sm:text-[1.2rem] text-purple font-bold">
+                    <h3 className="text-[1.2rem] text-purple font-bold">
                       {result.serviceName}
                     </h3>
                   </div>
                   <div>
-                    <p className="text-sm">{result.serviceDescription}</p>
+                    <p className="text-[17px]">{result.serviceDescription}</p>
                   </div>
                 </div>
               </div>

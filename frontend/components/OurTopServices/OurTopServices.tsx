@@ -57,7 +57,7 @@ const OurTopService = () => {
             >
               <NavigationButtons />
               {services.map((service, index) => (
-                <SwiperSlide key={index} className="custom-cards">
+                <SwiperSlide key={index} className="custom-cards border-r-2 border-black">
                   <TopServiceCard
                     serviceName={service.serviceName}
                     description={service.serviceDescription}
