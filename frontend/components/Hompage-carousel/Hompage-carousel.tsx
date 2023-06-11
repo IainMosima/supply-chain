@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import NavigationButtons from "./NavigationButtons";
 import { Carousel } from "@/models/Carousel";
 import { useEffect, useState } from "react";
-import { getCarouselImages } from "@/network/carousel";
+import { getCarouselImages } from "@/network/Carousel";
 import Loading from "../Loading/Loading";
 
 const HompageCarousel = () => {

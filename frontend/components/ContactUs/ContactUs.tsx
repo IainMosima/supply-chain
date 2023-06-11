@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Contact } from "@/models/Contact";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { sendMessage } from "@/network/Contact";
 
 const scaleVariants = {
   whileInView: {
@@ -26,13 +27,13 @@ const ContactUs = () => {
     formState: { errors, isSubmitting, isSubmitSuccessful, isSubmitted },
     handleSubmit,
   } = useForm<Contact>();
-  const onSubmit: SubmitHandler<Contact> = (data) => {
-    return new Promise<string>((resolve, reject) => {
-      setTimeout(() => {
-        resolve("API call successful");
-        window.scrollTo(0, 0);
-      }, 3000);
-    });
+  const onSubmit: SubmitHandler<Contact> = async (data: Contact) => {
+    try {
+      await sendMessage(data);
+      window.scrollTo(0, 0);
+    } catch (error) {
+      alert('Message did not send please try again');
+    }
   };
   return (
     <div>
@@ -46,7 +47,7 @@ const ContactUs = () => {
             <Image src={Images.sentIcon} alt="sent" height={400} />
           </motion.div>
           <p className="text-center text-md italic font-semibold text-purple">
-            Your message has been Successfully sent
+            Message sent Successfully.
           </p>
           <button
             onClick={() => router.push("/")}

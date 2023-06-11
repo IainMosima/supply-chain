@@ -1,5 +1,5 @@
 import { Services } from "@/models/Services";
-import { fetchData } from "./fetchData";
+import { fetchData } from "./FetchData";
 
 export async function getAllServices(): Promise<Services[] | []> {
     const response = await fetchData('/api/services', { method: 'GET' });

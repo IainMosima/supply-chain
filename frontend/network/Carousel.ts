@@ -1,5 +1,5 @@
 import { Services } from "@/models/Services";
-import { fetchData } from "./fetchData";
+import { fetchData } from "./FetchData";
 import { Carousel } from "@/models/Carousel";
 
 export async function getCarouselImages(): Promise<Carousel[]> {
