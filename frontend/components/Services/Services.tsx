@@ -30,7 +30,7 @@ const Services = () => {
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Services
       </h2>
-      <div className="w-[1.5rem] h-[.2rem] bg-purple mx-auto" />
+      <div className="w-[1.1rem] h-[.2rem] bg-purple mx-auto" />
       <div className="justify-self-center">
         <SearchBar
           services={services}

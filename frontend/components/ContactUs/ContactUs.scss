@@ -3,5 +3,12 @@ form {
         font-weight: 900;
         font-size: 1.2rem;
     }
-   
+    p {
+        color: var(--warning-color);
+    }
 }
+
+.warning {
+    outline-color: var(--warning-color);
+}
+

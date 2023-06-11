@@ -28,6 +28,7 @@ import searchIcon from "../public/icons/search.png";
 import binoculars from "../public/icons/binoculars.png";
 import underConstruction from "../public/icons/under-construction.png";
 import nextIcon from "../public/icons/next.png";
+import sentIcon from "../public/icons/sent.png";
 
 import serviceMan from "../public/assets/serviceMan.jpg";
 import serviceWoman from "../public/assets/service.jpg";
@@ -69,6 +70,7 @@ export default {
     underConstruction,
     nextIcon,
     searchIcon,
+    sentIcon,
     phone,
     phone2,
     newPage,

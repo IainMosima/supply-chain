@@ -22,7 +22,7 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="w-full bg-purple flex flex-col place-items-center justify-center sm:gap-[3rem] gap-8 lg:h-[20rem] md:h-[20rem] h-[33rem]">
+    <div className="w-full bg-purple flex flex-col place-items-center justify-center sm:gap-[3rem] gap-8 lg:h-[20rem] md:h-[20rem] h-[33rem] mt-4">
       <div className="lg:gap-[13rem] gap-9  justify-center pl-5 flex flex-col lg:justify-center lg:pt-5 lg:flex-row md:flex-row md:place-items-start p-2 lg:place-items-center text-white">
         <div className="flex flex-col gap-3">
           <Image
