@@ -6,33 +6,40 @@ import Link from "next/link";
 import Links from "./Links";
 import Countries from "./Countries";
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
+  const [marqueeHovered, setMarqueeHovered] = useState(false);
   const router = useRouter();
 
   function toggleHandler(option?: string) {
     switch (option) {
       case "hubs":
-        setMenuToggle(prev => !prev);
+        setMenuToggle((prev) => !prev);
         setHubsToggle(false);
-
         break;
 
       case "link":
-        setMenuToggle(prev => !prev);
+        setMenuToggle((prev) => !prev);
         setHubsToggle(false);
         break;
 
       default:
         setMenuToggle(false);
         setHubsToggle(false);
-
         break;
     }
   }
+
+  const handleMarqueeEnter = () => {
+    setMarqueeHovered(true);
+  };
+
+  const handleMarqueeLeave = () => {
+    setMarqueeHovered(false);
+  };
 
   return (
     <>
@@ -43,7 +50,7 @@ const Navbar = () => {
             alt="logo"
             height={100}
             className="sm:ml-5 cursor-pointer"
-            onClick={() => router.push('/')}
+            onClick={() => router.push("/")}
           />
         </div>
 
@@ -62,7 +69,9 @@ const Navbar = () => {
           >
             <span
               className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-                menuToggle ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]" : "rotate-0"
+                menuToggle
+                  ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]"
+                  : "rotate-0"
               }`}
             ></span>
             <span
@@ -72,7 +81,9 @@ const Navbar = () => {
             ></span>
             <span
               className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-                menuToggle ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]" : "rotate-0"
+                menuToggle
+                  ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]"
+                  : "rotate-0"
               }`}
             ></span>
           </div>
@@ -84,7 +95,7 @@ const Navbar = () => {
             <Link
               href="/"
               className="w-full px-2 py-2 rounded ease-in duration-150 mb-[2rem]"
-              onClick={()=>toggleHandler('link')}
+              onClick={() => toggleHandler("link")}
             >
               HOME
             </Link>
@@ -92,14 +103,14 @@ const Navbar = () => {
             <Link
               href="/services"
               className="hover:text-white px-2 py-2 rounded ease-in duration-150 mb-[2rem]"
-              onClick={()=>toggleHandler('link')}
+              onClick={() => toggleHandler("link")}
             >
               SERVICES
             </Link>
 
             <div
               className={`cursor-pointer px-2 ease-in mb-[2rem]`}
-              onClick={()=>setHubsToggle(prev => !prev)}
+              onClick={() => setHubsToggle((prev) => !prev)}
             >
               <span>HUBS</span>
               {hubsToggle && (
@@ -118,7 +129,7 @@ const Navbar = () => {
                       href={hub.toLowerCase().replace(" ", "-")}
                       key={hub}
                       className="px-1 pb-5"
-                      onClick={()=>toggleHandler('hub')}
+                      onClick={() => toggleHandler("hub")}
                     >
                       {hub}
                     </Link>
@@ -130,7 +141,7 @@ const Navbar = () => {
             <Link
               href="/contact-us"
               className="hover:text-white px-2 py-2 rounded ease-in duration-150"
-              onClick={()=>toggleHandler('link')}
+              onClick={() => toggleHandler("link")}
             >
               CONTACT US
             </Link>
@@ -138,7 +149,13 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <marquee className="text-purple absolute lg:top-[8rem] md:top-[8rem] top-[6.8rem] italic text-sm font-extrabold">
+      <marquee
+        className={`text-purple absolute lg:top-[8rem] md:top-[8rem] top-[6.8rem] italic text-sm font-extrabold ${
+          marqueeHovered ? "paused" : ""
+        }`}
+        onMouseEnter={handleMarqueeEnter}
+        onMouseLeave={handleMarqueeLeave}
+      >
         Your Trusted Supply Chain Solutions Partner
       </marquee>
     </>

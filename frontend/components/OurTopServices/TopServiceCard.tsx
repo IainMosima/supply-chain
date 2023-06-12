@@ -15,7 +15,7 @@ const TopServiceCard = ({
 
   return (
     <div className="group w-full h-full cursor-pointer">
-      <div className="sm:p-3 translate-y-[1rem] ease-in duration-500 lg:group-hover:translate-y-0">
+      <div className="lg:p-3 md:p-0 translate-y-[1rem] ease-in duration-500 lg:group-hover:translate-y-0">
         <Image
           src={`${process.env.SERVICESBUCKET}/${serviceImgKey}`}
           alt={serviceName}

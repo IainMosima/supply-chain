@@ -77,7 +77,7 @@ const Services = () => {
           <NoResults searchValue={searchValue} setSearchValue={setSearchValue} router={router}/>
         )
       ) : (
-        <div className="">
+        <div className="h-full]">
           <Loading />
         </div>
       )}
