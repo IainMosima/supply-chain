@@ -28,7 +28,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] h-full flex flex-col">
+    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Services
       </h2>
