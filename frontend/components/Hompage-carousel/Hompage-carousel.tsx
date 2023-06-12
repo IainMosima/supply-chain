@@ -26,7 +26,6 @@ const HompageCarousel = () => {
     }
     fetchCarouselImages();
   }, []);
-  console.log(imagesInfo);
   
   return (
     <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
