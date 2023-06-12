@@ -8,11 +8,13 @@ import { Services } from "@/models/Services";
 import NoResults from "../NoResults/NoResults";
 import { getAllServices } from "@/network/Services";
 import Loading from "../Loading/Loading";
+import { useRouter } from "next/navigation";
 
 const Services = () => {
   const [searchValue, setSearchValue] = useState("");
   const [services, setServices] = useState<Services[]>([]);
   const [results, setResults] = useState<Services[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchAllServices() {
@@ -26,7 +28,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
+    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] h-full flex flex-col">
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Services
       </h2>
@@ -46,7 +48,7 @@ const Services = () => {
             {results.map((result, index) => (
               <div
                 key={index}
-                className="border-2 h-[30rem] rounded-[12px] w-full border-gray-400 flex flex-col place-items-start"
+                className="border-2 h-[30rem] rounded-[12px] lg:w-full md:w-full w-[22rem] mx-auto border-gray-400 flex flex-col place-items-start"
               >
                 <div className="rounded-t-[10px]">
                   <Image
@@ -72,10 +74,12 @@ const Services = () => {
             ))}
           </div>
         ) : (
-          <NoResults query={searchValue} />
+          <NoResults searchValue={searchValue} setSearchValue={setSearchValue} router={router}/>
         )
       ) : (
-        <Loading />
+        <div className="">
+          <Loading />
+        </div>
       )}
     </div>
   );
