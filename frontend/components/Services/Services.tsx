@@ -75,7 +75,6 @@ const Services = () => {
           <NoResults query={searchValue} />
         )
       ) : (
-        // <NoResults query={searchValue} />
         <Loading />
       )}
     </div>
