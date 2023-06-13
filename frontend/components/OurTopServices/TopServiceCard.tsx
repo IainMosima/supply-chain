@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./OurTopServices.scss";
+import { Images } from "@/constants";
 
 interface TopServiceCardProps {
   serviceName: string;

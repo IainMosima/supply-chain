@@ -1,4 +1,4 @@
-import { Navbar, Footer } from '@/components';
+import { Navbar, Footer, Marquee } from '@/components';
 import './globals.css';
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
         type="image/<generated>"
         sizes="<generated>"
       />
-      <body>
+      <body className=''>
         <Navbar/>
         <div className='sm:w-11/12 mx-auto overflow-x-hidden'>
           {children}

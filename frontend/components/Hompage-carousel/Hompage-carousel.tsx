@@ -26,7 +26,7 @@ const HompageCarousel = () => {
     }
     fetchCarouselImages();
   }, []);
-  
+
   return (
     <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
@@ -48,36 +48,37 @@ const HompageCarousel = () => {
       <div className="basis-1/2 w-full flex flex-col sm:ml-8 place-items-center gap-1">
         {imagesInfo.length > 0 ? (
           <Swiper
-          effect={"cards"}
-          grabCursor={true}
-          rewind={true}
-          modules={[Autoplay, EffectCards, Navigation]}
-          className="sm:w-[40rem] w-[20rem] rounded-3xl"
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-          }}
-        >
-          {imagesInfo.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-[20rem] rounded-3xl flex flex-col">
-                <Image
-                  src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
-                  alt={image.imageName}
-                  width={800}
-                  height={600}
-                  className="object-fill w-full h-full rounded-3xl basis-4"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-         <NavigationButtons/>
-        </Swiper>
+            effect={"cards"}
+            grabCursor={true}
+            rewind={true}
+            modules={[Autoplay, EffectCards, Navigation]}
+            className="sm:w-[40rem] w-[20rem] rounded-3xl"
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+          >
+            {imagesInfo.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-[30rem] border-2 bg-white border-black rounded-3xl flex flex-col">
+                  <Image
+                    // src={Images.courosel1}
+                    src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
+                    alt={image.imageName}
+                    width={800}
+                    height={600}
+                    className="object-fill w-full h-full rounded-3xl basis-4"
+                  />
+
+                  <article className="p-3 text-[17px]">{image.imageDescription}</article>
+                </div>
+              </SwiperSlide>
+            ))}
+            <NavigationButtons />
+          </Swiper>
         ) : (
-          <Loading/>
+          <Loading />
         )}
-        
-        
       </div>
     </div>
   );
