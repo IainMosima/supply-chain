@@ -1,4 +1,4 @@
-import { Navbar, Footer, Marquee } from '@/components';
+import { Navbar, Footer } from '@/components';
 import './globals.css';
 
 export const metadata = {
