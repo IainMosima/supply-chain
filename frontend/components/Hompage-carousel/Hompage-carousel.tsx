@@ -28,7 +28,7 @@ const HompageCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[4rem] lg:flex-row sm:place-items-center gap-6">
+    <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[2rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -60,7 +60,7 @@ const HompageCarousel = () => {
           >
             {imagesInfo.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className="w-full h-[30rem] border-2 bg-white border-black rounded-3xl flex flex-col">
+                <div className="w-full sm:h-[30rem] h-[20rem] border-2 bg-white border-black rounded-3xl flex flex-col">
                   <Image
                     // src={Images.courosel1}
                     src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
@@ -70,7 +70,7 @@ const HompageCarousel = () => {
                     className="object-fill w-full h-full rounded-t-3xl basis-4"
                   />
 
-                  <article className="p-3 text-[17px]">{image.imageDescription}</article>
+                  <article className="p-3 sm:text-[17px] text-md">{image.imageDescription}</article>
                 </div>
               </SwiperSlide>
             ))}
