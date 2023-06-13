@@ -67,7 +67,7 @@ const HompageCarousel = () => {
                     alt={image.imageName}
                     width={800}
                     height={600}
-                    className="object-fill w-full h-full rounded-3xl basis-4"
+                    className="object-fill w-full h-full rounded-t-3xl basis-4"
                   />
 
                   <article className="p-3 text-[17px]">{image.imageDescription}</article>
