@@ -60,7 +60,7 @@ const HompageCarousel = () => {
           >
             {imagesInfo.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className="w-full sm:h-[30rem] h-[20rem] border-2 bg-white border-black rounded-3xl flex flex-col">
+                <div className="w-full sm:h-[30rem] h-[24.3rem] border-2 bg-white border-black rounded-3xl flex flex-col">
                   <Image
                     // src={Images.courosel1}
                     src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
@@ -70,7 +70,7 @@ const HompageCarousel = () => {
                     className="object-fill w-full h-full rounded-t-3xl basis-4"
                   />
 
-                  <article className="p-3 sm:text-[17px] text-md">{image.imageDescription}</article>
+                  <article className="sm:p-3 p-2 sm:text-[17px] text-md">{image.imageDescription}</article>
                 </div>
               </SwiperSlide>
             ))}
