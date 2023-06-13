@@ -28,7 +28,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
+    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col overflow-y-hidden">
       <h2 className="font-semibold text-xl text-center text-purple">
         Our Services
       </h2>
@@ -77,7 +77,7 @@ const Services = () => {
           <NoResults searchValue={searchValue} setSearchValue={setSearchValue} router={router}/>
         )
       ) : (
-        <div className="h-full]">
+        <div className="h-full">
           <Loading />
         </div>
       )}
