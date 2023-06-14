@@ -38,7 +38,7 @@ const ContactUs = () => {
   return (
     <div>
       {isSubmitSuccessful ? (
-        <div className="w-full h-5/6 flex justify-center place-items-center flex-col gap-1 lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[6rem]">
+        <div className="w-full h-5/6 flex justify-center place-items-center flex-col gap-1 mt-1 mb-[6rem]">
           <motion.div
             variants={scaleVariants}
             whileInView={scaleVariants.whileInView}
@@ -64,7 +64,7 @@ const ContactUs = () => {
           </button>
         </div>
       ) : (
-        <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.6rem] mb-[2rem] flex flex-col">
+        <div className="mt-1 mb-[2rem] flex flex-col">
           <h2 className="font-semibold text-xl text-center text-purple">
             Contact Us
           </h2>

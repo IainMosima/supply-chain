@@ -5,7 +5,7 @@ import React from 'react';
 
 const UnderConstruction = () => {
   return (
-    <div className='lg:mt-[9rem] md:mt-[9rem] mt-[7.2rem] mb-[2rem] flex flex-col place-items-center gap-2'>
+    <div className='mt-1 mb-[2rem] flex flex-col place-items-center gap-2'>
         <Image src={Images.underConstruction} alt='underConstruction'/>
         <h2 className='text-center text-xl'>This page is under Construction</h2>
         <h3 className='text-center text-slate-400'>{`We're working on it`}</h3>

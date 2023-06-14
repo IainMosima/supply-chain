@@ -10,3 +10,4 @@ export { default as UnderConstruction } from './UnderConstruction/UnderConstruct
 export { default as TermsandConditions } from './TermsandConditions/TermsandConditions';
 export { default as PrivacyAndCookierPolicy } from './PrivacyAndCookiePolicy/PrivacyAndCookiePolicy';
 export { default  as Loading } from './Loading/Loading';
+export { default as Marquee } from './Marquee/Marquee';

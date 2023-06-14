@@ -25,7 +25,7 @@ const OurTopService = () => {
   }, []);
 
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.7rem] flex flex-col z-20">
+    <div className="mt-1 flex flex-col z-20">
       {services.length > 0 ? (
         <div>
           <h2 className="font-semibold text-xl text-center text-purple">
