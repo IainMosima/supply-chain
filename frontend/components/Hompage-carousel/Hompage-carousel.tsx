@@ -61,8 +61,8 @@ const HompageCarousel = () => {
             {imagesInfo.map((image, index) => (
               <SwiperSlide key={index}>
                 <Image
-                  src={Images.courosel1}
-                  // src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
+                  // src={Images.courosel1}
+                  src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
                   alt={image.imageName}
                   width={600}
                   height={400}
