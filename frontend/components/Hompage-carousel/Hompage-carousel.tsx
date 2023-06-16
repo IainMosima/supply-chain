@@ -32,7 +32,7 @@ const HompageCarousel = () => {
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
-        className="basis-1/2 place-self-center flex flex-col"
+        className="place-self-center flex flex-col basis-1/2"
       >
         <h3 className="text-3xl text-center font-bold text-purple">
           Who Are We
@@ -45,7 +45,7 @@ const HompageCarousel = () => {
         </div>
       </motion.div>
 
-      <div className="basis-1/2 w-full flex flex-col sm:ml-8 place-items-center gap-1">
+      <div className="basis-1/2 w-auto flex flex-col sm:ml-8 justify-center place-items-center gap-1">
         {imagesInfo.length > 0 ? (
           <Swiper
             effect={"cards"}
@@ -59,15 +59,15 @@ const HompageCarousel = () => {
             }}
           >
             {imagesInfo.map((image, index) => (
-              <SwiperSlide key={index} className="border-black border-2 rounded-3xl">
-                  <Image
-                    // src={Images.courosel1}
-                    src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
-                    alt={image.imageName}
-                    width={800}
-                    height={600}
-                    className="rounded-3xl basis-4"
-                  />
+              <SwiperSlide key={index}>
+                <Image
+                  src={Images.courosel1}
+                  // src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
+                  alt={image.imageName}
+                  width={600}
+                  height={400}
+                  className="rounded-3xl basis-4 bg-contain"
+                />
               </SwiperSlide>
             ))}
             <NavigationButtons />
