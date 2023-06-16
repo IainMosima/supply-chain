@@ -45,7 +45,7 @@ const HompageCarousel = () => {
         </div>
       </motion.div>
 
-      <div className="basis-1/2 w-auto flex flex-col sm:ml-8 justify-center place-items-center gap-1">
+      <div className="basis-1/2 w-full flex flex-col sm:ml-8 justify-center place-items-center gap-1">
         {imagesInfo.length > 0 ? (
           <Swiper
             effect={"cards"}
@@ -60,14 +60,23 @@ const HompageCarousel = () => {
           >
             {imagesInfo.map((image, index) => (
               <SwiperSlide key={index}>
-                <Image
-                  // src={Images.courosel1}
-                  src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
-                  alt={image.imageName}
-                  width={600}
-                  height={400}
-                  className="rounded-3xl basis-4 bg-contain"
-                />
+                {process.env.ENVIRONMENT === "development" ? (
+                  <Image
+                    src={Images.courosel1}
+                    alt={image.imageName}
+                    width={600}
+                    height={400}
+                    className="rounded-3xl basis-4 bg-contain"
+                  />
+                ) : (
+                  <Image
+                    src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
+                    alt={image.imageName}
+                    width={600}
+                    height={400}
+                    className="rounded-3xl basis-4 bg-contain"
+                  />
+                )}
               </SwiperSlide>
             ))}
             <NavigationButtons />

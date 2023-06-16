@@ -4,6 +4,7 @@ const nextConfig = {
     BACKENDIP: process.env.BACKENDIP,
     SERVICESBUCKET: process.env.SERVICESBUCKET,
     CAROUSELBUCKET: process.env.CAROUSELBUCKET,
+    ENVIRONMENT: process.env.ENVIRONMENT
   },
   images: {
     remotePatterns: [
