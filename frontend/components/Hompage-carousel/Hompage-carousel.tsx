@@ -59,8 +59,7 @@ const HompageCarousel = () => {
             }}
           >
             {imagesInfo.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className="w-full h-auto border-2 bg-white border-black rounded-3xl flex flex-col">
+              <SwiperSlide key={index} className="border-black border-2 rounded-3xl">
                   <Image
                     // src={Images.courosel1}
                     src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
@@ -69,9 +68,6 @@ const HompageCarousel = () => {
                     height={600}
                     className="rounded-3xl basis-4"
                   />
-
-                  {/* <article className="sm:p-3 p-2 sm:text-[17px] text-md">{image.imageDescription}</article> */}
-                </div>
               </SwiperSlide>
             ))}
             <NavigationButtons />
