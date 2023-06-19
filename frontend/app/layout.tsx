@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Supply Chain Solutions Hub Limited',
-  description: 'Start up advisory and consulting firm',
+  description: 'Your Trusted Supply Chain Solutions Partner',
 }
 
 export default function RootLayout({
