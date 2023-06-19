@@ -21,7 +21,11 @@
   display: none !important;
 }
 
-// .card {
-//   height: 50rem !important;
-//   margin: 0 auto !important;
-// }
+.card {
+  width: 33rem !important;
+  margin: 0 auto !important;
+
+  @media only screen and (max-width: 600px) {
+    width: 20rem !important;
+  }
+}
