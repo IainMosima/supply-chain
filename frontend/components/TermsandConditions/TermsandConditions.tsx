@@ -3,7 +3,7 @@ import "./TermsandConditions.scss";
 
 const TermsandConditions = () => {
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.7rem] mb-[2rem] flex flex-col justify-center place-items-center gap-3 px-2  ">
+    <div className="mt-1 mb-[2rem] flex flex-col justify-center place-items-center gap-3 px-2  ">
       <h2 className="font-bold text-xl">TERMS AND CONDITIONS OF USE </h2>
 
       <div className="flex flex-col gap-1 w-full">

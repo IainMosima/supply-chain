@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const PrivacyAndCookierPolicy = () => {
   return (
-    <div className="lg:mt-[9rem] md:mt-[9rem] mt-[7.9rem] mb-[2rem] flex flex-col justify-center place-items-center gap-3 px-2  ">
+    <div className="mt-1 mb-[2rem] flex flex-col justify-center place-items-center gap-3 px-2  ">
       <h2 className="font-bold text-xl">PRIVACY AND COOKIES POLICY</h2>
       <h2 className="font-bold text-md text-purple text-left w-full">
         SUPPLY CHAIN SOLUTIONS HUB PRIVACY AND COOKIES POLICY
