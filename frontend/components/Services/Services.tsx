@@ -44,13 +44,13 @@ const Services = () => {
 
       {services.length > 0 ? (
         results.length > 0 ? (
-          <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-2 mt-[2rem]">
+          <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-2 mt-[2rem]">
             {results.map((result, index) => (
               <div
                 key={index}
                 className="border-2 h-[30rem] rounded-[12px] lg:w-full md:w-full w-[22rem] mx-auto border-gray-400 flex flex-col place-items-start"
               >
-                <div className="rounded-t-[10px]">
+                <div className="rounded-t-[10px] flex justify-center w-full">
                   <Image
                     src={`${process.env.SERVICESBUCKET}/${result.serviceImageKey}`}
                     className="rounded-t-[10px] object-cover"
