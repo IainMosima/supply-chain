@@ -14,7 +14,7 @@ const Marquee = () => {
   return (
     <>
     <marquee
-      className={`text-purple italic text-sm font-extrabold lg:mt-[5.3rem] md:mt-[9rem] mt-[5rem] ${
+      className={`text-purple italic text-sm font-extrabold lg:mt-[5.3rem] md:mt-[5.2rem] mt-[5rem] ${
         marqueeHovered ? "paused" : ""
       }`}
       onMouseEnter={handleMarqueeEnter}
