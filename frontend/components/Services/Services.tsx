@@ -48,7 +48,7 @@ const Services = () => {
             {results.map((result, index) => (
               <div
                 key={index}
-                className="border-2 h-[32rem] rounded-[12px] lg:w-full md:w-full w-[22rem] mx-auto border-gray-400 flex flex-col place-items-start"
+                className="border-2 h-[33rem] rounded-[12px] lg:w-full md:w-full w-[22rem] mx-auto border-gray-400 flex flex-col place-items-start"
               >
                 <div className="rounded-t-[10px] w-full">
                   <Image
