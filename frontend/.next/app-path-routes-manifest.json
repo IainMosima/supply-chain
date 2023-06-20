@@ -1,0 +1,14 @@
+{
+  "/icon.png/route": "/icon.png",
+  "/page": "/",
+  "/contact-us/page": "/contact-us",
+  "/services/page": "/services",
+  "/privacy-and-cookie-policy/page": "/privacy-and-cookie-policy",
+  "/terms-and-conditions/page": "/terms-and-conditions",
+  "/(hubs)/buyers-hub/page": "/buyers-hub",
+  "/(hubs)/creditors-hub/page": "/creditors-hub",
+  "/(hubs)/investors-hub/page": "/investors-hub",
+  "/(hubs)/jobs-hub/page": "/jobs-hub",
+  "/(hubs)/knowledge-hub/page": "/knowledge-hub",
+  "/(hubs)/tender-hub/page": "/tender-hub"
+}
