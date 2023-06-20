@@ -55,7 +55,7 @@ const Services = () => {
                     src={`${process.env.SERVICESBUCKET}/${result.serviceImageKey}`}
                     className="rounded-t-[10px] object-cover"
                     alt={result.serviceName}
-                    width={500}
+                    width={900}
                     height={200}
                   />
                 </div>
