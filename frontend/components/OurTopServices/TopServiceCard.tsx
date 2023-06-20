@@ -25,6 +25,7 @@ const TopServiceCard = ({
             alt={serviceName}
             width={600}
             height={600}
+            className="rounded-2xl"
           />
         </div>
       </div>
