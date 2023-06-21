@@ -10,7 +10,7 @@ const UnderConstruction = () => {
         <h2 className='text-center text-xl'>This page is under Construction</h2>
         <h3 className='text-center text-slate-400'>{`We're working on it`}</h3>
         <Link href='/'>
-          <button className='rounded-full bg-purple text-white font-bold p-4'>Go To Homepage</button>
+          <button className='rounded-full ease-in-out duration-150 hover:bg-white hover:text-purple border-2 border-purple bg-purple text-white font-bold p-4'>Go To Homepage</button>
         </Link>
     </div>
   )

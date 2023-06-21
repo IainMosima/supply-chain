@@ -51,7 +51,7 @@ const ContactUs = () => {
           </p>
           <button
             onClick={() => router.push("/")}
-            className="rounded-md w-[20rem] ease-in-out duration-150 hover:bg-white hover:text-purple border-2 border-purple bg-purple text-white font-bold px-4 py-3"
+            className="rounded-md w-[20rem] ease-in-out duration-150 hover:bg-white hover:text-purple border-2 border-purple text-white font-bold px-4 py-3"
           >
             Go To HomePage
           </button>
