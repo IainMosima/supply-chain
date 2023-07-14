@@ -1,10 +1,19 @@
-import { Loading, OurServices } from '@/components'
-import React, { Suspense } from 'react'
+import { OurServices } from '@/components'
+import { Services } from "@/models/Services";
+import { getAllServices } from '@/network/Services';
+import React from 'react'
 
-const Services = () => {
+const Services = async () => {
+  const services = await fetchAllServices();
   return (
-    <OurServices/>
+    <OurServices services={services}/>
   )
 }
 
-export default Services
+async function fetchAllServices(): Promise<Services[] | []> {
+  const services = await getAllServices();
+  return services;
+}
+
+
+export default Services;

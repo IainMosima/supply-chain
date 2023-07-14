@@ -1,31 +1,27 @@
 "use client";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 
-import { EffectCards, Autoplay, Navigation } from "swiper";
+import { Autoplay, EffectCards, Navigation } from "swiper";
 
+import { Carousel } from "@/models/Carousel";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Images } from "../../constants";
-import "./Hompage-carousel.scss";
-import { motion } from "framer-motion";
-import NavigationButtons from "./NavigationButtons";
-import { Carousel } from "@/models/Carousel";
-import { useEffect, useState } from "react";
-import { getCarouselImages } from "@/network/Carousel";
 import Loading from "../Loading/Loading";
+import "./Hompage-carousel.scss";
+import NavigationButtons from "./NavigationButtons";
 
-const HompageCarousel = () => {
-  const [imagesInfo, setImagesInfo] = useState<Carousel[]>([]);
-  useEffect(() => {
-    async function fetchCarouselImages() {
-      getCarouselImages().then((res) => setImagesInfo(res));
-    }
-    fetchCarouselImages();
-  }, []);
+interface HompageCarouselProps {
+  imagesInfo: Carousel[] | []
+}
+
+const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
+  
 
   return (
     <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[2rem] lg:flex-row sm:place-items-center gap-6">

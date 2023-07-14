@@ -10,22 +10,14 @@ import { getAllServices } from "@/network/Services";
 import Loading from "../Loading/Loading";
 import { useRouter } from "next/navigation";
 
-const Services = () => {
+interface ServicesProps {
+  services: Services[] | []
+}
+
+const Services = ({ services }:ServicesProps) => {
   const [searchValue, setSearchValue] = useState("");
-  const [services, setServices] = useState<Services[]>([]);
-  const [results, setResults] = useState<Services[]>([]);
+  const [results, setResults] = useState<Services[]>(services);
   const router = useRouter();
-
-  useEffect(() => {
-    async function fetchAllServices() {
-      getAllServices().then((response) => {
-        setServices(response);
-        setResults(response);
-      });
-    }
-
-    fetchAllServices();
-  }, []);
 
   return (
     <div className="mt-1 mb-[2rem] flex flex-col overflow-y-hidden">
