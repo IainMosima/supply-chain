@@ -60,7 +60,7 @@ const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
                   <div className="border-2 border-black card rounded-3xl">
                     <Image
                       src={Images.courosel1}
-                      alt={image.imageName}
+                      alt={image.imageId}
                       width={600}
                       height={400}
                       className="rounded-3xl basis-4 object-cover"
@@ -70,7 +70,7 @@ const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
                   <div className="border-2 border-black card rounded-3xl">
                     <Image
                       src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
-                      alt={image.imageName}
+                      alt={image.imageId}
                       width={600}
                       height={400}
                       className="rounded-3xl basis-4 bg-contain"
