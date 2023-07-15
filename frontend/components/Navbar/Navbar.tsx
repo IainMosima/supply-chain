@@ -109,12 +109,12 @@ const Navbar = () => {
                 className={`translate-down rounded w-[11rem] flex flex-col text-xs font-normal mb-6`}
               >
                 {[
+                  "JOBS HUB",
+                  "TENDER HUB",
                   "KNOWLEDGE HUB",
                   "BUYERS HUB",
                   "CREDITORS HUB",
                   "INVESTORS HUB",
-                  "TENDER HUB",
-                  "JOBS HUB",
                 ].map((hub) => (
                   <Link
                     href={hub.toLowerCase().replace(" ", "-")}

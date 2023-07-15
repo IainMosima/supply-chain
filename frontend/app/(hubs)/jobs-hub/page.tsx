@@ -1,9 +1,9 @@
-import { UnderConstruction } from "@/components"
+import { JobsHub } from "@/components"
 
-const JobsHub = () => {
+const page = () => {
   return (
-    <UnderConstruction/>
+    <JobsHub/>
   )
 }
 
-export default JobsHub
+export default page;

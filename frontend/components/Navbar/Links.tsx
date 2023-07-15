@@ -43,12 +43,12 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
               className={`absolute z-1 translate-down z-30 bg-purple text-white rounded p-3 w-[11rem] right-1 flex flex-col text-xs font-bold`}
             >
               {[
+                "JOBS HUB",
+                "TENDER HUB",
                 "KNOWLEDGE HUB",
                 "BUYERS HUB",
                 "CREDITORS HUB",
                 "INVESTORS HUB",
-                "TENDER HUB",
-                "JOBS HUB",
               ].map((hub) => (
                 <Link
                   href={hub.toLowerCase().replace(" ", "-")}
