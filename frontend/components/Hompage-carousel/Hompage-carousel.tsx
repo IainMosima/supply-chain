@@ -47,7 +47,7 @@ const HompageCarousel = ({ imagesInfo }: HompageCarouselProps) => {
             grabCursor={true}
             rewind={true}
             modules={[Autoplay, EffectCards, Navigation]}
-            className="sm:w-[40rem] w-[20rem] rounded-3xl"
+            className="sm:w-[40rem] w-[20rem] rounded-3xl swiper3"
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,

@@ -51,7 +51,7 @@ const OurTopService = ({ services }:OurTopServiceProps) => {
                 delay: 8000,
                 disableOnInteraction: false,
               }}
-              className="mySwiper h-full relative"
+              className="mySwiper h-full relative swiper1"
             >
               <NavigationButtons />
               {services.map((service, index) => (
