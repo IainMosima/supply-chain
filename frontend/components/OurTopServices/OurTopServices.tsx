@@ -31,7 +31,6 @@ const OurTopService = ({ services }: OurTopServiceProps) => {
           <div className="w-[1.2rem] h-[.2rem] bg-purple mx-auto" />
           <div className="w-full flex h-[30rem] justify-between place-items-center gap-1 mt-3">
             <Swiper
-              spaceBetween={0}
               observer={true}
               rewind={true}
               breakpoints={{
@@ -45,6 +44,7 @@ const OurTopService = ({ services }: OurTopServiceProps) => {
                   slidesPerView: 3,
                 },
               }}
+              
               modules={[Autoplay]}
               autoplay={{
                 delay: 8000,
