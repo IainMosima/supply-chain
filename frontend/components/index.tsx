@@ -11,4 +11,8 @@ export { default as TermsandConditions } from './TermsandConditions/TermsandCond
 export { default as PrivacyAndCookierPolicy } from './PrivacyAndCookiePolicy/PrivacyAndCookiePolicy';
 export { default  as Loading } from './Loading/Loading';
 export { default as Marquee } from './Marquee/Marquee';
+<<<<<<< HEAD
 export { default as JobsHub } from './JobsHub/JobsHub';
+=======
+export { default as SearchBarJobsHub } from './JobsHub/SearchBar';
+>>>>>>> testing

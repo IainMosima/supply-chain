@@ -1,14 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import { Images } from "../../constants";
-import SearchBar from "./SearchBar";
-import { useEffect, useState } from "react";
 import { Services } from "@/models/Services";
-import NoResults from "../NoResults/NoResults";
-import { getAllServices } from "@/network/Services";
-import Loading from "../Loading/Loading";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Loading from "../Loading/Loading";
+import NoResults from "../NoResults/NoResults";
+import SearchBar from "./SearchBar";
+
+interface ServicesProps {
+  services: Services[] | [];
+}
 
 interface ServicesProps {
   services: Services[] | []
@@ -66,7 +68,11 @@ const Services = ({ services }:ServicesProps) => {
             ))}
           </div>
         ) : (
-          <NoResults searchValue={searchValue} setSearchValue={setSearchValue} router={router}/>
+          <NoResults
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            router={router}
+          />
         )
       ) : (
         <div className="h-full">

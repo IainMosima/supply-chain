@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
-  const [marqueeHovered, setMarqueeHovered] = useState(false);
   const router = useRouter();
 
   function toggleHandler(option?: string) {
@@ -36,13 +35,14 @@ const Navbar = () => {
   return (
     <nav className="w-full fixed flex gap-1 justify-evenly sm:justify-between place-content-between z-50 px-4 py-1 place-items-center backdrop-blur-md bg-white/30">
       <div className="flex lg:basis-[30%]">
-        <Image
-          src={Images.logo}
-          alt="logo"
-          height={80}
-          className="sm:ml-5 cursor-pointer"
-          onClick={() => router.push("/")}
-        />
+        <a href="/">
+          <Image
+            src={Images.logo}
+            alt="logo"
+            height={80}
+            className="sm:ml-5 cursor-pointer"
+          />
+        </a>
       </div>
 
       <div className="">
