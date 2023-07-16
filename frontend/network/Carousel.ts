@@ -3,7 +3,7 @@ import { fetchData } from "./FetchData";
 import { Carousel } from "@/models/Carousel";
 
 export async function getCarouselImages(): Promise<Carousel[]> {
-    const response = await fetchData('/api/images', { method: 'GET' });
+    const response = await fetchData(`${process.env.BACKENDIP}/api/images`, { method: 'GET' });
     if (response) return response.json();
     return [];
 }

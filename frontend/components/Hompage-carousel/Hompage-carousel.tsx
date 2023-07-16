@@ -18,15 +18,10 @@ import { useEffect, useState } from "react";
 import { getCarouselImages } from "@/network/Carousel";
 import Loading from "../Loading/Loading";
 
-const HompageCarousel = () => {
-  const [imagesInfo, setImagesInfo] = useState<Carousel[]>([]);
-  useEffect(() => {
-    async function fetchCarouselImages() {
-      getCarouselImages().then((res) => setImagesInfo(res));
-    }
-    fetchCarouselImages();
-  }, []);
-
+interface HompageCarouselProps {
+  imagesInfo: Carousel[] | []
+}
+const HompageCarousel = ({ imagesInfo }: HompageCarouselProps) => {
   return (
     <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[2rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
