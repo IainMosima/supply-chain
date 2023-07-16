@@ -15,14 +15,12 @@ import { useEffect, useState } from "react";
 import { Services } from "@/models/Services";
 import Loading from "../Loading/Loading";
 
-const OurTopService = () => {
-  const [services, setServices] = useState<Services[]>([]);
-  useEffect(() => {
-    async function fetchRandomServices() {
-      getRandomServices().then((res) => setServices(res));
-    }
-    fetchRandomServices();
-  }, []);
+interface OurTopServiceProps {
+  services: Services[] | []
+}
+
+const OurTopService = ({ services }:OurTopServiceProps) => {
+
 
   return (
     <div className="mt-1 flex flex-col z-20">

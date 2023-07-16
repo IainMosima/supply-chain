@@ -1,31 +1,21 @@
 "use client";
 
-import Image from "next/image";
-import { Images } from "../../constants";
-import SearchBar from "./SearchBar";
-import { useEffect, useState } from "react";
 import { Services } from "@/models/Services";
-import NoResults from "../NoResults/NoResults";
-import { getAllServices } from "@/network/Services";
-import Loading from "../Loading/Loading";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Loading from "../Loading/Loading";
+import NoResults from "../NoResults/NoResults";
+import SearchBar from "./SearchBar";
 
-const Services = () => {
+interface ServicesProps {
+  services: Services[] | [];
+}
+
+const Services = ({ services }: ServicesProps) => {
   const [searchValue, setSearchValue] = useState("");
-  const [services, setServices] = useState<Services[]>([]);
-  const [results, setResults] = useState<Services[]>([]);
+  const [results, setResults] = useState<Services[]>(services);
   const router = useRouter();
-
-  useEffect(() => {
-    async function fetchAllServices() {
-      getAllServices().then((response) => {
-        setServices(response);
-        setResults(response);
-      });
-    }
-
-    fetchAllServices();
-  }, []);
 
   return (
     <div className="mt-1 mb-[2rem] flex flex-col overflow-y-hidden">
@@ -74,7 +64,11 @@ const Services = () => {
             ))}
           </div>
         ) : (
-          <NoResults searchValue={searchValue} setSearchValue={setSearchValue} router={router}/>
+          <NoResults
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            router={router}
+          />
         )
       ) : (
         <div className="h-full">

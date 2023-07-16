@@ -1,10 +1,13 @@
 import { Loading, OurServices } from '@/components'
-import React, { Suspense } from 'react'
+import { getAllServices } from '@/network/Services';
+import React from 'react';
 
-const Services = () => {
+
+const Services = async () => {
+  const services = await getAllServices();
   return (
-    <OurServices/>
+    <OurServices services={services}/>
   )
 }
 
-export default Services
+export default Services;

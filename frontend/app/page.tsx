@@ -1,10 +1,12 @@
-import { HompageCarousel, OurInfo, OurTopService } from '@/components'
-import Image from 'next/image'
+import { HompageCarousel, OurInfo, OurTopService } from '@/components';
+import { getRandomServices } from '@/network/Services';
 
-export default function Home() {
+export default async function Home() {
+  const servicesData = getRandomServices();
+  const [services] = await Promise.all([servicesData]);
   return (
     <div>
-      <OurTopService/>
+      <OurTopService services={services}/>
       <HompageCarousel/>
       <OurInfo/>
     </div>
