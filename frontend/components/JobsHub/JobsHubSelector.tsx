@@ -12,18 +12,18 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
 
-const trial = ['All', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Herbs', 'Meat']
+const trial = ['All', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Meat', 'Vegatables', 'Fruits', 'Meat', 'Vegatables', 'Fruits']
 
 
 const JobsHubSelector = () => {
-
+  console.log(trial.length);
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
-        slidesPerView={15}
+        slidesPerView={(trial.length)/2 + 7}
         spaceBetween={0} >
         <div className="flex justify-center gap-2 w-full">
           {trial.map((category, index) => (
