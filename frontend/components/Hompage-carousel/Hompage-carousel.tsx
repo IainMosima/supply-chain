@@ -1,28 +1,27 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 
-import { Autoplay, EffectCards, Navigation } from "swiper";
+import { EffectCards, Autoplay, Navigation } from "swiper";
 
-import { Carousel } from "@/models/Carousel";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Images } from "../../constants";
-import Loading from "../Loading/Loading";
 import "./Hompage-carousel.scss";
+import { motion } from "framer-motion";
 import NavigationButtons from "./NavigationButtons";
+import { Carousel } from "@/models/Carousel";
+import { useEffect, useState } from "react";
+import { getCarouselImages } from "@/network/Carousel";
+import Loading from "../Loading/Loading";
 
 interface HompageCarouselProps {
   imagesInfo: Carousel[] | []
 }
-
-const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
-  
-
+const HompageCarousel = ({ imagesInfo }: HompageCarouselProps) => {
   return (
     <div className="w-full h-5/6 flex mt-5 flex-col md:flex-col mb-[2rem] lg:flex-row sm:place-items-center gap-6">
       <motion.div
@@ -52,15 +51,14 @@ const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,
-            }}
-          >
+            }} slidesPerView={1} spaceBetween={0}          >
             {imagesInfo.map((image, index) => (
               <SwiperSlide key={index}>
                 {process.env.ENVIRONMENT === "development" ? (
                   <div className="border-2 border-black card rounded-3xl">
                     <Image
                       src={Images.courosel1}
-                      alt={image.imageId}
+                      alt={image.imageName}
                       width={600}
                       height={400}
                       className="rounded-3xl basis-4 object-cover"
@@ -70,7 +68,7 @@ const HompageCarousel = ({ imagesInfo }:HompageCarouselProps) => {
                   <div className="border-2 border-black card rounded-3xl">
                     <Image
                       src={`${process.env.CAROUSELBUCKET}/${image.imageKey}`}
-                      alt={image.imageId}
+                      alt={image.imageName}
                       width={600}
                       height={400}
                       className="rounded-3xl basis-4 bg-contain"
