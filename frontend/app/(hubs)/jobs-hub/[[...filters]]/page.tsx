@@ -1,4 +1,4 @@
-import { Pagination, UnderConstruction } from "@/components";
+import { JobsHubPagination, UnderConstruction } from "@/components";
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 
 
@@ -8,7 +8,7 @@ const page = ({ params }: { params: string[] }) => {
     <>
       <JobsHubSelector selectedCareerType={'Accounting & Finance'}/>
       <UnderConstruction />
-      <Pagination/>
+      <JobsHubPagination/>
     </>
   );
 };

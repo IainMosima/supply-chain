@@ -48,14 +48,24 @@ const JobsHubSelector = ({ selectedCareerType }: JobsHubSelectorProps) => {
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
-        slidesPerView={7}
-        spaceBetween={0}
+        breakpoints={{
+          375: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 5,
+          },
+          1020: {
+            slidesPerView: 9,
+          },
+        }}
+        spaceBetween={80}
       >
         <div className="flex justify-center gap-2 w-full">
           {trial.map((careerType, index) => (
             <SwiperSlide key={index}>
               <button
-                className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto ${
+                className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto h-auto ${
                   careerType === selectedCareerType
                     ? "bg-purple border-purple text-white"
                     : "hover:bg-purple hover:border-purple hover:text-white"

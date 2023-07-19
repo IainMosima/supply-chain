@@ -19,7 +19,7 @@ const SearchBar = () => {
     <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
      <input type='text' className='border-2 h-[2.3rem] p-5 w-[17rem] rounded-full outline-purple' placeholder='Search Location' onChange={typedLocation}/>
      <button className='bg-purple rounded-full p-2'>
-        <Image width={33} src={Images.searchIcon} alt='search icon'/>
+        <Image width={27} src={Images.searchIcon} alt='search icon'/>
      </button>
     </div>
   )
