@@ -42,7 +42,6 @@ interface JobsHubSelectorProps {
 }
 
 const JobsHubSelector = ({ selectedCareerType }: JobsHubSelectorProps) => {
-  console.log(selectedCareerType);
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper

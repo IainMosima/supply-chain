@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   env: {
     BACKENDIP: process.env.BACKENDIP,
     SERVICESBUCKET: process.env.SERVICESBUCKET,
