@@ -11,27 +11,58 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper";
 
+const trial = [
+  "Accounting & Finance",
+  "Information Technology",
+  "Engineering",
+  "Quantity Survey",
+  "Logistics",
+  "Supply Chain",
+  "Procurement",
+  "Hospitality",
+  "Administration",
+  "Agriculture",
+  "Teaching",
+  "Healthcare",
+  "Consultancy",
+  "Customer Service",
+  "Real Estate & Facilities Management",
+  "Media",
+  "Human Resources",
+  "Sales & Marketing",
+  "Insurance",
+  "Statistics & Data Analysis",
+  "Legal Services",
+  "Project Management",
+  "Design",
+];
 
-const trial = ['All', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Herbs', 'Meat', 'Vegatables', 'Fruits', 'Meat', 'Vegatables', 'Fruits', 'Meat', 'Vegatables', 'Fruits']
+interface JobsHubSelectorProps {
+  selectedCareerType: string;
+}
 
-
-const JobsHubSelector = () => {
-  console.log(trial.length);
+const JobsHubSelector = ({ selectedCareerType }: JobsHubSelectorProps) => {
+  console.log(selectedCareerType);
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
-        slidesPerView={(trial.length)/2 + 7}
-        spaceBetween={0} >
+        slidesPerView={7}
+        spaceBetween={0}
+      >
         <div className="flex justify-center gap-2 w-full">
-          {trial.map((category, index) => (
+          {trial.map((careerType, index) => (
             <SwiperSlide key={index}>
               <button
-                className={`mt-3 mb-3 border-2 hover:border-purple rounded-[11px] px-3 py-[0.25rem] hover:bg-purple hover:border-1 hover:text-white hover:font-extrabold font-semibold ease-in-out duration-100 mx-auto`}
-                >
-                {category}
+                className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto ${
+                  careerType === selectedCareerType
+                    ? "bg-purple border-purple text-white"
+                    : "hover:bg-purple hover:border-purple hover:text-white"
+                }`}
+              >
+                {careerType}
               </button>
             </SwiperSlide>
           ))}

@@ -12,3 +12,4 @@ export { default as PrivacyAndCookierPolicy } from './PrivacyAndCookiePolicy/Pri
 export { default  as Loading } from './Loading/Loading';
 export { default as Marquee } from './Marquee/Marquee';
 export { default as SearchBarJobsHub } from './JobsHub/SearchBar';
+export { default as Pagination } from './Pagination/Pagination';
