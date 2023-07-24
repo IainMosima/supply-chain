@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
 const trial = [
+  "All",
   "Accounting & Finance",
   "Information Technology",
   "Engineering",

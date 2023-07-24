@@ -6,7 +6,7 @@ const page = ({ params }: { params: string[] }) => {
   
   return (
     <>
-      <JobsHubSelector selectedCareerType={'Accounting & Finance'}/>
+      <JobsHubSelector selectedCareerType={'All'}/>
       <UnderConstruction />
       <JobsHubPagination/>
     </>
