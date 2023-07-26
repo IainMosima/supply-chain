@@ -1,59 +1,59 @@
-'use client';
-import React from "react";
-import "./JobsHub.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper";
-import SearchBar from "./SearchBar";
+"use client";
+import { Images } from "@/constants";
+import { Job } from "@/models/Jobs";
+import React, { useState } from "react";
+import Image from "next/image";
 
 
+interface JobsHubProps {
+  jobs: Job[];
+}
 
-
-const trial = [
-  "All",
-  "Vegatables",
-  "Fruits",
-  "Herbs",
-  "Meat",
-  "Vegatables",
-  "Fruits",
-  "Herbs",
-  "Meat",
-  "Vegatables",
-  "Fruits",
-  "Herbs",
-  "Meat",
-  "Vegatables",
-  "Fruits",
-  "Herbs",
-  "Meat",
-];
-
-const JobsHub = () => {
+const JobsHub = ({ jobs }: JobsHubProps) => {
+  const [expandedIndex, setexpandedIndex] = useState(-1);
   return (
-    <div className="mt-1 mb-[2rem]">
-      <Swiper
-        navigation={true}
-        modules={[Navigation]}
-        className="mySwiper"
-        slidesPerView={15}
-        spaceBetween={0}
-      >
-        <div className="flex justify-center gap-2 w-full">
-          {trial.map((category, index) => (
-            <SwiperSlide key={index}>
-              <button
-                className={`mt-3 mb-3 border-2 border-green rounded-[11px] px-3 py-[0.25rem] hover:bg-green hover:border-1 hover:text-yellow hover:font-extrabold font-semibold ease-in-out duration-100 mx-auto `}
-              >
-                {category}
-              </button>
-            </SwiperSlide>
-          ))}
-        </div>
-      </Swiper>
+    <div className="w-full">
+      {jobs.map((job, index) => (
+        <div
+          key={index}
+          className="border border-black rounded-xl grid grid-cols-6 sm:p-5 p-2"
+        >
+          <div className="sm:col-span-5 col-span-4 flex flex-col place-content-start justify-start gap-5">
+            <div className="flex flex-col place-content-start justify-start gap-2">
+              <h2 className="text-purple font-bold sm:text-xl text-md">{job.JobTitle}</h2>
+              <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
+                {job.OrganisationDescribtion}
+              </p>
+            </div>
+            <h2 className="text-purple font-bold text-xl">
+              Job Type:{" "}
+              <span className="text-[1.2rem] text-black">{job.JobType}</span>
+            </h2>
+            {/* <div className="flex justify-start place-items-start">
+            </div> */}
+          </div>
+          <div className="flex h-100% flex-col justify-between place-items-end sm:col-span-1 col-span-2">
+            <div className="flex flex-col justify-start gap-2">
+              <div className="flex place-items-center gap-1">
+                <Image src={Images.calenderIcon} alt='calender' width={20}/>
+                <h3 className="text-[11px] text-purple font-bold">
+                  {job.openning}
+                </h3>
+              </div>
+              <div className="flex place-items-center gap-1">
+                <Image src={Images.calenderIcon} alt='calender' width={20}/>
+                <h3 className="text-[11px] text-purple font-bold">
+                  {job.closing}
+                </h3>
+              </div>
+            </div>
 
-      <SearchBar/>
+            <button className="bg-purple text-white py-3 px-2 rounded-md w-[90%] cursor-pointer">
+              APPLY
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
