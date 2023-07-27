@@ -35,3 +35,9 @@
 }
 
 
+/* Custom style for the bullet */
+ul.list-none li::before {
+  content: "•"; /* You can change this to any symbol you want */
+  position: absolute;
+  left: 0;
+}

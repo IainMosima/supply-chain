@@ -83,13 +83,13 @@ const Navbar = () => {
             menuToggle ? "translate-x-[-12rem]" : "translate-x-[12rem]"
           }`}
         >
-          <Link
+          <a
             href="/"
             className="w-full px-2 py-2 rounded ease-in duration-150 mb-[2rem]"
             onClick={() => toggleHandler("link")}
           >
             HOME
-          </Link>
+          </a>
 
           <Link
             href="/services"

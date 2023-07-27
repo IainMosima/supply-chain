@@ -1,7 +1,5 @@
-"use client";
 import { Images } from "@/constants";
 import { Job } from "@/models/Jobs";
-import React, { useState } from "react";
 import Image from "next/image";
 import "./JobsHub.scss";
 
@@ -10,7 +8,6 @@ interface JobsHubProps {
 }
 
 const JobsHub = ({ jobs }: JobsHubProps) => {
-  const [expandedIndex, setexpandedIndex] = useState(-1);
   return (
     <div className="w-full">
       {jobs.map((job, index) => (
@@ -45,9 +42,9 @@ const JobsHub = ({ jobs }: JobsHubProps) => {
               <h2 className="text-purple font-bold sm:text-xl text-md">
                 Duties and Responsibilities
               </h2>
-              <ul className="list-inside list-disc">
+              <ul className="list-none">
                 {job.DutiesAndResponsiblities.map((duty, index) => (
-                  <li key={index} className="sm:text-[1rem] text-md leading-5 ml-1">{duty}.</li>
+                  <li key={index} className="sm:text-[1rem] text-md leading-5 ml-1 pl-4 relative">{duty}.</li>
                 ))}
               </ul>
             </div>

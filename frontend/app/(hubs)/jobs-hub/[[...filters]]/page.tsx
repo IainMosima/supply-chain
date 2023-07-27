@@ -1,4 +1,5 @@
-import { JobsHub, JobsHubPagination, UnderConstruction } from "@/components";
+import { JobsHubPagination, UnderConstruction } from "@/components";
+import JobsHub from "@/components/JobsHub/JobsHub";
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 
 const exampleJobs = [

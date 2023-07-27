@@ -15,12 +15,12 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
         <div>
           
         </div>
-        <Link
+        <a
           href="/"
           className="hover:text-white hover:bg-purple px-2 py-2 rounded ease-in duration-150"
         >
           HOME
-        </Link>
+        </a>
 
         <Link
           href="/services"
