@@ -4,8 +4,8 @@ import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 const exampleJobs = [
   {
     JobTitle: 'Human Resource Officer at Zizi(On-site)',
-    openning: "03 July 2023",
-    closing: "03 August 2023",
+    openning: "03 November 2023",
+    closing: "03 December 2023",
     OrganisationDescribtion: "Zizi Afrique Foundation is hiring an experienced HR Officer (HRO) based in Nairobi. We're an organization focused on driving impact in Kenya's education sector through research, advocacy, and innovation. As a mid-sized organization with 30 staff members, we offer a friendly environment centered around Ubuntu, Respect, and Curiosity.",
     JobType: "Full Time",
     JobDescribtion: "Reporting to the Director of Operations, the HRO will support HR processes and organizational development. The ideal candidates for this position should have 8-10 years of HR experience and thrive in a fast-paced environment, and where the staff are closely-knit in human contact.",

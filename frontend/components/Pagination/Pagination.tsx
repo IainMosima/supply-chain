@@ -8,7 +8,7 @@ interface PaginationComponentProps {
 
 const PaginationComponent = ({ handlePage }: PaginationComponentProps) => {
   return (
-    <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ p: 2 }}>
+    <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ mt: 2 }}>
       <Pagination
         count={10}
         variant="outlined"

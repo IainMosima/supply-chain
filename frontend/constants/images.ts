@@ -30,7 +30,8 @@ import underConstruction from "../public/icons/under-construction.png";
 import nextIcon from "../public/icons/next.png";
 import sentIcon from "../public/icons/sent.png";
 import downIcon from "../public/icons/down-icon.png";
-import calenderIcon from "../public/icons/calendar.png";
+import opencalenderIcon from "../public/icons/openCalender.png";
+import closedcalenderIcon from "../public/icons/closedCalender.png";
 
 import serviceMan from "../public/assets/serviceMan.jpg";
 import serviceWoman from "../public/assets/service.jpg";
@@ -72,7 +73,8 @@ export default {
     underConstruction,
     nextIcon,
     searchIcon,
-    calenderIcon,
+    opencalenderIcon,
+    closedcalenderIcon,
     sentIcon,
     downIcon,
     phone,
