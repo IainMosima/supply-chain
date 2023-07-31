@@ -11,7 +11,29 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
-  const router = useRouter();
+  const [selectedCountry, setSelectedCountry] = useState({
+    img: Images.kenya,
+    name: 'Kenya'
+  });
+
+  const [countries, setCountries] = useState([
+    {
+      img: Images.tanzania,
+      name: 'Tanzania'
+    },
+    {
+      img: Images.uganda,
+      name: 'Uganda'
+    },
+    {
+      img: Images.rwanda,
+      name: 'Rwanda'
+    },
+    {
+      img: Images.burundi,
+      name: 'Burundi'
+    }
+  ]);
 
   function toggleHandler(option?: string) {
     switch (option) {
@@ -46,7 +68,11 @@ const Navbar = () => {
       </div>
 
       <div className="">
-        <Countries />
+        <Countries
+          selectedCountry={selectedCountry}
+          countries={countries}
+          setCountries={setCountries}
+        />
       </div>
 
       <div className="">
@@ -59,29 +85,25 @@ const Navbar = () => {
           onClick={() => setMenuToggle((prev) => !prev)}
         >
           <span
-            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-              menuToggle
+            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle
                 ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]"
                 : "rotate-0"
-            }`}
+              }`}
           ></span>
           <span
-            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-              menuToggle ? "hidden" : "inline-block"
-            }`}
+            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle ? "hidden" : "inline-block"
+              }`}
           ></span>
           <span
-            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${
-              menuToggle
+            className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle
                 ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]"
                 : "rotate-0"
-            }`}
+              }`}
           ></span>
         </div>
         <div
-          className={`absolute flex flex-col ease-out duration-300 z-10 pt-[7rem] bg-purple w-[19rem] pl-[2rem] h-[120vh] top-[-5rem] text-white ${
-            menuToggle ? "translate-x-[-12rem]" : "translate-x-[12rem]"
-          }`}
+          className={`absolute flex flex-col ease-out duration-300 z-10 pt-[7rem] bg-purple w-[19rem] pl-[2rem] h-[120vh] top-[-5rem] text-white ${menuToggle ? "translate-x-[-12rem]" : "translate-x-[12rem]"
+            }`}
         >
           <a
             href="/"
@@ -117,7 +139,7 @@ const Navbar = () => {
                   "INVESTORS HUB",
                 ].map((hub) => (
                   <Link
-                    href={hub.toLowerCase().replace(" ", "-")}
+                    href={`${hub.toLowerCase().replace(" ", "-")}/${process.env.DEFAULT_COUNTRY}`}
                     key={hub}
                     className="px-1 pb-5"
                     onClick={() => toggleHandler("hub")}

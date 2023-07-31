@@ -1,34 +1,27 @@
-"use client";
+'use client';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Images } from "../../constants";
 import Image from "next/image";
+import { Country } from '@/models/Country';
 
-const Countries = () => {
+interface CountriesProps {
+  selectedCountry: Country,
+  countries: Country[]
+  setCountries: React.Dispatch<React.SetStateAction<Country[]>>,
+}
+
+const Countries = ({ selectedCountry, countries, setCountries }: CountriesProps) => {
   const [countryToggle, setCountryToggle] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState({
-    img: Images.kenya,
-    name: 'Kenya'
-  });
+  const [currentSelectedCountry, setCurrentSelectedCountry] = useState(selectedCountry);
 
-  const [countries, setCountries] = useState([
-    {
-      img: Images.tanzania,
-      name: 'Tanzania'
-    },
-    {
-      img: Images.uganda,
-      name: 'Uganda'
-    },
-    {
-      img: Images.rwanda,
-      name: 'Rwanda'
-    },
-    {
-      img: Images.burundi,
-      name: 'Burundi'
-    }
-  ]);
+  const handleCountryClick = (country: Country) => {
+    setCountries((prev) => [
+      { img: currentSelectedCountry.img, name: currentSelectedCountry.name },
+      ...prev.filter((info) => info.name !== country.name)
+    ]);
+    setCurrentSelectedCountry(country);
+  };
 
   return (
     <div
@@ -44,13 +37,13 @@ const Countries = () => {
       >
         <div className="flex items-center justify-center">
           <Image
-            src={selectedCountry.img}
-            alt={selectedCountry.name}
+            src={currentSelectedCountry.img}
+            alt={currentSelectedCountry.name}
             width={20}
             height={15}
             className="w-auto h-auto"
           />
-          <h2 className="ml-2">{selectedCountry.name}</h2>
+          <h2 className="ml-2">{currentSelectedCountry.name}</h2>
           <Image
             src={Images.dropDown}
             alt="drop-down"
@@ -59,7 +52,7 @@ const Countries = () => {
           />
         </div>
 
-          {countryToggle && (
+        {countryToggle && (
           <div
             className={`absolute z-30 translate-down bg-purple text-white rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
               countryToggle ? 'translate-down' : ''
@@ -69,23 +62,15 @@ const Countries = () => {
               <div
                 className="flex items-center text-sm sm:text-base py-1"
                 key={country.name}
-                onClick={() => {
-                  setCountries((prev) => [
-                    { img: selectedCountry.img, name: selectedCountry.name },
-                    ...prev.filter((info) => info.name !== country.name)
-                  ]);
-                  setSelectedCountry(country);
-                }}
+                onClick={() => handleCountryClick(country)}
               >
-                <Image src={country.img} alt={country.name} width={20} height={15} className="w-auto h-auto"/>
+                <Image src={country.img} alt={country.name} width={20} height={15} className="w-auto h-auto" />
                 <h2 className="ml-2">{country.name}</h2>
               </div>
             ))}
           </div>
         )}
       </div>
-
-      
     </div>
   );
 };

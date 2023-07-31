@@ -51,7 +51,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
                 "INVESTORS HUB",
               ].map((hub) => (
                 <Link
-                  href={hub.toLowerCase().replace(" ", "-")}
+                  href={`${hub.toLowerCase().replace(" ", "-")}/${process.env.DEFAULT_COUNTRY}`}
                   key={hub}
                   className="py-2 px-3"
                 >

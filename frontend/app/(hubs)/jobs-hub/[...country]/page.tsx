@@ -53,6 +53,10 @@ const exampleJobs = [
   },
 ];
 
+const fetchJobs = async () => {
+
+}
+
 const page = ({ params }: { params: string[] }) => {
   return (
     <div className="w-full p-1">
