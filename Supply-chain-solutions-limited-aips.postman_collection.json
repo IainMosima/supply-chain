@@ -109,14 +109,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{port}}/api/services/590e3531-312f-40a3-b969-27b875516766",
+							"raw": "{{port}}/api/services/",
 							"host": [
 								"{{port}}"
 							],
 							"path": [
 								"api",
 								"services",
-								"590e3531-312f-40a3-b969-27b875516766"
+								""
 							]
 						}
 					},
@@ -150,6 +150,22 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/nyamu/Desktop/supply-chain-services-converted/25.webp"
+								},
+								{
+									"key": "imageName",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
 						"url": {
 							"raw": "{{port}}/api/images",
 							"host": [
@@ -211,6 +227,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nyamuallan@gmail.com\",\n    \"name\":\"Allan Murage\",\n    \"organisation\":\"Techmax\",\n    \"phoneNumber\":\"0791565635\",\n    \"message\":\"very nice\",\n    \"subject\":\"feedback\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{port}}/api/emails",
 							"host": [
@@ -219,6 +244,213 @@
 							"path": [
 								"api",
 								"emails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "jobs",
+			"item": [
+				{
+					"name": "add a job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/kenya?pageNumber=2&pageSize=5&careerType=Teaching&location=Nairobi",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"kenya"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": null,
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "careerType",
+									"value": "Teaching"
+								},
+								{
+									"key": "location",
+									"value": "Nairobi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a job by jobId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/67737rgui276281rgr",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"67737rgui276281rgr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a job by jobId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/621981gs82t17829",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"621981gs82t17829"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tenders",
+			"item": [
+				{
+					"name": "add a tender",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/tenders",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"tenders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tender",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/kenya?pageNumber=2&pageSize=5&location=Nairobi",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"kenya"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "careerType",
+									"value": "Teaching",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "Nairobi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a delete by tenderId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/67737rgui276281rgr",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"67737rgui276281rgr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a job by tenderId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/jobs/621981gs82t17829",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"jobs",
+								"621981gs82t17829"
 							]
 						}
 					},
