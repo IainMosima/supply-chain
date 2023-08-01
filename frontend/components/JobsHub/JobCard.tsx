@@ -24,7 +24,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
               <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                 {job.OrganisationDescribtion}{" "}
                 <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(-1)}>
-                  Read less
+                  Read Less
                 </span>
               </p>
             </div>

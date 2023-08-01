@@ -9,3 +9,8 @@ export interface Job {
     MinimumRequirements: string[],
     ApplyLink: string,
 }
+
+export interface CareerType {
+    careerId: string,
+    careerType: string
+}

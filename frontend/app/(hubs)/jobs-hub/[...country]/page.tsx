@@ -1,6 +1,9 @@
 import { JobsHubPagination, UnderConstruction } from "@/components";
 import JobsHub from "@/components/JobsHub/JobsHub";
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
+import { CareerType } from "@/models/Jobs";
+import { getCareerTypes } from "@/network/Jobs";
+import { type } from "os";
 
 const exampleJobs = [
   {
@@ -53,14 +56,16 @@ const exampleJobs = [
   },
 ];
 
-const fetchJobs = async () => {
-
+const fetchJobs = async (): Promise<string[]> => {
+  const carreerTypes = await getCareerTypes();
+  return ['All',...carreerTypes.map(type => type.careerType)];
 }
 
-const page = ({ params }: { params: string[] }) => {
+const page = async ({ params }: { params: string[] }) => {
+  const careerTypes = await fetchJobs();
   return (
     <div className="w-full p-1">
-      <JobsHubSelector selectedCareerType={"All"} />
+      <JobsHubSelector selectedCareerType={"All"} careerTypes={careerTypes} />
       <JobsHub jobs={exampleJobs} />
       {/* <UnderConstruction /> */}
       <JobsHubPagination />

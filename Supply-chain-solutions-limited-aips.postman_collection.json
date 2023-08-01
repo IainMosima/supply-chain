@@ -457,6 +457,47 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "career",
+			"item": [
+				{
+					"name": "Get all careers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/careers",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"careers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a new career",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{port}}/api/careers",
+							"host": [
+								"{{port}}"
+							],
+							"path": [
+								"api",
+								"careers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

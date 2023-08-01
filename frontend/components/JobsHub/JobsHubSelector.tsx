@@ -39,10 +39,11 @@ const trial = [
 ];
 
 interface JobsHubSelectorProps {
+  careerTypes: string[];
   selectedCareerType: string;
 }
 
-const JobsHubSelector = ({ selectedCareerType }: JobsHubSelectorProps) => {
+const JobsHubSelector = ({ selectedCareerType, careerTypes }: JobsHubSelectorProps) => {
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper
@@ -63,7 +64,7 @@ const JobsHubSelector = ({ selectedCareerType }: JobsHubSelectorProps) => {
         spaceBetween={80}
       >
         <div className="flex justify-center gap-2 w-full">
-          {trial.map((careerType, index) => (
+          {careerTypes.map((careerType, index) => (
             <SwiperSlide key={index}>
               <button
                 className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto h-auto ${
