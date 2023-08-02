@@ -7,7 +7,7 @@ import { getCareerTypes, getJobResults } from "@/network/Jobs";
 
 const fetchCareerTypes = async (): Promise<string[]> => {
   const carreerTypes = await getCareerTypes();
-  return ['All',...carreerTypes.map(type => type.careerType)];
+  return ['All', ...carreerTypes.map(type => type.careerType)];
 }
 
 // const fetchJobResults = async (): Promise<JobResult> => {
@@ -33,7 +33,7 @@ const page = async (props: Props) => {
 
   return (
     <div className="w-full p-1">
-      <JobsHubSelector selectedCareerType={props.searchParams?.careerType ? props.searchParams?.careerType : 'All'} country={props.params.country[0]} careerTypes={careerTypes} currentPage={jobs?.currentPage || 1}/>
+      <JobsHubSelector selectedCareerType={props.searchParams?.careerType ? props.searchParams?.careerType : 'All'} country={props.params.country[0]} careerTypes={careerTypes} currentPage={jobs?.currentPage || 1} />
       <JobsHub jobs={jobs?.jobs} />
       <JobsHubPagination country={props.params.country[0]} careerType={props.searchParams?.careerType} totalPages={jobs?.totalPages} />
     </div>
