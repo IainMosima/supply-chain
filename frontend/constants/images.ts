@@ -32,9 +32,6 @@ import sentIcon from "../public/icons/sent.png";
 import downIcon from "../public/icons/down-icon.png";
 import opencalenderIcon from "../public/icons/openCalender.png";
 import closedcalenderIcon from "../public/icons/closedCalender.png";
-
-import serviceMan from "../public/assets/serviceMan.jpg";
-import serviceWoman from "../public/assets/service.jpg";
 import courosel1 from "../public/assets/carousel-1.jpg";
 import courosel2 from "../public/assets/carousel-2.png";
 import courosel3 from "../public/assets/carousel-3.jpg";
@@ -83,6 +80,4 @@ export default {
     facebook,
     twitter,
     linkedin,
-    serviceMan,
-    serviceWoman,
 }
