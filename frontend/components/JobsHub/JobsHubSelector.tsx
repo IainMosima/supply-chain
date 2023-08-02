@@ -10,40 +10,29 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
-
-const trial = [
-  "All",
-  "Accounting & Finance",
-  "Information Technology",
-  "Engineering",
-  "Quantity Survey",
-  "Logistics",
-  "Supply Chain",
-  "Procurement",
-  "Hospitality",
-  "Administration",
-  "Agriculture",
-  "Teaching",
-  "Healthcare",
-  "Consultancy",
-  "Customer Service",
-  "Real Estate & Facilities Management",
-  "Media",
-  "Human Resources",
-  "Sales & Marketing",
-  "Insurance",
-  "Statistics & Data Analysis",
-  "Legal Services",
-  "Project Management",
-  "Design",
-];
+import { useRouter } from "next/navigation";
 
 interface JobsHubSelectorProps {
   careerTypes: string[];
   selectedCareerType: string;
+
+  country?: string,
+  location?: string,
+  currentPage?: number
 }
 
-const JobsHubSelector = ({ selectedCareerType, careerTypes }: JobsHubSelectorProps) => {
+const JobsHubSelector = ({ selectedCareerType, careerTypes, country, location, currentPage }: JobsHubSelectorProps) => {
+  const navigation = useRouter();
+  const handleJobsHubSelector = (careerType: string) => {
+    if (careerType && !location) {
+      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}&careerType=${careerType}`);
+    } else if (careerType && location) {
+      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}&careerType=${careerType}&location=${location}`);
+    } else {
+      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}`);
+    }
+    return window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper
@@ -67,11 +56,12 @@ const JobsHubSelector = ({ selectedCareerType, careerTypes }: JobsHubSelectorPro
           {careerTypes.map((careerType, index) => (
             <SwiperSlide key={index}>
               <button
-                className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto h-auto ${
-                  careerType === selectedCareerType
-                    ? "bg-purple border-purple text-white"
-                    : "hover:bg-purple hover:border-purple hover:text-white"
-                }`}
+                className={`mt-3 mb-3 border rounded-[11px] px-3 py-[0.25rem] font-semibold ease-in-out duration-100 mx-auto border-black w-auto h-auto ${careerType === selectedCareerType
+                  ? "bg-purple border-purple text-white"
+                  : "sm:hover:bg-purple sm:hover:border-purple sm:hover:text-white"
+                  }`}
+                onClick={() => handleJobsHubSelector(careerType)}
+
               >
                 {careerType}
               </button>
