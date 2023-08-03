@@ -35,7 +35,10 @@ const page = async (props: Props) => {
     <div className="w-full p-1">
       <JobsHubSelector selectedCareerType={props.searchParams?.careerType ? props.searchParams?.careerType : 'All'} country={props.params.country[0]} careerTypes={careerTypes} currentPage={jobs?.currentPage || 1} />
       <JobsHub jobs={jobs?.jobs} />
-      <JobsHubPagination country={props.params.country[0]} careerType={props.searchParams?.careerType} totalPages={jobs?.totalPages} />
+      {jobs && jobs.totalPages > 2 &&
+        <JobsHubPagination country={props.params.country[0]} careerType={props.searchParams?.careerType} totalPages={jobs?.totalPages} />
+
+      }
     </div>
   );
 };

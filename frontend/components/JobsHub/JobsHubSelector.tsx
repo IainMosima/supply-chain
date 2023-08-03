@@ -25,11 +25,11 @@ const JobsHubSelector = ({ selectedCareerType, careerTypes, country, location, c
   const navigation = useRouter();
   const handleJobsHubSelector = (careerType: string) => {
     if (careerType && !location) {
-      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}&careerType=${careerType}`);
+      navigation.push(`/jobs-hub/${country}?careerType=${careerType}`);
     } else if (careerType && location) {
-      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}&careerType=${careerType}&location=${location}`);
+      navigation.push(`/jobs-hub/${country}?careerType=${careerType}&location=${location}`);
     } else {
-      navigation.push(`/jobs-hub/${country}?pageNumber=${currentPage}`);
+      navigation.push(`/jobs-hub/${country}`);
     }
     return window.scrollTo({ top: 0, behavior: 'smooth' });
   }

@@ -13,12 +13,12 @@ export async function getJobResults(country?:string[], pageNumber?:number, caree
     if (!pageNumber) pageNumber = 1;
     if (careerType && !location) {
         if (careerType === 'All'){
-            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET' });
+            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', cache: 'no-store' });
         } else {
-            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?careerType=${careerType}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET' });
+            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?careerType=${careerType}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', cache: 'no-store' });
         }
     } else if (careerType && location) {
-        response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?careerType=${careerType}&location=${location}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET' });
+        response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?careerType=${careerType}&location=${location}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', cache: 'no-store' });
     } else {
         response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${country}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET' });
     }
