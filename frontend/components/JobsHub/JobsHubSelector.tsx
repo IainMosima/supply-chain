@@ -18,10 +18,9 @@ interface JobsHubSelectorProps {
 
   country?: string,
   location?: string,
-  currentPage?: number
 }
 
-const JobsHubSelector = ({ selectedCareerType, careerTypes, country, location, currentPage }: JobsHubSelectorProps) => {
+const JobsHubSelector = ({ selectedCareerType, careerTypes, country, location }: JobsHubSelectorProps) => {
   const navigation = useRouter();
   const handleJobsHubSelector = (careerType: string) => {
     if (careerType && !location) {

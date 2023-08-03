@@ -2,6 +2,7 @@ import { Images } from "@/constants";
 import { Job } from "@/models/Jobs";
 import Image from "next/image";
 import "./JobsHub.scss";
+import Link from "next/link";
 
 interface JobsCardProps {
   job: Job;
@@ -113,9 +114,9 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
             </div>
           </div>
 
-          <button className="bg-purple text-white py-3 px-2 rounded-md w-[90%] cursor-pointer">
+          <Link href={job.applyLink} target="_blank" className="bg-purple text-center text-white py-3 px-2 rounded-md w-[90%] cursor-pointer ">
             APPLY
-          </button>
+          </Link>
         </div>
       </div>
     </div>
