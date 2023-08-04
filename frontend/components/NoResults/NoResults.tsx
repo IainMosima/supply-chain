@@ -1,15 +1,17 @@
+"use client";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { Images } from "../../constants";
 import "./NoResults.scss";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface NoResultsProps {
-  searchValue: any,
-  setSearchValue: React.Dispatch<React.SetStateAction<any>>,
-  router: AppRouterInstance
+  searchValue?: any,
+  router?: AppRouterInstance
 }
 
-const NoResults = ({ searchValue, setSearchValue, router }: NoResultsProps) => {
+const NoResults = ({ searchValue }: NoResultsProps) => {
+  const navigator = useRouter();
   return (
     <div className="app__no_results">
       <Image src={Images.binoculars} alt="binoculars" width={200} />
@@ -24,7 +26,7 @@ const NoResults = ({ searchValue, setSearchValue, router }: NoResultsProps) => {
           <li>Try searching with short and simple keywords.</li>
           <li>Try different keywords.</li>
         </ul>
-        <button>Try Again</button>
+        <button onClick={()=>navigator.back()}>Try Again</button>
       </div>
     </div>
   );

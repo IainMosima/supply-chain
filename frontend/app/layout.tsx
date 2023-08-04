@@ -1,11 +1,6 @@
 import { Navbar, Footer, Marquee } from '@/components';
 import './globals.css';
 
-export const metadata = {
-  title: 'Supply Chain Solutions Hub Limited',
-  description: 'Your Trusted Supply Chain Solutions Partner',
-}
-
 export default function RootLayout({
   children,
 }: {

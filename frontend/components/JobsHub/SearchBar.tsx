@@ -8,14 +8,13 @@ import { Images } from '../../constants';
 interface SearchBarProps {
   country?: string,
   careerType?: string,
-
-
+  currentLocation: string
 }
 
 
-const SearchBar = ({ country, careerType }: SearchBarProps) => {
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [showSearchBar, setshowSearchBar] = useState(true);
+const SearchBar = ({ country, careerType, currentLocation }: SearchBarProps) => {
+  const [selectedLocation, setSelectedLocation] = useState(currentLocation);
+  const [showSearchBar, setshowSearchBar] = useState(!currentLocation ? true : false);
   const navigation = useRouter();
 
 

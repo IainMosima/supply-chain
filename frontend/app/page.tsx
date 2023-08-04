@@ -1,8 +1,11 @@
 import { HompageCarousel, OurInfo, OurTopService } from '@/components';
-import { Carousel } from '@/models/Carousel';
-import { Services } from '@/models/Services'
 import { getCarouselImages } from '@/network/Carousel';
-import { getRandomServices } from '@/network/Services'
+import { getRandomServices } from '@/network/Services';
+
+export const metadata = {
+  title: 'Supply Chain Solutions Hub Limited',
+  description: 'Your Trusted Supply Chain Solutions Partner',
+}
 
 export default async function  Home() {
   const servicesData = getRandomServices();

@@ -70,7 +70,6 @@ const Services = ({ services }:ServicesProps) => {
         ) : (
           <NoResults
             searchValue={searchValue}
-            setSearchValue={setSearchValue}
             router={router}
           />
         )

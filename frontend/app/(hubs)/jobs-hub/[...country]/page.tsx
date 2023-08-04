@@ -4,10 +4,24 @@ import JobsHub from "@/components/JobsHub/JobsHub";
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 import { getCareerTypes, getJobResults } from "@/network/Jobs";
 
+export const metadata = {
+  title: 'Jobs Hub',
+  description: 'Search for a job and apply',
+}
 
 const fetchCareerTypes = async (): Promise<string[]> => {
   const carreerTypes = await getCareerTypes();
   return ['All', ...carreerTypes.map(type => type.careerType)];
+}
+
+export async function generateStaticParams() {
+  return [{
+    country: ['Kenya']
+  },
+  {
+    country: ['Tanzania']
+  }
+]
 }
 
 
@@ -29,7 +43,7 @@ const page = async (props: Props) => {
 
   return (
     <div className="w-full p-1">
-      <SearchBarJobsHub country={props.params.country[0]} careerType={props.searchParams?.careerType}/>
+      <SearchBarJobsHub country={props.params.country[0]} careerType={props.searchParams?.careerType} currentLocation={props.searchParams?.location || ''}/>
       <JobsHubSelector selectedCareerType={props.searchParams?.careerType ? props.searchParams?.careerType : 'All'} country={props.params.country[0]} careerTypes={careerTypes} location={props.searchParams?.location}/>
       <JobsHub jobs={jobs?.jobs} />
       {jobs && jobs.totalPages > 2 &&

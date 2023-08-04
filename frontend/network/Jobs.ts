@@ -24,7 +24,7 @@ export async function getJobResults(country:string, pageNumber?:number, careerTy
     }
      else if (careerType && location) {
         response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
-        console.log(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`)
+       
     } else {
         response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
     }
