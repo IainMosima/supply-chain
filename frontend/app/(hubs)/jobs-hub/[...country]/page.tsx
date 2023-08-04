@@ -1,5 +1,6 @@
 import { JobsHubPagination, SearchBarJobsHub } from "@/components";
 import JobsHub from "@/components/JobsHub/JobsHub";
+
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 import { getCareerTypes, getJobResults } from "@/network/Jobs";
 

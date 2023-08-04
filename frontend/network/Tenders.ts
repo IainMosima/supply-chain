@@ -6,9 +6,9 @@ export async function getTendersResults(country:string, pageNumber?:number, loca
     let response: Response | undefined;
     if (!pageNumber) pageNumber = 1;
     if (location) {
-        response = await fetchData(`${process.env.BACKENDIP}/api/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`);
+        response = await fetchData(`${process.env.BACKENDIP}/api/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`);
     } else {
-        response = await fetchData(`${process.env.BACKENDIP}/api/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`);
+        response = await fetchData(`${process.env.BACKENDIP}/api/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`);
     }
         
        

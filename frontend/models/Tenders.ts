@@ -2,7 +2,7 @@ export interface Tender{
     tenderId: string,
     countryName: string,
     tenderTitle: string,
-    TenderDescription: string,
+    tenderDescription: string,
     organization: string,
     location: string,
     howToSubmit: string,

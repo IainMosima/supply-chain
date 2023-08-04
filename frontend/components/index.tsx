@@ -13,4 +13,7 @@ export { default  as Loading } from './Loading/Loading';
 export { default as Marquee } from './Marquee/Marquee';
 export { default as SearchBarJobsHub } from './JobsHub/SearchBar';
 export { default as JobsHubPagination } from './JobsHub/JobsHubPagination';
+export { default as TendersHubPagination } from './TendersHub/TendersHubPagination';
+export { default as SearchBarTendersHub } from "./TendersHub/SearchBar";
 // export { default as JobsHub } from './JobsHub/JobsHub';
+// export { default as TendersHub } from './TendersHub/TendersHub';

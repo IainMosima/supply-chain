@@ -132,7 +132,7 @@ const Navbar = () => {
               >
                 {[
                   "JOBS HUB",
-                  "TENDER HUB",
+                  "TENDERS HUB",
                   "KNOWLEDGE HUB",
                   "BUYERS HUB",
                   "CREDITORS HUB",

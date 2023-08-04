@@ -44,7 +44,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
             >
               {[
                 "JOBS HUB",
-                "TENDER HUB",
+                "TENDERS HUB",
                 "KNOWLEDGE HUB",
                 "BUYERS HUB",
                 "CREDITORS HUB",
