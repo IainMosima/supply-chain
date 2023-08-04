@@ -134,9 +134,6 @@ const Navbar = () => {
                   "JOBS HUB",
                   "TENDERS HUB",
                   "KNOWLEDGE HUB",
-                  "BUYERS HUB",
-                  "CREDITORS HUB",
-                  "INVESTORS HUB",
                 ].map((hub) => (
                   <Link
                     href={`${hub.toLowerCase().replace(" ", "-")}/${process.env.DEFAULT_COUNTRY}`}
