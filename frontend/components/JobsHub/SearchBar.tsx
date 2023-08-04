@@ -48,12 +48,18 @@ const SearchBar = ({ country, careerType }: SearchBarProps) => {
     return navigation.push(`/jobs-hub/${country}`);
   }
 
+  function handleClick2() {
+    if (careerType) {
+      return navigation.push(`/jobs-hub/${country}?careerType=${careerType}`);
+    }
+    return navigation.push(`/jobs-hub/${country}`);
+  }
   return (
     <>
       {!showSearchBar ? (
         <div className="flex w-[22rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
           <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{selectedLocation}</span></h2>
-          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => {setshowSearchBar(true); setSelectedLocation(''); handleOnClick()} }>Change</button>
+          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setSelectedLocation(''); handleClick2() }}>Change</button>
         </div>)
         : (
           <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
