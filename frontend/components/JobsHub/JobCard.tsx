@@ -3,6 +3,7 @@ import { Job } from "@/models/Jobs";
 import Image from "next/image";
 import "./JobsHub.scss";
 import Link from "next/link";
+import dateConverter from "@/utils/dateConverter";
 
 interface JobsCardProps {
   job: Job;
@@ -97,7 +98,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
             <div className="flex place-items-center gap-1">
               <Image src={Images.opencalenderIcon} alt="calendar" width={20} />
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-                03 November 2023
+              {dateConverter(job.openingDate)}
               </h3>
             </div>
             <div className="flex place-items-center gap-1">
@@ -106,10 +107,10 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 alt="calendar"
                 width={20}
                 className="relative"
-              />
+                />
 
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-                03 January 2024
+                {dateConverter(job.closingDate)}
               </h3>
             </div>
           </div>

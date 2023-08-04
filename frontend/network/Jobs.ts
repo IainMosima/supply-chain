@@ -3,7 +3,7 @@ import { fetchData } from "./FetchData";
 import ConvertToTitleCase from "@/utils/ConvertToTitleCase";
 
 export async function getCareerTypes(): Promise<CareerType[]> {
-    const response = await fetchData(`${process.env.BACKENDIP}/api/careers`, { method: 'GET', cache: 'no-store' });
+    const response = await fetchData(`${process.env.BACKENDIP}/api/careers`, { method: 'GET', next: { revalidate: 3600 } });
     if (response) return response.json();
     return [];
 }

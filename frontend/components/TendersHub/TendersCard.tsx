@@ -1,5 +1,6 @@
 import { Images } from "@/constants";
 import { Tender } from "@/models/Tenders";
+import dateConverter from "@/utils/dateConverter";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -67,7 +68,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
             <div className="flex place-items-center gap-1">
               <Image src={Images.opencalenderIcon} alt="calendar" width={20} />
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-                03 November 2023
+              {dateConverter(tender.openingDate)}
               </h3>
             </div>
             <div className="flex place-items-center gap-1">
@@ -79,7 +80,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
               />
 
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-                03 January 2024
+              {dateConverter(tender.closingDate)}
               </h3>
             </div>
           </div>

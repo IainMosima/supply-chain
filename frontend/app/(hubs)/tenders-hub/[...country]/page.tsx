@@ -2,6 +2,9 @@ import { NoResults, SearchBarTendersHub, TendersHubPagination } from "@/componen
 import TendersHub from "@/components/TendersHub/TendersHub";
 import { getTendersResults } from "@/network/Tenders";
 
+
+export const dynamic = 'force-static'
+
 export const metadata = {
   title: 'Tenders Hub',
   description: 'Available Tenders',
@@ -14,7 +17,7 @@ export async function generateStaticParams() {
   {
     country: ['Tanzania']
   }
-]
+  ]
 }
 
 type Props = {
@@ -33,7 +36,7 @@ const page = async (props: Props) => {
 
   return (
     <div className="w-full p-1">
-      <SearchBarTendersHub country={props.params.country[0]} currentLocation={props.searchParams?.location || ''}/>
+      <SearchBarTendersHub country={props.params.country[0]} currentLocation={props.searchParams?.location || ''} />
       {tenders && tenders.tenders.length > 0 ? (
         <>
           <TendersHub tenders={tenders?.tenders} />
@@ -42,7 +45,7 @@ const page = async (props: Props) => {
 
           }
         </>
-      ) : (<NoResults searchValue={props.searchParams?.location}/>)}
+      ) : (<NoResults searchValue={props.searchParams?.location} />)}
     </div>
   );
 };
