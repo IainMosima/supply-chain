@@ -2,6 +2,7 @@ import { JobsHubPagination, SearchBarJobsHub } from "@/components";
 import JobsHub from "@/components/JobsHub/JobsHub";
 
 import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
+import JobsHubWrapper from "@/components/JobsHub/JobsHubWrapper";
 import { getCareerTypes, getJobResults } from "@/network/Jobs";
 
 export const dynamic = 'force-static'
@@ -16,17 +17,6 @@ const fetchCareerTypes = async (): Promise<string[]> => {
   const carreerTypes = await getCareerTypes();
   return ['All', ...carreerTypes.map(type => type.careerType)];
 }
-
-export async function generateStaticParams() {
-  return [{
-    country: ['Kenya']
-  },
-  {
-    country: ['Tanzania']
-  }
-]
-}
-
 
 type Props = {
   params: {
@@ -45,16 +35,7 @@ const page = async (props: Props) => {
   const [careerTypes, jobs] = await Promise.all([careerTypesData, jobsData]);
 
   return (
-    <div className="w-full p-1">
-      <SearchBarJobsHub country={props.params.country[0]} careerType={props.searchParams?.careerType} currentLocation={props.searchParams?.location || ''}/>
-      
-      <JobsHubSelector selectedCareerType={props.searchParams?.careerType ? props.searchParams?.careerType : 'All'} country={props.params.country[0]} careerTypes={careerTypes} location={props.searchParams?.location}/>
-      <JobsHub jobs={jobs?.jobs} />
-      {jobs && jobs.totalPages > 2 &&
-        <JobsHubPagination country={props.params.country[0]} careerType={props.searchParams?.careerType} totalPages={jobs?.totalPages} />
-
-      }
-    </div>
+    <JobsHubWrapper props={props} careerTypes={careerTypes} jobs={jobs}/>
   );
 };
 

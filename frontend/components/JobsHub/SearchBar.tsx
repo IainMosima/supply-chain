@@ -4,16 +4,20 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
 import { Images } from '../../constants';
+import { Job, JobResult } from '@/models/Jobs';
+import { getJobResults } from '@/network/Jobs';
 
 interface SearchBarProps {
-  country?: string,
+  country: string,
   careerType?: string,
-  currentLocation: string
+  currentLocation: string,
+  setResults: React.Dispatch<React.SetStateAction<JobResult | null>>,
+  intialResults: Job[] | null,
 }
 
 
-const SearchBar = ({ country, careerType, currentLocation }: SearchBarProps) => {
-  const [selectedLocation, setSelectedLocation] = useState(currentLocation);
+const SearchBar = ({ country, careerType, currentLocation, setResults }: SearchBarProps) => {
+  const [selectedLocation, setSelectedLocation] = useState<string>(currentLocation);
   const [showSearchBar, setshowSearchBar] = useState(!currentLocation ? true : false);
   const navigation = useRouter();
 
@@ -33,15 +37,36 @@ const SearchBar = ({ country, careerType, currentLocation }: SearchBarProps) => 
     }
   }
 
-  function handleOnClick() {
+  async function handleOnClick() {
+    setshowSearchBar(false);
     if (selectedLocation.length > 0) {
+      setResults(null);
       if (!careerType) {
-        return navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
+        try {
+          const res = await getJobResults(country, 1);
+          if (res )setResults(res);
+        } catch (error) {
+          alert('Refresh page to get Jobs');
+        }
+        navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
       } else if (careerType && selectedLocation) {
         if (careerType === 'All') {
-          return navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
+          try {
+            const res = await getJobResults(country, 1, '', selectedLocation);
+            if (res) setResults(res);
+          } catch (error) {
+            alert('Refresh page to get Jobs');
+          }
+          navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
+        } else {
+          try {
+            const res = await getJobResults(country, 1, careerType, selectedLocation);
+            if (res) setResults(res);
+          } catch (error) {
+            alert('Refresh page to get Jobs');
+          }
+          navigation.push(`/jobs-hub/${country}?careerType=${careerType}&location=${selectedLocation}`);
         }
-        return navigation.push(`/jobs-hub/${country}?careerType=${careerType}&location=${selectedLocation}`);
       }
     }
     return navigation.push(`/jobs-hub/${country}`);

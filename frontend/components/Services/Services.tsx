@@ -19,7 +19,7 @@ interface ServicesProps {
 const Services = ({ services }:ServicesProps) => {
   const [searchValue, setSearchValue] = useState("");
   const [results, setResults] = useState<Services[]>(services);
-  const router = useRouter();
+
 
   return (
     <div className="mt-1 mb-[2rem] flex flex-col overflow-y-hidden">
@@ -70,7 +70,9 @@ const Services = ({ services }:ServicesProps) => {
         ) : (
           <NoResults
             searchValue={searchValue}
-            router={router}
+            setResults={setResults}
+            intialResults={services}
+            backLink={`/services`}
           />
         )
       ) : (

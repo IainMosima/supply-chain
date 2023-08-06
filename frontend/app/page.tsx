@@ -3,7 +3,7 @@ import { getCarouselImages } from '@/network/Carousel';
 import { getRandomServices } from '@/network/Services';
 
 export const metadata = {
-  title: 'Supply Chain Solutions Hub Limited',
+  title: 'Supply Chain Solutions',
   description: 'Your Trusted Supply Chain Solutions Partner',
 }
 

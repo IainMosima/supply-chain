@@ -2,26 +2,35 @@
 import React from "react";
 import PaginationComponent from "../Pagination/Pagination";
 import { useRouter } from "next/navigation";
+import { Tender, TenderResult } from "@/models/Tenders";
+import { getTendersResults } from "@/network/Tenders";
 
 interface JobsHubPaginationProps {
-  country?: string,
+  country: string,
   location?: string,
-  totalPages?: number
+  totalPages?: number,
+  setResults: React.Dispatch<React.SetStateAction<TenderResult | null>>
 }
 
-const TendersHubPagination = ({ country, location, totalPages }: JobsHubPaginationProps) => {
+const TendersHubPagination = ({ country, location, totalPages, setResults }: JobsHubPaginationProps) => {
   const navigation = useRouter();
-  const handlePage = (event: React.ChangeEvent<unknown>, page: number) => {
-      if(location) {
-        navigation.push(`/tenders-hub/${country}?pageNumber=${page}&location=${location}`);
+  const handlePage = async (event: React.ChangeEvent<unknown>, page: number) => {
+    setResults(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const res = await getTendersResults(country, page, location);
+      if (res) {
+        setResults(res);
       } else {
-        navigation.push(`/tenders-hub/${country}?pageNumber=${page}`);
+        setResults(null);
       }
-      return window.scrollTo({top: 0, behavior: 'smooth'});
+    } catch (error) {
+      alert('Refresh Pageto get Tenders');
+    }
 
 
   };
-  return <PaginationComponent handlePage={handlePage} count={totalPages && totalPages > 0 ? totalPages -1 : totalPages } />;
+  return <PaginationComponent handlePage={handlePage} count={totalPages} />;
 };
 
 export default TendersHubPagination;

@@ -1,4 +1,6 @@
 "use client";
+import { TenderResult } from '@/models/Tenders';
+import { getTendersResults } from '@/network/Tenders';
 import ConvertToTitleCase from '@/utils/ConvertToTitleCase';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -6,13 +8,17 @@ import React, { useState } from "react";
 import { Images } from '../../constants';
 
 interface SearchBarProps {
-  country?: string,
-  currentLocation: string
+  country: string,
+  currentLocation: string,
+  setResults: React.Dispatch<React.SetStateAction<TenderResult | null>>,
+  intialResults?: TenderResult | null,
+  selectedLocation: string, 
+  setSelectedLocation: React.Dispatch<React.SetStateAction<string>>
+  
 }
 
 
-const SearchBar = ({ country, currentLocation }: SearchBarProps) => {
-  const [selectedLocation, setSelectedLocation] = useState(currentLocation);
+const SearchBar = ({ country, currentLocation, setResults, intialResults, selectedLocation, setSelectedLocation }: SearchBarProps) => {
   const [showSearchBar, setshowSearchBar] = useState(!currentLocation ? true : false);
   const navigation = useRouter();
 
@@ -32,9 +38,24 @@ const SearchBar = ({ country, currentLocation }: SearchBarProps) => {
     }
   }
 
-  function handleOnClick() {
+  async function handleOnClick() {
+    setshowSearchBar(false);
     if (selectedLocation.length > 0) {
-      return navigation.push(`/tenders-hub/${country}?location=${selectedLocation}`);
+      setResults(null);
+      
+      try {
+        const res = await getTendersResults(country, 1, selectedLocation);
+        if (res && res.tenders.length > 0) {
+          setResults(res);
+        } else {
+          setResults(null);
+          return navigation.push(`/tenders-hub/${country}?location=${selectedLocation}`);
+        }
+      } catch (error) {
+        alert('Refresh Page');
+
+      }
+      
     }
     return navigation.push(`/tenders-hub/${country}`);
   }
@@ -44,7 +65,7 @@ const SearchBar = ({ country, currentLocation }: SearchBarProps) => {
       {!showSearchBar ? (
         <div className="flex w-[22rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
           <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{selectedLocation}</span></h2>
-          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setSelectedLocation(''); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
+          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setSelectedLocation(''); setResults(intialResults || null); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
         </div>)
         : (
           <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
@@ -53,11 +74,11 @@ const SearchBar = ({ country, currentLocation }: SearchBarProps) => {
               className='border-2 h-[2.3rem] p-5 w-[17rem] rounded-full outline-purple'
               placeholder='Search Location'
               onChange={typedLocation}
-              onKeyDown={handleKeyPress}
+            onKeyDown={handleKeyPress}
             />
             <button
               id='searchButton'
-              className='bg-purple rounded-full p-2'
+              className='bg-purple rounded-full p-2 cursor-pointer'
               onClick={() => handleOnClick()}
             >
               <Image width={27} src={Images.searchIcon} alt='search icon' />
