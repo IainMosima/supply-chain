@@ -9,6 +9,7 @@ export async function getTendersResults(country:string, pageNumber?:number, loca
         response = await fetchData(`${process.env.BACKENDIP}/api/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`);
     } else {
         response = await fetchData(`${process.env.BACKENDIP}/api/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`);
+
     }
         
        

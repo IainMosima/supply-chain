@@ -41,24 +41,24 @@ const SearchBar = ({ country, currentLocation, setResults, intialResults, setSel
   async function handleOnClick() {
     setSelectedLocation(typingLocation);
     setshowSearchBar(false);
-    if (typingLocation.length > 0) {
-      setIsLoading(true);
-      setResults(null);
-      try {
-        const res = await getTendersResults(country, 1, typingLocation);
-        if (res && res.tenders.length > 0) {
-          setResults(res);
-        } else {
-          setResults(null);
-        }
-        setIsLoading(false);
-      } catch (error) {
-        alert('Refresh the page to get Tenders Information');
+    // if (typingLocation.length > 0) {
+    //   setIsLoading(true);
+    //   setResults(null);
+    //   try {
+    //     const res = await getTendersResults(country, 1, typingLocation);
+    //     if (res && res.tenders.length > 0) {
+    //       setResults(res);
+    //     } else {
+    //       setResults(null);
+    //     }
+    //     setIsLoading(false);
+    //   } catch (error) {
+    //     alert('Refresh the page to get Tenders Information');
 
-      }
-      return navigation.push(`/tenders-hub/${country}?location=${typingLocation}`);
-    }
-    return navigation.push(`/tenders-hub/${country}`);
+    //   }
+    //   return navigation.push(`/tenders-hub/${country}?location=${typingLocation}`);
+    // }
+    // return navigation.push(`/tenders-hub/${country}`);
   }
 
   return (
@@ -66,7 +66,7 @@ const SearchBar = ({ country, currentLocation, setResults, intialResults, setSel
       {!showSearchBar ? (
         <div className="flex w-[22rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
           <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{typingLocation}</span></h2>
-          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setTypingLoaction(''); setResults(intialResults || null); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
+          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setTypingLoaction(''); setSelectedLocation(''); setResults(intialResults || null); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
         </div>)
         : (
           <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">

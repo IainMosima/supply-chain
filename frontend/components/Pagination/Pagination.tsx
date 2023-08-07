@@ -16,7 +16,6 @@ const PaginationComponent = ({ handlePage, count, currentPage }: PaginationCompo
         variant="outlined"
         onChange={handlePage}
         color="primary"
-        page={currentPage}
       />
     </Stack>
   );

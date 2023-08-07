@@ -31,7 +31,7 @@ const page = async (props: Props) => {
   const [careerTypes, jobs] = await Promise.all([careerTypesData, jobsData]);
 
   return (
-    <JobsHubWrapper props={props} careerTypes={careerTypes} jobs={jobs}/>
+    <JobsHubWrapper props={props} careerTypes={careerTypes} jobResult={jobs}/>
   );
 };
 

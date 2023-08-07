@@ -23,11 +23,11 @@ type Props = {
 interface JobsHubWrapperProps {
     props: Props,
     careerTypes: string[],
-    jobs: JobResult | undefined,
+    jobResult: JobResult | undefined,
 }
 
-const JobsHubWrapper = ({ props, careerTypes, jobs }: JobsHubWrapperProps) => {
-    const [results, setResults] = useState<JobResult | undefined>(jobs || undefined);
+const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) => {
+    const [results, setResults] = useState<JobResult | undefined>(jobResult || undefined);
     const [selectedLocation, setSelectedLocation] = useState<string>(props.searchParams?.location || '');
     const [selectedCareerType, setSelectedCareerType] = useState<string>(props.searchParams?.careerType || 'All');
     const [currentPage, setCurrentPage] = useState(props.searchParams?.pageNumber || 1)
@@ -36,7 +36,7 @@ const JobsHubWrapper = ({ props, careerTypes, jobs }: JobsHubWrapperProps) => {
         async function fetchResults() {
             setIsLoading(true);
             if (selectedCareerType === 'All' && !selectedLocation && currentPage === 1) {
-                if (jobs) setResults(jobs);
+                if (jobResult) setResults(jobResult);
             } else {
                 setResults(undefined);
                 let res: JobResult | undefined;
@@ -56,7 +56,7 @@ const JobsHubWrapper = ({ props, careerTypes, jobs }: JobsHubWrapperProps) => {
         }
         fetchResults();
 
-    }, [currentPage, jobs, props.params.country, selectedCareerType, selectedLocation]);
+    }, [currentPage, jobResult, props.params.country, selectedCareerType, selectedLocation]);
 
     return (
         <div className="w-full p-1">
@@ -74,7 +74,8 @@ const JobsHubWrapper = ({ props, careerTypes, jobs }: JobsHubWrapperProps) => {
                 </>
 
             )}
-            <JobsHubPagination totalPages={results?.totalPages ? results?.totalPages : jobs?.totalPages} setCurrentPage={setCurrentPage} />
+            
+            <JobsHubPagination totalPages={results?.totalPages ? results?.totalPages : jobResult?.totalPages} setCurrentPage={setCurrentPage} />
 
 
 

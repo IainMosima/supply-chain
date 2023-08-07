@@ -5,29 +5,30 @@ import React from "react";
 import PaginationComponent from "../Pagination/Pagination";
 
 interface JobsHubPaginationProps {
-  country: string,
-  location?: string,
+  
   totalPages?: number,
-  setResults: React.Dispatch<React.SetStateAction<TenderResult | null>>,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>
 }
 
-const TendersHubPagination = ({ country, location, totalPages, setResults, setIsLoading }: JobsHubPaginationProps) => {
+const TendersHubPagination = ({ totalPages, setIsLoading, setCurrentPage }: JobsHubPaginationProps) => {
   const handlePage = async (event: React.ChangeEvent<unknown>, page: number) => {
-    setIsLoading(true);
-    setResults(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    try {
-      const res = await getTendersResults(country, page, location);
-      if (res && res.tenders.length > 0) {
-        setResults(res);
-      } else {
-        setResults(null);
-      }
-      setIsLoading(false);
-    } catch (error) {
-      alert('Refresh Page to get Tenders Information');
-    }
+    setCurrentPage(page);
+    // setIsLoading(true);
+    // setResults(null);
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+    // try {
+    //   const res = await getTendersResults(country, page, location);
+    //   if (res && res.tenders.length > 0) {
+    //     setResults(res);
+    //   } else {
+    //     setResults(null);
+    //   }
+    //   setIsLoading(false);
+    // } catch (error) {
+    //   alert('Refresh Page to get Tenders Information');
+    // }
 
 
   };
