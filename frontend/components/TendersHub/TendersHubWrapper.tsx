@@ -50,7 +50,7 @@ const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
       }
       fetchResults();
     }, [currentPage, props.params.country, selectedLocation, tenderResult])
-    
+    console.log(process.env.BACKENDIP);
     return (
         <div className="w-full p-1">
             <SearchBar country={props.params.country[0]} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
