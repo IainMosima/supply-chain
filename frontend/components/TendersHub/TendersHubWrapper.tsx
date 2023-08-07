@@ -24,22 +24,17 @@ interface TendersHubWrapperProps {
 const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
     const [results, setResults] = useState<TenderResult | null>(tenderResult || null);
     const [selectedLocation, setSelectedLocation] = useState<string>(props.searchParams?.location || '');
-
+    const [isLoading, setIsLoading] = useState(false);
 
     return (
         <div className="w-full p-1">
-            <SearchBar country={props.params.country[0]} currentLocation={props.searchParams?.location || ''} setResults={setResults} intialResults={tenderResult} selectedLocation={selectedLocation || ''}
-                setSelectedLocation={setSelectedLocation} />
+            <SearchBar country={props.params.country[0]} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
 
-            {!results ? props.searchParams?.location ? (
-                <NoResultsHubs searchValue={props.searchParams?.location} setResults={setResults} intialResults={tenderResult?.tenders} backLink={`/tenders-hub/${props.params.country}`} setSelectedLocation={setSelectedLocation} />
-            ) : (<Loading />) : (
-                <>
-                    <TendersHub tenders={results?.tenders} />
-                    <TendersHubPagination country={props.params.country[0]} totalPages={tenderResult?.totalPages} setResults={setResults} />
-                </>
+            {!results ? isLoading ? (<Loading />) : (<NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={tenderResult?.tenders} backLink={`/tenders-hub/${props.params.country}`} setSelectedLocation={setSelectedLocation} />) : (
+                <TendersHub tenders={results?.tenders} />
             )}
 
+            <TendersHubPagination country={props.params.country[0]} totalPages={tenderResult?.totalPages} setResults={setResults} setIsLoading={setIsLoading} />
 
         </div>
 

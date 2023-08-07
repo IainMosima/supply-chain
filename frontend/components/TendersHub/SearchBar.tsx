@@ -10,21 +10,21 @@ import { Images } from '../../constants';
 interface SearchBarProps {
   country: string,
   currentLocation: string,
-  setResults: React.Dispatch<React.SetStateAction<TenderResult | null>>,
-  intialResults?: TenderResult | null,
-  selectedLocation: string, 
-  setSelectedLocation: React.Dispatch<React.SetStateAction<string>>
-  
+  setResults: React.Dispatch<React.SetStateAction<TenderResult|null>>,
+  intialResults?: TenderResult,
+  setSelectedLocation: React.Dispatch<React.SetStateAction<string>>,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 
-const SearchBar = ({ country, currentLocation, setResults, intialResults, selectedLocation, setSelectedLocation }: SearchBarProps) => {
+const SearchBar = ({ country, currentLocation, setResults, intialResults, setSelectedLocation, setIsLoading }: SearchBarProps) => {
+  const [typingLocation, setTypingLoaction] = useState(currentLocation);
   const [showSearchBar, setshowSearchBar] = useState(!currentLocation ? true : false);
   const navigation = useRouter();
 
 
   function typedLocation(event: React.ChangeEvent<HTMLInputElement>) {
-    setSelectedLocation(ConvertToTitleCase(event.target.value));
+    setTypingLoaction(ConvertToTitleCase(event.target.value));
   }
 
   function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -39,23 +39,24 @@ const SearchBar = ({ country, currentLocation, setResults, intialResults, select
   }
 
   async function handleOnClick() {
+    setSelectedLocation(typingLocation);
     setshowSearchBar(false);
-    if (selectedLocation.length > 0) {
+    if (typingLocation.length > 0) {
+      setIsLoading(true);
       setResults(null);
-      
       try {
-        const res = await getTendersResults(country, 1, selectedLocation);
+        const res = await getTendersResults(country, 1, typingLocation);
         if (res && res.tenders.length > 0) {
           setResults(res);
         } else {
           setResults(null);
-          return navigation.push(`/tenders-hub/${country}?location=${selectedLocation}`);
         }
+        setIsLoading(false);
       } catch (error) {
-        alert('Refresh Page');
+        alert('Refresh the page to get Tenders Information');
 
       }
-      
+      return navigation.push(`/tenders-hub/${country}?location=${typingLocation}`);
     }
     return navigation.push(`/tenders-hub/${country}`);
   }
@@ -64,8 +65,8 @@ const SearchBar = ({ country, currentLocation, setResults, intialResults, select
     <>
       {!showSearchBar ? (
         <div className="flex w-[22rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
-          <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{selectedLocation}</span></h2>
-          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setSelectedLocation(''); setResults(intialResults || null); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
+          <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{typingLocation}</span></h2>
+          <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setTypingLoaction(''); setResults(intialResults || null); navigation.push(`/tenders-hub/${country}`) }}>Change</button>
         </div>)
         : (
           <div className="flex w-[20rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
