@@ -128,7 +128,7 @@ const Navbar = () => {
             <span>HUBS</span>
             {hubsToggle && (
               <div
-                className={`translate-down rounded w-[11rem] flex flex-col text-xs font-normal mb-6`}
+                className={`translate-down rounded w-[11rem] flex flex-col text-xs font-normal`}
               >
                 {[
                   "JOBS HUB",
