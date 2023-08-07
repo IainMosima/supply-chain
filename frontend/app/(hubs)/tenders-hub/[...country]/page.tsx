@@ -7,15 +7,15 @@ export const metadata = {
   description: 'Available Tenders',
 }
 
-// export async function generateStaticParams() {
-//   return [{
-//     country: ['Kenya']
-//   },
-//   {
-//     country: ['Tanzania']
-//   }
-//   ]
-// }
+export async function generateStaticParams() {
+  return [{
+    country: ['Kenya']
+  },
+  {
+    country: ['Tanzania']
+  }
+  ]
+}
 
 type Props = {
   params: {

@@ -8,6 +8,15 @@ export const metadata = {
   description: 'Search for a job and apply',
 }
 
+export async function generateStaticParams() {
+  return [{
+    country: ['Kenya']
+  },
+  {
+    country: ['Tanzania']
+  }
+  ]
+}
 
 const fetchCareerTypes = async (): Promise<string[]> => {
   const carreerTypes = await getCareerTypes();
