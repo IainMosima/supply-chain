@@ -11,19 +11,21 @@ interface SearchBarProps {
   country: string,
   careerType?: string,
   currentLocation: string,
-  setResults: React.Dispatch<React.SetStateAction<JobResult | null>>,
+  setResults: React.Dispatch<React.SetStateAction<JobResult | undefined>>,
   intialResults: Job[] | null,
+  setSelectedLocation: React.Dispatch<React.SetStateAction<string>>,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 
-const SearchBar = ({ country, careerType, currentLocation, setResults }: SearchBarProps) => {
-  const [selectedLocation, setSelectedLocation] = useState<string>(currentLocation);
+const SearchBar = ({ country, careerType, currentLocation, setResults, setSelectedLocation, setIsLoading }: SearchBarProps) => {
+  const [typingLocation, setTypingLoaction] = useState(currentLocation);
   const [showSearchBar, setshowSearchBar] = useState(!currentLocation ? true : false);
   const navigation = useRouter();
 
 
   function typedLocation(event: React.ChangeEvent<HTMLInputElement>) {
-    setSelectedLocation(ConvertToTitleCase(event.target.value));
+    setTypingLoaction(ConvertToTitleCase(event.target.value));
   }
 
   function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -38,38 +40,9 @@ const SearchBar = ({ country, careerType, currentLocation, setResults }: SearchB
   }
 
   async function handleOnClick() {
+    setSelectedLocation(typingLocation);
     setshowSearchBar(false);
-    if (selectedLocation.length > 0) {
-      setResults(null);
-      if (!careerType) {
-        try {
-          const res = await getJobResults(country, 1);
-          if (res )setResults(res);
-        } catch (error) {
-          alert('Refresh page to get Jobs');
-        }
-        navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
-      } else if (careerType && selectedLocation) {
-        if (careerType === 'All') {
-          try {
-            const res = await getJobResults(country, 1, '', selectedLocation);
-            if (res) setResults(res);
-          } catch (error) {
-            alert('Refresh page to get Jobs');
-          }
-          navigation.push(`/jobs-hub/${country}?location=${selectedLocation}`);
-        } else {
-          try {
-            const res = await getJobResults(country, 1, careerType, selectedLocation);
-            if (res) setResults(res);
-          } catch (error) {
-            alert('Refresh page to get Jobs');
-          }
-          navigation.push(`/jobs-hub/${country}?careerType=${careerType}&location=${selectedLocation}`);
-        }
-      }
-    }
-    return navigation.push(`/jobs-hub/${country}`);
+    
   }
 
   function handleClick2() {
@@ -82,7 +55,7 @@ const SearchBar = ({ country, careerType, currentLocation, setResults }: SearchB
     <>
       {!showSearchBar ? (
         <div className="flex w-[22rem] mx-auto place-items-center gap-2 mt-3 cursor-pointer">
-          <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{selectedLocation}</span></h2>
+          <h2 className='text-lg font-semibold'>Showing results for: <span className='text-purple text-xl'>{typingLocation}</span></h2>
           <button className='bg-purple p-1 px-2 font-bold rounded-md text-white' onClick={() => { setshowSearchBar(true); setSelectedLocation(''); handleClick2() }}>Change</button>
         </div>)
         : (

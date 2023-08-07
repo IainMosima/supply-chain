@@ -5,9 +5,10 @@ import Stack from "@mui/material/Stack";
 interface PaginationComponentProps {
   handlePage: (event: React.ChangeEvent<unknown>, page: number) => void;
   count?: number
+  currentPage?: number
 }
 
-const PaginationComponent = ({ handlePage, count }: PaginationComponentProps) => {
+const PaginationComponent = ({ handlePage, count, currentPage }: PaginationComponentProps) => {
   return (
     <Stack direction="row" justifyContent="flex-end" spacing={2} sx={{ mt: 2 }}>
       <Pagination
@@ -15,6 +16,7 @@ const PaginationComponent = ({ handlePage, count }: PaginationComponentProps) =>
         variant="outlined"
         onChange={handlePage}
         color="primary"
+        page={currentPage}
       />
     </Stack>
   );

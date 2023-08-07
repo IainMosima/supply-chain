@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import "./JobsHub.scss";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,28 +9,43 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
+import { JobResult } from "@/models/Jobs";
+import { getJobResults } from "@/network/Jobs";
 import { Navigation } from "swiper";
 import { useRouter } from "next/navigation";
 
 interface JobsHubSelectorProps {
   careerTypes: string[];
   selectedCareerType: string;
+  setSelectedCareerType: React.Dispatch<React.SetStateAction<string>>;
+  setResults: React.Dispatch<React.SetStateAction<JobResult | undefined>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
-  country?: string,
-  location?: string,
+
+  country: string,
+  location: string,
 }
 
-const JobsHubSelector = ({ selectedCareerType, careerTypes, country, location }: JobsHubSelectorProps) => {
-  const navigation = useRouter();
-  const handleJobsHubSelector = (careerType: string) => {
-    if (careerType && !location) {
-      navigation.push(`/jobs-hub/${country}?careerType=${careerType}`);
-    } else if (careerType && location) {
-      navigation.push(`/jobs-hub/${country}?careerType=${careerType}&location=${location}`);
-    } else {
-      navigation.push(`/jobs-hub/${country}`);
+const JobsHubSelector = ({ selectedCareerType, careerTypes, setSelectedCareerType,
+  setResults, country, location, setIsLoading }: JobsHubSelectorProps) => {
+    const navigator = useRouter();
+  const handleJobsHubSelector = async (careerType: string) => {
+    if (careerType !== selectedCareerType) {
+      setSelectedCareerType(careerType);
+    //   if (location) {
+    //     if(careerType === 'All'){
+    //       return navigator.push(`/jobs-hub/${country}?location=${location}`);
+    //     } else {
+    //       return navigator.push(`/jobs-hub/${country}?location=${location}&careerType=${careerType}`);
+    //     }
+    //   } else {
+    //     if (careerType === 'All') {
+    //       return navigator.push(`/jobs-hub/${country}`);
+    //     } else {
+    //       return navigator.push(`/jobs-hub/${country}?careerType=${careerType}`);
+    //     }
+    //   }
     }
-    return window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <div className="w-full z-0 bg-white mt-2]">

@@ -1,11 +1,7 @@
-import { JobsHubPagination, SearchBarJobsHub } from "@/components";
-import JobsHub from "@/components/JobsHub/JobsHub";
 
-import JobsHubSelector from "@/components/JobsHub/JobsHubSelector";
 import JobsHubWrapper from "@/components/JobsHub/JobsHubWrapper";
 import { getCareerTypes, getJobResults } from "@/network/Jobs";
 
-export const dynamic = 'force-static'
 
 export const metadata = {
   title: 'Jobs Hub',
