@@ -9,29 +9,53 @@ export async function getCareerTypes(): Promise<CareerType[]> {
 }
 
 
-export async function getJobResults(country:string, pageNumber?:number, careerType?:string, location?:string, pageSize=10): Promise<JobResult | undefined> {
+export async function getJobResults(server: boolean, country:string, pageNumber?:number, careerType?:string, location?:string, pageSize=10): Promise<JobResult | undefined> {
     let response: Response | undefined;
     if (!pageNumber) pageNumber = 1;
-    if (careerType && !location) {
-        if (careerType === 'All'){
+    if(server) {
+        if (careerType && !location) {
+            if (careerType === 'All'){
+                response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            } else {
+                response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            }
+        } else if (!careerType && location) {
+            
+            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?location=${location}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+        }
+        else if (careerType && location) {
+            if (careerType === 'All') {
+                response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            } else {
+                response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+    
+            }
+           
+        } else {
             response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
-        } else {
-            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
         }
-    } else if (!careerType && location) {
-        
-        response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?location=${location}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
-    }
-    else if (careerType && location) {
-        if (careerType === 'All') {
-            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
-        } else {
-            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
-
-        }
-       
     } else {
-        response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+        if (careerType && !location) {
+            if (careerType === 'All'){
+                response = await fetchData(`/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            } else {
+                response = await fetchData(`/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            }
+        } else if (!careerType && location) {
+            
+            response = await fetchData(`/api/jobs/${ConvertToTitleCase(country)}?location=${location}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+        }
+        else if (careerType && location) {
+            if (careerType === 'All') {
+                response = await fetchData(`/api/jobs/${ConvertToTitleCase(country)}?location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+            } else {
+                response = await fetchData(`/api/jobs/${ConvertToTitleCase(country)}?careerType=${careerType}&location=${ConvertToTitleCase(location)}&pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+    
+            }
+           
+        } else {
+            response = await fetchData(`${process.env.BACKENDIP}/api/jobs/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { method: 'GET', next: { revalidate: 3600 } });
+        }
     }
     if (response) {
         return response.json();

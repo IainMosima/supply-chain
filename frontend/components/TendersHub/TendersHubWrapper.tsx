@@ -36,7 +36,7 @@ const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
             setResults(null);
             let res: TenderResult | undefined;
             try {
-                res = await getTendersResults(props.params.country[0], currentPage, selectedLocation);
+                res = await getTendersResults(false, props.params.country[0], currentPage, selectedLocation);
                 if (res && res.tenders.length > 0) {
                     setResults(res);
                 } else {
@@ -50,7 +50,7 @@ const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
       }
       fetchResults();
     }, [currentPage, props.params.country, selectedLocation, tenderResult])
-    console.log(process.env.BACKENDIP);
+    // console.log(process.env.BACKENDIP);
     return (
         <div className="w-full p-1">
             <SearchBar country={props.params.country[0]} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />

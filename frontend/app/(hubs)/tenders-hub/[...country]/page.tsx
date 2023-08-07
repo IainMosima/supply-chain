@@ -28,7 +28,7 @@ type Props = {
 };
 
 const page = async (props: Props) => {
-  const tenders = await getTendersResults(props.params.country[0], 1);
+  const tenders = await getTendersResults(true, props.params.country[0], 1);
 
 
   return (

@@ -36,7 +36,7 @@ type Props = {
 
 const page = async (props: Props) => {
   const careerTypesData = fetchCareerTypes();
-  const jobsData = getJobResults(props.params.country[0], props.searchParams?.pageNumber, props.searchParams?.careerType, props.searchParams?.location);
+  const jobsData = getJobResults(true, props.params.country[0], props.searchParams?.pageNumber, props.searchParams?.careerType, props.searchParams?.location);
   const [careerTypes, jobs] = await Promise.all([careerTypesData, jobsData]);
 
   return (

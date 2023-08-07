@@ -41,7 +41,7 @@ const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) 
                 setResults(undefined);
                 let res: JobResult | undefined;
                 try {
-                    res = await getJobResults(props.params.country[0], currentPage, selectedCareerType, selectedLocation);
+                    res = await getJobResults(false, props.params.country[0], currentPage, selectedCareerType, selectedLocation);
                     if (res && res.jobs.length > 0) {
                         setResults(res);
                     } else {
