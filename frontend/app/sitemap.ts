@@ -11,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
-            url: 'https://www.supplychainsolutionshub.com/jobs-hub',
+            url: 'https://www.supplychainsolutionshub.com/jobs-hub/Kenya',
             lastModified: new Date(),
         },
         {
-            url: 'https://www.supplychainsolutionshub.com/tenders-hub',
+            url: 'https://www.supplychainsolutionshub.com/tenders-hub/Kenya',
             lastModified: new Date(),
         },
         {
