@@ -27,16 +27,16 @@ type Props = {
   params: {
     country: string[];
   };
-  searchParams?: {
-    pageNumber?: number,
-    careerType?: string,
-    location?: string
-  };
+  // searchParams?: {
+  //   pageNumber?: number,
+  //   careerType?: string,
+  //   location?: string
+  // };
 };
 
 const page = async (props: Props) => {
   const careerTypesData = fetchCareerTypes();
-  const jobsData = getJobResults(true, props.params.country[0], props.searchParams?.pageNumber, props.searchParams?.careerType, props.searchParams?.location);
+  const jobsData = getJobResults(true, props.params.country[0]);
   const [careerTypes, jobs] = await Promise.all([careerTypesData, jobsData]);
 
   return (

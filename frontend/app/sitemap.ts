@@ -1,10 +1,11 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
         {
             url: 'https://www.supplychainsolutionshub.com',
             lastModified: new Date(),
+
         },
         {
             url: 'https://www.supplychainsolutionshub.com/services',

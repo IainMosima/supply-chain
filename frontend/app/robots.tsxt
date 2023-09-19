@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /terms-and-conditions/
-Disallow: /privacy-and-cookie-policy/
-
-Sitemap: https://acme.com/sitemap.xml
