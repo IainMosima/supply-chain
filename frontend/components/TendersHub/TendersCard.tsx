@@ -22,6 +22,12 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
               <h2 className="text-purple font-bold sm:text-xl text-md">
                 {tender.tenderTitle}
               </h2>
+              <h2 className="text-purple font-bold sm:text-xl text-md">
+                Location:{" "}
+                <span className="sm:text-[1.2rem] text-md text-black">
+                  {tender.location}
+                </span>
+              </h2>
               <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                 {tender.tenderDescription}{" "}
                 <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(-1)}>
@@ -43,7 +49,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
                 {tender.howToSubmit}
               </p>
             </div>
-            
+
           </div>
         ) : (
           <>
@@ -51,6 +57,12 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
               <div className="flex flex-col place-content-start justify-start gap-2">
                 <h2 className="text-purple font-bold sm:text-xl text-md">
                   {tender.tenderTitle}
+                </h2>
+                <h2 className="text-purple font-bold sm:text-xl text-md">
+                  Location:{" "}
+                  <span className="sm:text-[1.2rem] text-md text-black">
+                    {tender.location}
+                  </span>
                 </h2>
                 <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                   {tender.tenderDescription}{" "}
@@ -68,7 +80,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
             <div className="flex place-items-center gap-1">
               <Image src={Images.opencalenderIcon} alt="calendar" width={20} />
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-              {dateConverter(tender.openingDate)}
+                {dateConverter(tender.openingDate)}
               </h3>
             </div>
             <div className="flex place-items-center gap-1">
@@ -80,7 +92,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
               />
 
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-              {dateConverter(tender.closingDate)}
+                {dateConverter(tender.closingDate)}
               </h3>
             </div>
           </div>

@@ -23,6 +23,12 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
               <h2 className="text-purple font-bold sm:text-xl text-md">
                 {job.jobTitle}
               </h2>
+              <h2 className="text-purple font-bold sm:text-xl text-md">
+                Location:{" "}
+                <span className="sm:text-[1.2rem] text-md text-black">
+                  {job.location}
+                </span>
+              </h2>
               <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                 {job.organizationDescription}{" "}
                 <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(-1)}>
@@ -82,6 +88,12 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 <h2 className="text-purple font-bold sm:text-xl text-md">
                   {job.jobTitle}
                 </h2>
+                <h2 className="text-purple font-bold sm:text-xl text-md">
+                  Location:{" "}
+                  <span className="sm:text-[1.2rem] text-md text-black">
+                    {job.location}
+                  </span>
+                </h2>
                 <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                   {job.organizationDescription}{" "}
                   <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(index)}>
@@ -98,7 +110,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
             <div className="flex place-items-center gap-1">
               <Image src={Images.opencalenderIcon} alt="calendar" width={20} />
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
-              {dateConverter(job.openingDate)}
+                {dateConverter(job.openingDate)}
               </h3>
             </div>
             <div className="flex place-items-center gap-1">
@@ -107,7 +119,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 alt="calendar"
                 width={20}
                 className="relative"
-                />
+              />
 
               <h3 className="sm:text-[14px] text-[10px] text-purple font-bold">
                 {dateConverter(job.closingDate)}
