@@ -70,7 +70,7 @@ const Footer = () => {
 
           <div className="flex place-items-center gap-1">
             <Image src={Images.phone} height={17} alt="phone-icon" />
-            <p className="text-xs">(+254)716 137 693</p>
+            <p className="text-xs">(+254) 716 137 693</p>
           </div>
         </div>
 
@@ -84,7 +84,6 @@ const Footer = () => {
                     src={image.icon}
                     alt={image.name}
                     height={30}
-                    className="hover:bg-black rounded-full"
                   />
                 </Link>
               ))}

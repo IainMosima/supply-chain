@@ -35,7 +35,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://ec2-54-92-246-192.compute-1.amazonaws.com:8080/api/:path*'
+        destination: 'http://ec2-35-171-84-134.compute-1.amazonaws.com:8080/api/:path*'
       },
     ];
   },
