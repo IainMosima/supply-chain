@@ -1,14 +1,14 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
-import SearchBar from './SearchBar';
-import JobsHubSelector from './JobsHubSelector';
-import JobsHub from './JobsHub';
-import { Job, JobResult } from '@/models/Jobs';
-import JobsHubPagination from './JobsHubPagination';
+import { useAppSelector } from '@/hooks/reduxHook';
+import { JobResult } from '@/models/Jobs';
+import { getJobResults } from '@/network/Jobs';
+import { useEffect, useRef, useState } from 'react';
 import Loading from '../Loading/Loading';
 import NoResultsHubs from '../NoResultsHubs/NoResultsHubs';
-import { getJobResults } from '@/network/Jobs';
-import { useAppSelector } from '@/hooks/reduxHook';
+import JobsHub from './JobsHub';
+import JobsHubPagination from './JobsHubPagination';
+import JobsHubSelector from './JobsHubSelector';
+import SearchBar from './SearchBar';
 
 type Props = {
     params: {
@@ -85,7 +85,6 @@ const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) 
             ) : (
                 <>
                     <JobsHub jobs={results.jobs} />
-
                 </>
 
             )}
