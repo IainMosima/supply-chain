@@ -1,4 +1,3 @@
-
 import JobsHubWrapper from "@/components/JobsHub/JobsHubWrapper";
 import { getCareerTypes, getJobResults } from "@/network/Jobs";
 
@@ -38,6 +37,7 @@ const page = async (props: Props) => {
   const careerTypesData = fetchCareerTypes();
   const jobsData = getJobResults(true, props.params.country[0]);
   const [careerTypes, jobs] = await Promise.all([careerTypesData, jobsData]);
+  console.log(jobs);
 
   return (
     <JobsHubWrapper props={props} careerTypes={careerTypes} jobResult={jobs}/>

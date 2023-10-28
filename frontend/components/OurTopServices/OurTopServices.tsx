@@ -1,19 +1,16 @@
 "use client";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
-import { Images } from "@/constants";
+import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import "./OurTopServices.scss";
 import "swiper/css";
 import "swiper/css/navigation";
+import "./OurTopServices.scss";
 
-import TopServiceCard from "./TopServiceCard";
-import NavigationButtons from "./NavigationButtons";
-import { getRandomServices } from "@/network/Services";
-import { useEffect, useState } from "react";
 import { Services } from "@/models/Services";
 import Loading from "../Loading/Loading";
+import NavigationButtons from "./NavigationButtons";
+import TopServiceCard from "./TopServiceCard";
 
 interface OurTopServiceProps {
   services: Services[] | []

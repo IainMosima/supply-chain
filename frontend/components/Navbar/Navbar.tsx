@@ -5,35 +5,15 @@ import { Images } from "../../constants";
 import Link from "next/link";
 import Links from "./Links";
 import Countries from "./Countries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { getAllCountries } from "@/network/Countries";
+import { Country } from "@/models/Country";
 
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState({
-    img: Images.kenya,
-    name: 'Kenya'
-  });
-
-  const [countries, setCountries] = useState([
-    {
-      img: Images.tanzania,
-      name: 'Tanzania'
-    },
-    {
-      img: Images.uganda,
-      name: 'Uganda'
-    },
-    {
-      img: Images.rwanda,
-      name: 'Rwanda'
-    },
-    {
-      img: Images.burundi,
-      name: 'Burundi'
-    }
-  ]);
+  const [countries, setCountries] = useState<Country[]>();
 
   function toggleHandler(option?: string) {
     switch (option) {
@@ -54,6 +34,15 @@ const Navbar = () => {
     }
   }
 
+  useEffect(() => {
+    const fetchCountries = async () => {
+      await getAllCountries().then(res => setCountries(res))
+        .catch(() => alert("Something went wrong, please try again"));
+    }
+    fetchCountries();
+  }, [])
+
+
   return (
     <nav className="w-full fixed flex gap-1 justify-evenly sm:justify-between place-content-between z-50 px-4 py-1 place-items-center backdrop-blur-md bg-white/30">
       <div className="flex lg:basis-[30%]">
@@ -67,12 +56,8 @@ const Navbar = () => {
         </a>
       </div>
 
-      <div className="">
-        <Countries
-          selectedCountry={selectedCountry}
-          countries={countries}
-          setCountries={setCountries}
-        />
+      <div className="basis-[2rem]">
+        { countries && <Countries countries={countries} /> }
       </div>
 
       <div className="">
@@ -86,8 +71,8 @@ const Navbar = () => {
         >
           <span
             className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle
-                ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]"
-                : "rotate-0"
+              ? "rotate-45 w-[2.4rem] md:w-[3rem] translate-x-[-.1px]"
+              : "rotate-0"
               }`}
           ></span>
           <span
@@ -96,8 +81,8 @@ const Navbar = () => {
           ></span>
           <span
             className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle
-                ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]"
-                : "rotate-0"
+              ? "-rotate-[50deg] w-[2.4rem] md:w-[3rem] translate-y-[-.5rem]"
+              : "rotate-0"
               }`}
           ></span>
         </div>

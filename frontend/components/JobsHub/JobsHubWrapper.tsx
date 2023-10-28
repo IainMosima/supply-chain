@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SearchBar from './SearchBar';
 import JobsHubSelector from './JobsHubSelector';
 import JobsHub from './JobsHub';
@@ -8,6 +8,7 @@ import JobsHubPagination from './JobsHubPagination';
 import Loading from '../Loading/Loading';
 import NoResultsHubs from '../NoResultsHubs/NoResultsHubs';
 import { getJobResults } from '@/network/Jobs';
+import { useAppSelector } from '@/hooks/reduxHook';
 
 type Props = {
     params: {
@@ -30,33 +31,47 @@ const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) 
     const [results, setResults] = useState<JobResult | undefined>(jobResult || undefined);
     const [selectedLocation, setSelectedLocation] = useState<string>(props.searchParams?.location || '');
     const [selectedCareerType, setSelectedCareerType] = useState<string>(props.searchParams?.careerType || 'All');
-    const [currentPage, setCurrentPage] = useState(props.searchParams?.pageNumber || 1)
+    const [currentPage, setCurrentPage] = useState(props.searchParams?.pageNumber || 1);
     const [isLoading, setIsLoading] = useState(false);
+    const prevPageTotal = useRef(jobResult?.totalPages);
+    const [showPaginationComponent, setShowPaginationComponent] = useState(true);
+    const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName);
+
+
     useEffect(() => {
         async function fetchResults() {
-            setIsLoading(true);
-            if (selectedCareerType === 'All' && !selectedLocation && currentPage === 1) {
-                if (jobResult) setResults(jobResult);
-            } else {
-                setResults(undefined);
-                let res: JobResult | undefined;
-                try {
-                    res = await getJobResults(false, props.params.country[0], currentPage, selectedCareerType, selectedLocation);
-                    if (res && res.jobs.length > 0) {
-                        setResults(res);
-                    } else {
-                        setResults(undefined);
-                    }
-                    setIsLoading(false);
+            if (selectedCountry) {
+                setIsLoading(true);
+                if (selectedCareerType === 'All' && !selectedLocation && currentPage === 1 && selectedCountry === process.env.DEFAULT_COUNTRY) {
+                    if (jobResult) setResults(jobResult);
+                } else {
+                    setResults(undefined);
+                    let res: JobResult | undefined;
+                    try {
+                        res = await getJobResults(false, selectedCountry, currentPage - 1, selectedCareerType, selectedLocation);
+                        if (res && res.jobs.length > 0) {
+                            setResults(res);
+                            if (prevPageTotal.current === res.totalPages) {
+                                setShowPaginationComponent(true);
+                            } else {
+                                setShowPaginationComponent(false);
+                                prevPageTotal.current = res.totalPages;
+                                setShowPaginationComponent(true);
+                            }
+                        } else {
+                            setResults(undefined);
+                        }
+                        setIsLoading(false);
 
-                } catch (err) {
-                    alert('Refresh page to get Jobs');
+                    } catch (err) {
+                        alert('Refresh page to get Jobs');
+                    }
                 }
             }
         }
         fetchResults();
 
-    }, [currentPage, jobResult, props.params.country, selectedCareerType, selectedLocation]);
+    }, [currentPage, selectedCountry, jobResult, selectedCareerType, selectedLocation]);
 
     return (
         <div className="w-full p-1">
@@ -74,8 +89,10 @@ const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) 
                 </>
 
             )}
-            
-            <JobsHubPagination totalPages={results?.totalPages ? results?.totalPages : jobResult?.totalPages} setCurrentPage={setCurrentPage} />
+
+            {showPaginationComponent &&
+                <JobsHubPagination totalPages={prevPageTotal.current} setCurrentPage={setCurrentPage} />
+            }
 
 
 

@@ -4,6 +4,7 @@ const nextConfig = {
     BACKENDIP: process.env.BACKENDIP,
     SERVICESBUCKET: process.env.SERVICESBUCKET,
     CAROUSELBUCKET: process.env.CAROUSELBUCKET,
+    COUNTRIESBUCKET: process.env.COUNTRIESBUCKET,
     ENVIRONMENT: process.env.ENVIRONMENT,
     DEFAULT_COUNTRY: process.env.DEFAULT_COUNTRY
   },
@@ -19,6 +20,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "supply-chain-solutions-hub-limited-carousel-bucket.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "supply-chain-solutions-hub-limited-country-bucket.s3.amazonaws.com",
         port: "",
         pathname: "/**",
       },

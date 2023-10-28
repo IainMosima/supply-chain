@@ -1,11 +1,10 @@
-export async function fetchData(url: RequestInfo, init?: RequestInit) {
-    if (process.env.BACKENDIP) {
-        const response = await fetch(url, init);
-        if (response.ok) {
-            return response;
-        } else {
-            console.error(`Request failed with status ${response.status}`);
-        }
-    }
+export async function fetchData(input: RequestInfo, init?: RequestInit) {
+    const response = await fetch(input, init);
+    if (response.ok) {
+        return response;
+    } else {
+        const errBody = await response.json()
+        const errMessage = errBody.error;
+        throw Error (`Request failed with status ${response.status} and error message ${errMessage}`);}
 
 }

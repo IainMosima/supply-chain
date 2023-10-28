@@ -4,23 +4,20 @@ import React, { useState } from 'react';
 import { Images } from "../../constants";
 import Image from "next/image";
 import { Country } from '@/models/Country';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHook';
+import { setSelectedCountry } from '@/redux/reducers/countryReducer';
 
 interface CountriesProps {
-  selectedCountry: Country,
   countries: Country[]
-  setCountries: React.Dispatch<React.SetStateAction<Country[]>>,
 }
 
-const Countries = ({ selectedCountry, countries, setCountries }: CountriesProps) => {
+const Countries = ({ countries }: CountriesProps) => {
   const [countryToggle, setCountryToggle] = useState(false);
-  const [currentSelectedCountry, setCurrentSelectedCountry] = useState(selectedCountry);
+  const currentSelectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry) || countries.filter(item => item.countryName === process.env.DEFAULT_COUNTRY)[0];
+  const dispatch = useAppDispatch();
 
   const handleCountryClick = (country: Country) => {
-    setCountries((prev) => [
-      { img: currentSelectedCountry.img, name: currentSelectedCountry.name },
-      ...prev.filter((info) => info.name !== country.name)
-    ]);
-    setCurrentSelectedCountry(country);
+    dispatch(setSelectedCountry(country));
   };
 
   return (
@@ -37,13 +34,13 @@ const Countries = ({ selectedCountry, countries, setCountries }: CountriesProps)
       >
         <div className="flex items-center justify-center">
           <Image
-            src={currentSelectedCountry.img}
-            alt={currentSelectedCountry.name}
+            src={`${process.env.COUNTRIESBUCKET}/${currentSelectedCountry?.countryKey}`}
+            alt={currentSelectedCountry?.countryName || ''}
             width={20}
             height={15}
             className="w-auto h-auto"
           />
-          <h2 className="ml-2">{currentSelectedCountry.name}</h2>
+          <h2 className="ml-2">{currentSelectedCountry?.countryName || ''}</h2>
           <Image
             src={Images.dropDown}
             alt="drop-down"
@@ -61,11 +58,11 @@ const Countries = ({ selectedCountry, countries, setCountries }: CountriesProps)
             {countries.map((country) => (
               <div
                 className="flex items-center text-sm sm:text-base py-1"
-                key={country.name}
+                key={country.countryName}
                 onClick={() => handleCountryClick(country)}
               >
-                <Image src={country.img} alt={country.name} width={20} height={15} className="w-auto h-auto" />
-                <h2 className="ml-2">{country.name}</h2>
+                <Image src={`${process.env.COUNTRIESBUCKET}/${country.countryKey}`} alt={country.countryName} width={20} height={15} className="w-auto h-auto" />
+                <h2 className="ml-2">{country.countryName}</h2>
               </div>
             ))}
           </div>

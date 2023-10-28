@@ -21,10 +21,9 @@ const JobsHubPagination = ({ totalPages, currentPage, setCurrentPage }: JobsHubP
     // } else {
     //   navigation.push(`/jobs-hub/${country}?pageNumber=${page}`);
     // }
-
-
   };
-  return <PaginationComponent handlePage={handlePage} count={totalPages} currentPage={currentPage} />;
+  
+  return <PaginationComponent handlePage={handlePage} count={totalPages ? totalPages + 1 : 0} />;
 };
 
 export default JobsHubPagination;

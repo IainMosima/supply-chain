@@ -1,6 +1,10 @@
-import { StaticImageData } from "next/image";
-
 export interface Country {
-    img: StaticImageData,
-    name: string
+    countryId: string,
+    countryKey: string,
+    countryName: string,
+}
+
+export interface newCountry {
+    countryName: string,
+    file: File
 }

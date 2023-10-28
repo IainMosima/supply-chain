@@ -1,5 +1,6 @@
 import { Navbar, Footer, Marquee } from '@/components';
 import './globals.css';
+import { Providers } from '@/redux/Provider';
 
 export default function RootLayout({
   children,
@@ -15,12 +16,14 @@ export default function RootLayout({
         sizes="<generated>"
       />
       <body className=''>
-        <Navbar/>
-        <Marquee/>
-        <div className='sm:w-11/12 mx-auto overflow-x-hidden'>
-          {children}
-        </div>
-        <Footer/>
+        <Providers>
+          <Navbar />
+          <Marquee />
+          <div className='sm:w-11/12 mx-auto overflow-x-hidden'>
+            {children}
+          </div>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
