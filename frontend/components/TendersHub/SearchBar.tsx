@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { Images } from '../../constants';
 
 interface SearchBarProps {
-  country: string,
+  country: string | undefined,
   currentLocation: string,
   setResults: React.Dispatch<React.SetStateAction<TenderResult|null>>,
   intialResults?: TenderResult,

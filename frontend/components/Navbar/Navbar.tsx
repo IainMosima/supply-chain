@@ -9,11 +9,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAllCountries } from "@/network/Countries";
 import { Country } from "@/models/Country";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
   const [countries, setCountries] = useState<Country[]>();
+  const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName) || process.env.DEFAULT_COUNTRY;
+
 
   function toggleHandler(option?: string) {
     switch (option) {
@@ -61,7 +64,7 @@ const Navbar = () => {
       </div>
 
       <div className="">
-        <Links hubsToggle={hubsToggle} setHubsToggle={setHubsToggle} />
+        <Links selectedCountry={selectedCountry} hubsToggle={hubsToggle} setHubsToggle={setHubsToggle} />
       </div>
 
       <div className="relative lg:hidden basis-[4rem]">
@@ -121,7 +124,7 @@ const Navbar = () => {
                   "KNOWLEDGE HUB",
                 ].map((hub) => (
                   <Link
-                    href={`${hub.toLowerCase().replace(" ", "-")}/${process.env.DEFAULT_COUNTRY}`}
+                    href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
                     key={hub}
                     className="px-1 pb-5"
                     onClick={() => toggleHandler("hub")}

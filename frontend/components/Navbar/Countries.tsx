@@ -1,11 +1,11 @@
 'use client';
-import { motion } from 'framer-motion';
-import React, { useState } from 'react';
-import { Images } from "../../constants";
-import Image from "next/image";
-import { Country } from '@/models/Country';
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHook';
+import { Country } from '@/models/Country';
 import { setSelectedCountry } from '@/redux/reducers/countryReducer';
+import Image from "next/image";
+import { useState } from 'react';
+import { Images } from "../../constants";
+import { usePathname, useRouter } from 'next/navigation';
 
 interface CountriesProps {
   countries: Country[]
@@ -14,23 +14,28 @@ interface CountriesProps {
 const Countries = ({ countries }: CountriesProps) => {
   const [countryToggle, setCountryToggle] = useState(false);
   const currentSelectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry) || countries.filter(item => item.countryName === process.env.DEFAULT_COUNTRY)[0];
+  const pathname = usePathname();
   const dispatch = useAppDispatch();
+  const navigator = useRouter();
 
   const handleCountryClick = (country: Country) => {
+    const splittedPath = pathname.split('/');
+    if (splittedPath[1] === 'tenders-hub' || splittedPath[1] === 'jobs-hub') {
+      splittedPath[2] = country.countryName
+      navigator.push(splittedPath.join('/'));
+    }
     dispatch(setSelectedCountry(country));
   };
 
   return (
     <div
-      className={`cursor-pointer flex h-[3rem] place-items-center sm:px-[4px] px-1 py-1 bg-purple rounded-lg text-white ${
-        countryToggle ? 'bg-white' : ''
-      }`}
+      className={`cursor-pointer flex h-[3rem] place-items-center sm:px-[4px] px-1 py-1 bg-purple rounded-lg text-white ${countryToggle ? 'bg-white' : ''
+        }`}
       onClick={() => setCountryToggle((prev) => !prev)}
     >
       <div
-        className={`text-sm sm:text-base w-[7rem] sm:w-[10rem] relative ${
-          countryToggle ? 'bg-white text-black' : ''
-        }`}
+        className={`text-sm sm:text-base w-[7rem] sm:w-[10rem] relative ${countryToggle ? 'bg-white text-black' : ''
+          }`}
       >
         <div className="flex items-center justify-center">
           <Image
@@ -51,9 +56,8 @@ const Countries = ({ countries }: CountriesProps) => {
 
         {countryToggle && (
           <div
-            className={`absolute z-30 translate-down bg-purple text-white rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${
-              countryToggle ? 'translate-down' : ''
-            }`}
+            className={`absolute z-30 translate-down bg-purple text-white rounded p-2 flex flex-col text-xs font-normal w-[7rem] sm:w-[10rem] ${countryToggle ? 'translate-down' : ''
+              }`}
           >
             {countries.map((country) => (
               <div

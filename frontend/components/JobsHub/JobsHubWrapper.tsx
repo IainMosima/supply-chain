@@ -1,5 +1,5 @@
 'use client';
-import { useAppSelector } from '@/hooks/reduxHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHook';
 import { JobResult } from '@/models/Jobs';
 import { getJobResults } from '@/network/Jobs';
 import { useEffect, useRef, useState } from 'react';
@@ -9,6 +9,8 @@ import JobsHub from './JobsHub';
 import JobsHubPagination from './JobsHubPagination';
 import JobsHubSelector from './JobsHubSelector';
 import SearchBar from './SearchBar';
+import { setSelectedCountry } from '@/redux/reducers/countryReducer';
+import { Country } from '@/models/Country';
 
 type Props = {
     params: {
@@ -22,27 +24,31 @@ type Props = {
 };
 
 interface JobsHubWrapperProps {
-    props: Props,
+    country: string,
     careerTypes: string[],
     jobResult: JobResult | undefined,
+    countries: Country[]
 }
 
-const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) => {
+const JobsHubWrapper = ({ countries, country, careerTypes, jobResult }: JobsHubWrapperProps) => {
     const [results, setResults] = useState<JobResult | undefined>(jobResult || undefined);
-    const [selectedLocation, setSelectedLocation] = useState<string>(props.searchParams?.location || '');
-    const [selectedCareerType, setSelectedCareerType] = useState<string>(props.searchParams?.careerType || 'All');
-    const [currentPage, setCurrentPage] = useState(props.searchParams?.pageNumber || 1);
+    const [selectedLocation, setSelectedLocation] = useState<string>('');
+    const [selectedCareerType, setSelectedCareerType] = useState<string>('All');
+    const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const prevPageTotal = useRef(jobResult?.totalPages);
     const [showPaginationComponent, setShowPaginationComponent] = useState(true);
-    const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName);
-
+    const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName) || process.env.DEFAULT_COUNTRY;
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
+        if (selectedCountry) {
+            dispatch(setSelectedCountry(countries.filter(item => item.countryName === country)[0]));
+        }
         async function fetchResults() {
             if (selectedCountry) {
                 setIsLoading(true);
-                if (selectedCareerType === 'All' && !selectedLocation && currentPage === 1 && selectedCountry === process.env.DEFAULT_COUNTRY) {
+                if (selectedCareerType === 'All' && !selectedLocation && currentPage === 1) {
                     if (jobResult) setResults(jobResult);
                 } else {
                     setResults(undefined);
@@ -71,17 +77,17 @@ const JobsHubWrapper = ({ props, careerTypes, jobResult }: JobsHubWrapperProps) 
         }
         fetchResults();
 
-    }, [currentPage, selectedCountry, jobResult, selectedCareerType, selectedLocation]);
+    }, [currentPage, selectedCountry, jobResult, selectedCareerType, selectedLocation, dispatch, countries, country]);
 
     return (
         <div className="w-full p-1">
-            <SearchBar country={props.params.country[0]} currentLocation={selectedLocation} setResults={setResults} intialResults={results?.jobs || []} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
+            <SearchBar country={selectedCountry} currentLocation={selectedLocation} setResults={setResults} intialResults={results?.jobs || []} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
 
-            <JobsHubSelector selectedCareerType={selectedCareerType} setSelectedCareerType={setSelectedCareerType} country={props.params.country[0]} careerTypes={careerTypes} location={selectedLocation} setResults={setResults} setIsLoading={setIsLoading} />
+            <JobsHubSelector selectedCareerType={selectedCareerType} setSelectedCareerType={setSelectedCareerType} country={selectedCountry} careerTypes={careerTypes} location={selectedLocation} setResults={setResults} setIsLoading={setIsLoading} />
 
 
             {!results ? isLoading ? (<Loading />) : (
-                <NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={results} backLink={`/jobs-hub/${props.params.country}`} setSelectedLocation={setSelectedLocation} />
+                <NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={results} backLink={`/jobs-hub/${selectedCountry}`} setSelectedLocation={setSelectedLocation} />
             ) : (
                 <>
                     <JobsHub jobs={results.jobs} />

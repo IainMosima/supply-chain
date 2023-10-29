@@ -10,9 +10,8 @@ import "swiper/css/navigation";
 
 // import required modules
 import { JobResult } from "@/models/Jobs";
-import { getJobResults } from "@/network/Jobs";
-import { Navigation } from "swiper";
 import { useRouter } from "next/navigation";
+import { Navigation } from "swiper";
 
 interface JobsHubSelectorProps {
   careerTypes: string[];
@@ -22,7 +21,7 @@ interface JobsHubSelectorProps {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
 
-  country: string,
+  country: string | undefined,
   location: string,
 }
 

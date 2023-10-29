@@ -7,23 +7,21 @@ export async function getTendersResults(server: boolean, country: string, pageNu
     if (!pageNumber) pageNumber = 0;
     if (server) {
         if (location) {
-            response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`, { cache: 'no-store' });
+            response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`, { next: { revalidate: 60 } });
         } else {
-            response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { cache: 'no-store' });
+            response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { next: { revalidate: 60 } });
 
         }
     } else {
         if (location) {
-            response = await fetchData(`/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`, { cache: 'no-store' });
+            response = await fetchData(`/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}&location=${location}`);
         } else {
-            response = await fetchData(`/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`, { cache: 'no-store' });
+            response = await fetchData(`/api/unsecured/tenders/${ConvertToTitleCase(country)}?pageSize=${pageSize}&pageNumber=${pageNumber}`);
 
         }
     }
 
 
-    if (response) {
-        return response.json();
-    }
+    return response.json();
 
 }

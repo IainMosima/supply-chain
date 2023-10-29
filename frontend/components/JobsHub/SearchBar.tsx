@@ -8,7 +8,7 @@ import { Job, JobResult } from '@/models/Jobs';
 import { getJobResults } from '@/network/Jobs';
 
 interface SearchBarProps {
-  country: string,
+  country: string | undefined,
   careerType?: string,
   currentLocation: string,
   setResults: React.Dispatch<React.SetStateAction<JobResult | undefined>>,
@@ -47,7 +47,7 @@ const SearchBar = ({ country, careerType, currentLocation, setResults, setSelect
 
   function handleClick2() {
     if (careerType) {
-      return navigation.push(`/jobs-hub/${country}?careerType=${careerType}`);
+      return navigation.push(`/jobs-hub/${country}`);
     }
     return navigation.push(`/jobs-hub/${country}`);
   }

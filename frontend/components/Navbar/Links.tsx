@@ -6,9 +6,10 @@ import { motion } from "framer-motion";
 interface LinksProps {
   hubsToggle: boolean,
   setHubsToggle: React.Dispatch<React.SetStateAction<boolean>>,
+  selectedCountry: string | undefined
 }
 
-const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
+const links = ({ selectedCountry, hubsToggle, setHubsToggle }: LinksProps) => {
   return (
     <>
       <div className="hidden md:hidden lg:flex lg:justify-evenly lg:place-items-center font-semibold text-center text-black gap-6">
@@ -48,7 +49,7 @@ const links = ({ hubsToggle, setHubsToggle }: LinksProps) => {
                 "KNOWLEDGE HUB",
               ].map((hub) => (
                 <Link
-                  href={`${hub.toLowerCase().replace(" ", "-")}/${process.env.DEFAULT_COUNTRY}`}
+                  href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
                   key={hub}
                   className="py-2 px-3"
                 >

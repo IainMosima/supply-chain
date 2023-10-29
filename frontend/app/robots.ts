@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/terms-and-conditions/', '/privacy-and-cookie-policy/'],
+      disallow: ['/terms-and-conditions/', '/privacy-and-cookie-policy/', '/contact-us'],
     },
     sitemap: 'https://www.supplychainsolutionshub.com/sitemap.xml',
   }

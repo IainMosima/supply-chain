@@ -7,7 +7,9 @@ import TendersHub from '../TendersHub/TendersHub';
 import TendersHubPagination from '../TendersHub/TendersHubPagination';
 import SearchBar from './SearchBar';
 import { getTendersResults } from '@/network/Tenders';
-import { useAppSelector } from '@/hooks/reduxHook';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHook';
+import { Country } from '@/models/Country';
+import { setSelectedCountry } from '@/redux/reducers/countryReducer';
 
 type Props = {
     params: {
@@ -20,24 +22,30 @@ type Props = {
 };
 
 interface TendersHubWrapperProps {
-    props: Props,
     tenderResult: TenderResult | undefined,
+    countries: Country[],
+    country: string
 }
-const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
+const TendersHubWrapper = ({ countries, country, tenderResult }: TendersHubWrapperProps) => {
     const [results, setResults] = useState<TenderResult | null>(tenderResult || null);
-    const [selectedLocation, setSelectedLocation] = useState<string>(props.searchParams?.location || '');
-    const [currentPage, setCurrentPage] = useState(props.searchParams?.pageNumber || 1);
+    const [selectedLocation, setSelectedLocation] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
-    const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName);
+    const selectedCountry = useAppSelector(state => state.selectedCountry.selectedCountry?.countryName) || process.env.DEFAULT_COUNTRY;
     const [showPaginationComponent, setShowPaginationComponent] = useState(true);
     const prevPageTotal = useRef(tenderResult?.totalItems);
+    const dispatch = useAppDispatch();
 
 
     useEffect(() => {
+        if (selectedCountry) {
+            dispatch(setSelectedCountry(countries.filter(item => item.countryName === country)[0]));
+        }
+
         async function fetchResults() {
             if (selectedCountry) {
                 setIsLoading(true);
-                if (currentPage === 1 && !selectedLocation && selectedCountry === process.env.DEFAULT_COUNTRY) {
+                if (currentPage === 1 && !selectedLocation) {
                     if (tenderResult) setResults(tenderResult);
                 } else {
                     setResults(null);
@@ -64,17 +72,20 @@ const TendersHubWrapper = ({ props, tenderResult }: TendersHubWrapperProps) => {
             }
         }
         fetchResults();
-    }, [currentPage, props.params.country, selectedCountry, selectedLocation, tenderResult])
-    
+    }, [countries, country, currentPage, dispatch, selectedCountry, selectedLocation, tenderResult]);
+
+
     return (
         <div className="w-full p-1">
-            <SearchBar country={props.params.country[0]} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
+            <SearchBar country={selectedCountry} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
 
-            {!results ? isLoading ? (<Loading />) : (<NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={tenderResult?.tenders} backLink={`/tenders-hub/${props.params.country}`} setSelectedLocation={setSelectedLocation} />) : (
+            {!results ? isLoading ? (<Loading />) : (<NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={tenderResult?.tenders} backLink={`/tenders-hub/${selectedCountry}`} setSelectedLocation={setSelectedLocation} />) : (
                 <TendersHub tenders={results?.tenders} />
             )}
 
-            <TendersHubPagination totalPages={results?.totalPages ? results.totalPages : tenderResult?.totalPages} setIsLoading={setIsLoading} setCurrentPage={setCurrentPage}/>
+            {showPaginationComponent &&
+                <TendersHubPagination totalPages={results?.totalPages ? results.totalPages : tenderResult?.totalPages} setIsLoading={setIsLoading} setCurrentPage={setCurrentPage} />
+            }
 
         </div>
 
