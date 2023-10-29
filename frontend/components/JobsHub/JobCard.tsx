@@ -29,6 +29,13 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                   {job.location}
                 </span>
               </h2>
+              <h2 className="text-purple font-bold sm:text-xl text-md">
+                Career Type:{" "}
+                <span className="sm:text-[1.2rem] text-md text-black">
+                  {job.careerType}
+                </span>
+              </h2>
+             
               <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                 {job.organizationDescription}{" "}
                 <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(-1)}>
@@ -42,6 +49,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 {job.jobType}
               </span>
             </h2>
+
             <div className="flex flex-col place-content-start justify-start gap-2">
               <h2 className="text-purple font-bold sm:text-xl text-md">
                 Job Description
@@ -94,6 +102,13 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                     {job.location}
                   </span>
                 </h2>
+                <h2 className="text-purple font-bold sm:text-xl text-md">
+                  Career Type:{" "}
+                  <span className="sm:text-[1.2rem] text-md text-black">
+                    {job.careerType}
+                  </span>
+                </h2>
+                
                 <p className="sm:text-[1.2rem] text-md sm:leading-7 leading-5">
                   {job.organizationDescription}{" "}
                   <span className="text-purple italic font-semibold hover:underline duration-150 ease-out sm:text-[1rem] text-md cursor-pointer" onClick={() => handleExpand(index)}>
