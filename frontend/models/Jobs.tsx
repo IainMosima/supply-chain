@@ -8,8 +8,8 @@ export interface Job {
     location: string,
     organizationDescription: string,
     applyLink: string,
-    openingDate: string,
-    closingDate: string,
+    openingDate: number,
+    closingDate: number,
     dutiesAndResponsibilities: string[],
     minimumRequirements: string[]
 }

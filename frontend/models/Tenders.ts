@@ -7,8 +7,8 @@ export interface Tender{
     location: string,
     howToSubmit: string,
     applyLink: string,
-    openingDate: string,
-    closingDate: string,
+    openingDate: number,
+    closingDate: number,
 
 }
 

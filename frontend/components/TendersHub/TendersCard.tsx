@@ -1,6 +1,7 @@
 import { Images } from "@/constants";
 import { Tender } from "@/models/Tenders";
-import dateConverter from "@/utils/dateConverter";
+import { dateConverter } from "@/utils/dateConverter";
+
 import Image from "next/image";
 import Link from "next/link";
 

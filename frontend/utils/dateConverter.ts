@@ -1,39 +1,48 @@
-export default function dateConverter(epochDate: string): string {
-    const utcDateTime = new Date(epochDate);
-    const eatOffset = 3 * 60; // East Africa Time offset in minutes (3 hours)
-    const eatDateTime = new Date(utcDateTime.getTime() + eatOffset * 60 * 1000);
-  
-    const day = eatDateTime.getDate();
-    const month = getMonthName(eatDateTime.getMonth());
-    const year = eatDateTime.getFullYear();
-  
-    const suffix = getDaySuffix(day);
-  
-    return `${day}${suffix} ${month} ${year}`;
+
+export function dateConverter(inputNumber: number): string {
+  // Convert the number to a string
+  const dateString = inputNumber.toString();
+
+  // Extract year, month, and day from the string
+  const year = dateString.slice(0, 4);
+  const month = dateString.slice(4, 6);
+  const day = dateString.slice(6, 8);
+
+  // Create a JavaScript Date object
+  const date = new Date(`${year}-${month}-${day}`);
+
+  // Define an array of month names
+  const monthNames = [
+    'January', 'February', 'March', 'April',
+    'May', 'June', 'July', 'August',
+    'September', 'October', 'November', 'December'
+  ];
+
+  // Get the month name
+  const monthName = monthNames[date.getMonth()];
+
+  // Get the day with a suffix (e.g., "3rd")
+  const dayWithSuffix = day + getDaySuffix(parseInt(day));
+
+  // Construct the formatted date string
+  const formattedDate = `${dayWithSuffix} ${monthName} ${year}`;
+
+  return formattedDate;
+}
+
+function getDaySuffix(day: number): string {
+  if (day >= 11 && day <= 13) {
+    return 'th';
   }
-  
-  function getMonthName(monthIndex: number): string {
-    const months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-  
-    return months[monthIndex];
+  const lastDigit = day % 10;
+  switch (lastDigit) {
+    case 1:
+      return 'st';
+    case 2:
+      return 'nd';
+    case 3:
+      return 'rd';
+    default:
+      return 'th';
   }
-  
-  function getDaySuffix(day: number): string {
-    if (day >= 11 && day <= 13) {
-      return "th";
-    }
-    switch (day % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
-    }
-  }
-  
+}

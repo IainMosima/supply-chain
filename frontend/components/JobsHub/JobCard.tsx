@@ -3,7 +3,8 @@ import { Job } from "@/models/Jobs";
 import Image from "next/image";
 import "./JobsHub.scss";
 import Link from "next/link";
-import dateConverter from "@/utils/dateConverter";
+import { dateConverter } from "@/utils/dateConverter";
+
 
 interface JobsCardProps {
   job: Job;
@@ -66,7 +67,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 {job.dutiesAndResponsibilities.map((duty, index) => (
                   <li
                     key={index}
-                    className="sm:text-[1rem] text-md leading-5 ml-1 pl-4 relative"
+                    className="sm:text-xl text-md leading-5 ml-1 pl-4 relative"
                   >
                     {duty}.
                   </li>
@@ -81,7 +82,7 @@ const JobsCard = ({ job, index, expanded, handleExpand }: JobsCardProps) => {
                 {job.minimumRequirements.map((requirement, index) => (
                   <li
                     key={index}
-                    className="sm:text-[1rem] text-md leading-5 ml-1 pl-4 relative"
+                    className="sm:text-xl text-md leading-5 ml-1 pl-4 relative"
                   >
                     {requirement}.
                   </li>
