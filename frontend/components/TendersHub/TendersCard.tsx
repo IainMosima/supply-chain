@@ -98,7 +98,7 @@ const TendersCard = ({ tender, index, expanded, handleExpand }: JobsCardProps) =
             </div>
           </div>
 
-          <Link href='#' target="_blank" className="bg-purple text-center text-white py-3 px-2 rounded-md w-[90%] cursor-pointer ">
+          <Link href={tender.applyLink || '#'} target="_blank" className="bg-purple text-center text-white py-3 px-2 rounded-md w-[90%] cursor-pointer ">
             APPLY
           </Link>
         </div>
