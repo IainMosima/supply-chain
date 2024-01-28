@@ -1,9 +1,10 @@
 import { UnderConstruction } from "@/components"
+import KnowledgeHubSelector from "@/components/KnowledgeHub/KnowledgeHub"
 
-const KnowledgeHub = () => {
+const Page = () => {
   return (
-    <UnderConstruction/>
+    <KnowledgeHubSelector/>
   )
 }
 
-export default KnowledgeHub
+export default Page;
