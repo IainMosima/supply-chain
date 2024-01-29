@@ -1,15 +1,14 @@
 "use client";
-import Image from "next/image";
-import "./Navbar.scss";
-import { Images } from "../../constants";
-import Link from "next/link";
-import Links from "./Links";
-import Countries from "./Countries";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { getAllCountries } from "@/network/Countries";
-import { Country } from "@/models/Country";
 import { useAppSelector } from "@/hooks/reduxHook";
+import { Country } from "@/models/Country";
+import { getAllCountries } from "@/network/Countries";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Images } from "../../constants";
+import Countries from "./Countries";
+import Links from "./Links";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const [hubsToggle, setHubsToggle] = useState(false);

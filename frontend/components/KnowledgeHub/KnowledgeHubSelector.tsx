@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { JobResult } from "@/models/Jobs";
 import { Navigation } from "swiper";
 
 interface KnowledgeHubSelectorProps {
