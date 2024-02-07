@@ -13,7 +13,7 @@ export default async function  Home() {
 
   const [services, imagesInfo] = await Promise.all([servicesData, imagesInfoData])
   return (
-    <div>
+    <div className=''>
       <OurTopService services={services}/>
       <HompageCarousel imagesInfo={imagesInfo}/>
       <OurInfo/>

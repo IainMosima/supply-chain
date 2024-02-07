@@ -76,7 +76,7 @@ const TendersHubWrapper = ({ countries, country, tenderResult }: TendersHubWrapp
 
 
     return (
-        <div className="w-full p-1">
+        <div className="w-full px-4">
             <SearchBar country={selectedCountry} currentLocation={selectedLocation} setResults={setResults} intialResults={tenderResult} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
 
             {!results ? isLoading ? (<Loading />) : (<NoResultsHubs searchValue={selectedLocation} setResults={setResults} intialResults={tenderResult?.tenders} backLink={`/tenders-hub/${selectedCountry}`} setSelectedLocation={setSelectedLocation} />) : (

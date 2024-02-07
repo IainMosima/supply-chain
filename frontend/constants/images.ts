@@ -38,6 +38,7 @@ import courosel3 from "../public/assets/carousel-3.jpg";
 import courosel4 from "../public/assets/carousel-4.png";
 import courosel5 from "../public/assets/carousel-5.png";
 import blogSample from "../public/assets/blog-sample.png";
+import clock from "../public/icons/clock.png";
 
 export default {
     logo,
@@ -79,4 +80,5 @@ export default {
     twitter,
     linkedin,
     blogSample,
+    clock,
 }

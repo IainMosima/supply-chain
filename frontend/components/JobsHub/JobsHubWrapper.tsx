@@ -80,7 +80,7 @@ const JobsHubWrapper = ({ countries, country, careerTypes, jobResult }: JobsHubW
     }, [currentPage, selectedCountry, jobResult, selectedCareerType, selectedLocation, dispatch, countries, country]);
 
     return (
-        <div className="w-full p-1">
+        <div className="w-full px-4">
             <SearchBar country={selectedCountry} currentLocation={selectedLocation} setResults={setResults} intialResults={results?.jobs || []} setSelectedLocation={setSelectedLocation} setIsLoading={setIsLoading} />
 
             <JobsHubSelector selectedCareerType={selectedCareerType} setSelectedCareerType={setSelectedCareerType} country={selectedCountry} careerTypes={careerTypes} location={selectedLocation} setResults={setResults} setIsLoading={setIsLoading} />
