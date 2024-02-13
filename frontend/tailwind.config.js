@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        purple: '#4169E1'
+        purple: '#4169E1',
+        gray: '#4E4E4E'
       },
       listStyleType: {
         roman: 'upper-roman',

@@ -1,9 +1,9 @@
 import { UnderConstruction } from "@/components"
-import KnowledgeHubSelector from "@/components/KnowledgeHub/KnowledgeHub"
+import KnowledgeHub from "@/components/KnowledgeHub/KnowledgeHub"
 
 const Page = () => {
   return (
-    <KnowledgeHubSelector/>
+    <KnowledgeHub/>
   )
 }
 

@@ -11,24 +11,28 @@ import BlogCard from './BlogCard';
 const topics = ["All", "Tech", "Climate", "Science", "Politics"];
 const sampleBlogs = [
     {
+        category: "Texh",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "3h",
         blogAurthor: "Iain Mosima"
     },
     {
+        category: "Finance",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "1D",
         blogAurthor: "Iain Mosima"
     },
     {
+        category: "Insurance",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "4min",
         blogAurthor: "Iain Mosima"
     },
     {
+        category: "tech",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "1M",
@@ -36,6 +40,7 @@ const sampleBlogs = [
 
     },
     {
+        category: "tech",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "2D",
@@ -124,7 +129,7 @@ const KnowledgeHub = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     return (
-        <div className='flex flex-col justify-center place-items-center gap-3  mt-3 w-full px-6'>
+        <div className='flex flex-col justify-center place-items-center gap-3  mt-3 w-full px-3 overflow-hidden'>
             <SearchBar />
 
             <KnowledgeHubSelector topics={topics} setSelectedTopic={setSelectedTopic} setResults={setResults} setIsLoading={setIsLoading} selectedTopic={selectedTopic} />
@@ -150,36 +155,38 @@ const KnowledgeHub = () => {
 
                     <div className='flex flex-col gap-5'>
                         {sampleBlogs.map((blog, index) =>
-                            <div key={index} className='group flex justify-between place-items-center rounded-md cursor-pointer gap-4 h-full'>
-                                <div className='w-full overflow-hidden'>
-                                    <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110 rounded-sm' width={200} />
+                            <div key={index} className='group flex justify-between place-items-center items-center rounded-md cursor-pointer gap-4 h-full border-b-2 pb-1'>
+                                <div className='w-full h-full overflow-hidden'>
+                                    <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110 rounded-sm object-cover' width={200} />
                                 </div>
-                                <div className='flex flex-col justify-between h-full place-items-center'>
+
+                                <div className='flex flex-col justify-between items-center h-full place-items-center '>
                                     <p className='text-[1rem] font-extralight sm:leading-5 leading-4'>{blog.blogTitle}</p>
 
+
                                     <div className='w-full flex justify-end gap-1 place-items-center'>
-                                        <p className='text-[0.8rem] font-semibold italic'>By {blog.blogAurthor}</p>
-                                        <span>|</span>
                                         <div className='flex place-items-center gap-1'>
                                             <Image src={Images.clock} alt='clock' width={20} priority={true} />
                                             <p className='text-[0.7rem] font-semibold italic'>{blog.blogTime}</p>
                                         </div>
+                                        <span>|</span>
+                                        <p className='text-[0.8rem] font-semibold italic'>{blog.category}</p>
                                     </div>
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
-
             </div>
 
-            <div className='flex flex-col w-full'>
+            <div className='flex flex-col w-full place-items-center gap-2'>
                 {sampleBlogCards.map((card, i) => (
                     <div key={i} className='w-full'>
                         <BlogCard blogCard={card} />
                     </div>
                 ))}
             </div>
+
 
         </div>
     )

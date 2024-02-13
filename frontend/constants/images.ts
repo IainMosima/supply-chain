@@ -39,6 +39,7 @@ import courosel4 from "../public/assets/carousel-4.png";
 import courosel5 from "../public/assets/carousel-5.png";
 import blogSample from "../public/assets/blog-sample.png";
 import clock from "../public/icons/clock.png";
+import rightArrow from "../public/icons/right-arrow.png";
 
 export default {
     logo,
@@ -81,4 +82,5 @@ export default {
     linkedin,
     blogSample,
     clock,
+    rightArrow,
 }
