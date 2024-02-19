@@ -11,7 +11,7 @@ import BlogCard from './BlogCard';
 const topics = ["All", "Tech", "Climate", "Science", "Politics"];
 const sampleBlogs = [
     {
-        category: "Texh",
+        category: "Tech",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "3h",
@@ -32,7 +32,7 @@ const sampleBlogs = [
         blogAurthor: "Iain Mosima"
     },
     {
-        category: "tech",
+        category: "Tech",
         blogImage: Images.blogSample,
         blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
         blogTime: "1M",
@@ -129,7 +129,7 @@ const KnowledgeHub = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     return (
-        <div className='flex flex-col justify-center place-items-center gap-3  mt-3 w-full px-3 overflow-hidden'>
+        <div className='flex flex-col justify-center place-items-center gap-[2.5rem] mt-3 w-full px-3 overflow-hidden'>
             <SearchBar />
 
             <KnowledgeHubSelector topics={topics} setSelectedTopic={setSelectedTopic} setResults={setResults} setIsLoading={setIsLoading} selectedTopic={selectedTopic} />
@@ -155,7 +155,7 @@ const KnowledgeHub = () => {
 
                     <div className='flex flex-col gap-5'>
                         {sampleBlogs.map((blog, index) =>
-                            <div key={index} className='group flex justify-between place-items-center items-center rounded-md cursor-pointer gap-4 h-full border-b-2 pb-1'>
+                            <div key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
                                 <div className='w-full h-full overflow-hidden'>
                                     <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110 rounded-sm object-cover' width={200} />
                                 </div>
