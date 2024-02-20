@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
+import { useRouter } from "next/navigation";
 
 interface KnowledgeHubSelectorProps {
   topics: string[];
@@ -20,24 +21,13 @@ interface KnowledgeHubSelectorProps {
 
 const KnowledgeHubSelector = ({ selectedTopic: selectedCareerType, topics: careerTypes, setSelectedTopic: setSelectedCareerType,
   setResults, setIsLoading }: KnowledgeHubSelectorProps) => {
-  const handleJobsHubSelector = async (careerType: string) => {
-    if (careerType !== selectedCareerType) {
-      setSelectedCareerType(careerType);
-    //   if (location) {
-    //     if(careerType === 'All'){
-    //       return navigator.push(`/jobs-hub/${country}?location=${location}`);
-    //     } else {
-    //       return navigator.push(`/jobs-hub/${country}?location=${location}&careerType=${careerType}`);
-    //     }
-    //   } else {
-    //     if (careerType === 'All') {
-    //       return navigator.push(`/jobs-hub/${country}`);
-    //     } else {
-    //       return navigator.push(`/jobs-hub/${country}?careerType=${careerType}`);
-    //     }
-    //   }
-    }
+
+  const navigator = useRouter();
+  const handleTopicSelector = async (topic: string) => {
+    return navigator.push(`/knowledge-hub/${topic}`);
   }
+
+
   return (
     <div className="w-full z-0 bg-white mt-2]">
       <Swiper
@@ -65,7 +55,7 @@ const KnowledgeHubSelector = ({ selectedTopic: selectedCareerType, topics: caree
                   ? "bg-purple border-purple text-white"
                   : "sm:hover:bg-purple sm:hover:border-purple sm:hover:text-white"
                   }`}
-                onClick={() => handleJobsHubSelector(careerType)}
+                onClick={() => handleTopicSelector(careerType)}
 
               >
                 {careerType}
