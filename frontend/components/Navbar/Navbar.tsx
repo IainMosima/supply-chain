@@ -59,7 +59,7 @@ const Navbar = () => {
       </div>
 
       <div className="basis-[2rem]">
-        { countries && <Countries countries={countries} /> }
+        {countries && <Countries countries={countries} />}
       </div>
 
       <div className="">
@@ -70,6 +70,7 @@ const Navbar = () => {
         <div
           className="bg-purple w-[3rem] md:w-[3.7rem] h-[2.8rem] md:h-[3.7rem] p-2 lg:hidden rounded-full flex flex-col md:gap-[4px] gap-1 justify-center place-items-center z-20 absolute top-[-1.5rem]"
           onClick={() => setMenuToggle((prev) => !prev)}
+          style={{ WebkitTapHighlightColor: 'transparent' }}
         >
           <span
             className={`w-[1.2rem] md:w-[1.5rem] md:h-[0.2rem] h-[2px] ease-linear duration-300 bg-white ${menuToggle
@@ -111,26 +112,42 @@ const Navbar = () => {
           <div
             className={`cursor-pointer px-2 ease-in mb-[2rem]`}
             onClick={() => setHubsToggle((prev) => !prev)}
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
             <span>HUBS</span>
             {hubsToggle && (
               <div
                 className={`translate-down rounded w-[11rem] flex flex-col text-xs font-normal`}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 {[
                   "JOBS HUB",
                   "TENDERS HUB",
                   "KNOWLEDGE HUB",
-                ].map((hub) => (
-                  <Link
-                    href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
-                    key={hub}
-                    className="px-1 pb-5"
-                    onClick={() => toggleHandler("hub")}
-                  >
-                    {hub}
-                  </Link>
-                ))}
+                ].map((hub) => {
+                  if (hub === 'KNOWLEDGE HUB') {
+                    return (
+                      <Link
+                        href={`${hub.toLowerCase().replace(" ", "-")}`}
+                        key={hub}
+                        className="px-1 pb-5"
+                        onClick={() => toggleHandler("hub")}
+                      >
+                        {hub}
+                      </Link>
+                    )
+                  }
+                  return (
+                    <Link
+                      href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
+                      key={hub}
+                      className="px-1 pb-5"
+                      onClick={() => toggleHandler("hub")}
+                    >
+                      {hub}
+                    </Link>
+                  )
+                })}
               </div>
             )}
           </div>

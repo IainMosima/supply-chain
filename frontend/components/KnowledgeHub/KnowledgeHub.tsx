@@ -129,7 +129,7 @@ const KnowledgeHub = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     return (
-        <div className='flex flex-col justify-center place-items-center gap-[2.5rem] mt-3 w-full px-3 overflow-hidden'>
+        <div className='flex flex-col justify-center place-items-center gap-4 mt-3 w-full px-3 overflow-hidden'>
             <SearchBar />
 
             <KnowledgeHubSelector topics={topics} setSelectedTopic={setSelectedTopic} setResults={setResults} setIsLoading={setIsLoading} selectedTopic={selectedTopic} />
@@ -157,7 +157,7 @@ const KnowledgeHub = () => {
                         {sampleBlogs.map((blog, index) =>
                             <div key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
                                 <div className='w-full h-full overflow-hidden'>
-                                    <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110 rounded-sm object-cover' width={200} />
+                                    <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto rounded-sm object-cover' width={200} />
                                 </div>
 
                                 <div className='flex flex-col justify-between items-center h-full place-items-center '>
@@ -179,7 +179,7 @@ const KnowledgeHub = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col w-full place-items-center gap-2'>
+            <div className='flex flex-col w-full place-items-center gap-2 mt-4'>
                 {sampleBlogCards.map((card, i) => (
                     <div key={i} className='w-full'>
                         <BlogCard blogCard={card} />

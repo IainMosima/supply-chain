@@ -10,7 +10,7 @@ interface Props {
 
 const BlogCard = ({ blogCard }: Props) => {
   return (
-    <div className='w-full flex flex-col justify-center place-items-start gap-3'>
+    <div className='w-full flex flex-col justify-center place-items-start gap-[1.2rem] mt-[2rem] mb-3'>
       <div className='flex w-full justify-between place-items-center gap-1 py-2 border-y-2'>
         <h2 className='font-bold sm:text-2xl basis-[2%] text-xl text-gray'>{blogCard.category}</h2>
 
@@ -22,17 +22,27 @@ const BlogCard = ({ blogCard }: Props) => {
         </Link>
       </div>
 
-      <div className='flex sm:flex-row flex-col gap-2 place-items-center w-full'>
+      <div className='flex sm:flex-row flex-col gap-5 place-items-start w-full'>
 
         <div className='flex flex-col w-full basis-1/2 gap-2'>
           <div className='w-full h-[70%] flex flex-col gap-3'>
-            <Image src={blogCard.mainBlog.blogImage} alt='blogSample' className='object-contain' />
-            <h3 className='font-semibold text-xl'>{blogCard.mainBlog.blogTitle}</h3>
+            <div className='group w-full overflow-hidden'>
+              <Image src={blogCard.mainBlog.blogImage} alt='sample' priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110' />
+            </div>
+            <h3 className='font-medium text-xl'>{blogCard.mainBlog.blogTitle}</h3>
           </div>
         </div>
 
-        <div className='grid w-full basis-1/2'>
-          
+        <div className='grid w-full basis-1/2 grid-cols-2 gap-x-5'>
+          {blogCard.blogs.map((blog, index) =>
+            <Link href='#' key={index}>
+              <div className='flex flex-col place-items-start'>
+                <Image src={blog.blogImage} alt={blog.blogTitle} />
+                <p className=''>{blog.blogTitle}</p>
+              </div>
+
+            </Link>
+          )}
         </div>
       </div>
 

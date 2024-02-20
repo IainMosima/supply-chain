@@ -43,19 +43,32 @@ const links = ({ selectedCountry, hubsToggle, setHubsToggle }: LinksProps) => {
               transition={{ duration: 0.1, ease: "easeOut" }}
               className={`absolute z-1 translate-down z-30 bg-purple text-white rounded p-3 w-[11rem] right-1 flex flex-col text-xs font-bold`}
             >
-              {[
-                "JOBS HUB",
-                "TENDERS HUB",
-                "KNOWLEDGE HUB",
-              ].map((hub) => (
-                <Link
-                  href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
-                  key={hub}
-                  className="py-2 px-3"
-                >
-                  {hub}
-                </Link>
-              ))}
+             {[
+                  "JOBS HUB",
+                  "TENDERS HUB",
+                  "KNOWLEDGE HUB",
+                ].map((hub) => {
+                  if (hub === 'KNOWLEDGE HUB') {
+                    return (
+                      <Link
+                        href={`${hub.toLowerCase().replace(" ", "-")}`}
+                        key={hub}
+                        className="px-1 pb-5"
+                        >
+                        {hub}
+                      </Link>
+                    )
+                  }
+                  return (
+                    <Link
+                      href={`${hub.toLowerCase().replace(" ", "-")}/${selectedCountry}`}
+                      key={hub}
+                      className="px-1 pb-5"
+                      >
+                      {hub}
+                    </Link>
+                  )
+                })}
             </motion.div>
           )}
         </div>
