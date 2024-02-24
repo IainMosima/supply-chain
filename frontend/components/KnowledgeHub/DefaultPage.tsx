@@ -1,131 +1,41 @@
 "use client";
 import { Images } from '@/constants';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
 import "./KnowledgeHub.scss";
 import KnowledgeHubSelector from './KnowledgeHubSelector';
 import SearchBar from './SearchBar';
+import { Blog } from '@/models/Blog';
+import pickRandomItem from '@/utils/pickRandomItem';
+import Link from 'next/link';
+import * as TempDb from '@/tempDb/db';
 
-const topics = ["All", "Tech", "Climate", "Science", "Politics"];
-const sampleBlogs = [
-    {
-        category: "Tech",
-        blogImage: Images.blogSample,
-        blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-        blogTime: "3h",
-        blogAurthor: "Iain Mosima"
-    },
-    {
-        category: "Finance",
-        blogImage: Images.blogSample,
-        blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-        blogTime: "1D",
-        blogAurthor: "Iain Mosima"
-    },
-    {
-        category: "Insurance",
-        blogImage: Images.blogSample,
-        blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-        blogTime: "4min",
-        blogAurthor: "Iain Mosima"
-    },
-    {
-        category: "Tech",
-        blogImage: Images.blogSample,
-        blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-        blogTime: "1M",
-        blogAurthor: "Iain Mosima"
 
-    },
-    {
-        category: "tech",
-        blogImage: Images.blogSample,
-        blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-        blogTime: "2D",
-        blogAurthor: "Iain Mosima"
 
-    }
-]
 
-const sampleBlogCards = [
-    {
-        category: "Tech",
-        mainBlog: {
-            blogImage: Images.blogSample,
-            blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-            blogTime: "4min",
-            blogAurthor: "Iain Mosima"
-        },
-        blogs: [
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            }
-        ]
-    },
+interface Props {
+    topic: string,
+    topics: string[]
+}
 
-    {
-        category: "Finance",
-        mainBlog: {
-            blogImage: Images.blogSample,
-            blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-            blogTime: "4min",
-            blogAurthor: "Iain Mosima"
-        },
-        blogs: [
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            },
-            {
-                blogImage: Images.blogSample,
-                blogTitle: "Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo",
-                blogTime: "4min",
-                blogAurthor: "Iain Mosima"
-            }
-        ]
-    }
-]
-
-const DefaultPage = () => {
-    const [selectedTopic, setSelectedTopic] = useState("All");
+const DefaultPage = ({ topic, topics }: Props) => {
+    const [selectedTopic, setSelectedTopic] = useState(topic ? topic : "All");
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [selectedMainBlog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
+
+    useEffect(() => {
+        
+        function pickMainBlog() {
+            let pickedMainBlog;
+            pickedMainBlog = pickRandomItem(TempDb.mainBlogs);
+            setSelectedMainBlog(pickedMainBlog);
+        }
+
+    }, []);
+    
+
 
     return (
         <div className='flex flex-col justify-center place-items-center gap-4 mt-3 w-full px-3 overflow-hidden'>
@@ -135,26 +45,26 @@ const DefaultPage = () => {
 
             <div className='flex lg:flex-row flex-col justify-between place-items-center w-full gap-11'>
 
-                <div className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
+                <Link href={`/knowledge-hub/${selectedMainBlog.category}/${selectedMainBlog.blogTitle}`} className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
                     <h3 className='text-lg font-semibold  underline text-[#4E4E4E]'>{`Today's pick`}</h3>
 
                     <div className='flex flex-col w-full h-full'>
-                        <h1 className='text-[1.5rem] font-bold w-auto'>Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo </h1>
+                        <h1 className='text-[1.5rem] font-bold w-auto'>{selectedMainBlog.blogTitle}</h1>
 
                         <div className='w-full overflow-hidden'>
                             <Image src={Images.blogSample} alt='sample' priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110' />
                         </div>
 
-                        <p className='italic text-[0.8rem] font-semibold text-right'>By Iain Mosima | January 29 2023</p>
+                        <p className='italic text-[0.8rem] font-semibold text-right'>By {selectedMainBlog.blogAurthor} | {selectedMainBlog.date}</p>
                     </div>
-                </div>
+                </Link>
 
                 <div className='flex flex-col place-items-start w-full basis-[40%] justify-between'>
                     <h2 className='text-lg font-semibold underline text-[#4E4E4E] mb-0'>Latest Blogs</h2>
 
                     <div className='flex flex-col gap-5'>
-                        {sampleBlogs.map((blog, index) =>
-                            <div key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
+                        {TempDb.sampleBlogs.map((blog, index) =>
+                            <Link href={`/knowledge-hub/${blog.category}/${blog.blogTitle}`} key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
                                 <div className='w-full h-full overflow-hidden'>
                                     <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto rounded-sm object-cover' width={200} />
                                 </div>
@@ -172,16 +82,16 @@ const DefaultPage = () => {
                                         <p className='text-[0.8rem] font-semibold italic'>{blog.category}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         )}
                     </div>
                 </div>
             </div>
 
             <div className='flex flex-col w-full place-items-center gap-2 mt-4'>
-                {sampleBlogCards.map((card, i) => (
+                {TempDb.sampleBlogCards.map((card, i) => (
                     <div key={i} className='w-full'>
-                        <BlogCard blogCard={card} />
+                        <BlogCard blogCard={card} category={card.category} />
                     </div>
                 ))}
             </div>

@@ -2,16 +2,23 @@
 import { usePathname } from 'next/navigation';
 import DefaultPage from './DefaultPage';
 import "./KnowledgeHub.scss";
-import TopicPage from './TopicPage';
+import BlogPage from './BlogPage';
+
+const topics = ["All", "Tech", "Climate", "Science", "Politics"];
 
 
 const KnowledgeHub = () => {
-    const router = usePathname().split('/')[2];
-    console.log(router);
+    const topic = usePathname().split('/')[2];
+    const blog = usePathname().split('/')[3];
+
+    console.log(blog);
+
+    
+    
 
     return (
         <>
-            {!router ?  <DefaultPage/> : <TopicPage/>}
+            {!blog ?  <DefaultPage topic={topic} topics={topics} /> : <BlogPage/>}
             
         </>        
     )

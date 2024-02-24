@@ -5,20 +5,29 @@ export interface Blog {
     blogTitle: string,
     blogTime: string,
     blogAurthor: string,
+    category: string,
+    date: string,
+    blogBody: string
 }
 
 export interface BlogCardInterface {
     category: string;
     mainBlog: {
-        blogImage: StaticImageData;
-        blogTitle: string;
-        blogTime: string;
-        blogAurthor: string;
+        blogImage: StaticImageData,
+        blogTitle: string,
+        blogTime: string,
+        blogAurthor: string,
+        category: string,
+        date: string,
+        blogBody: string
     };
     blogs: {
-        blogImage: StaticImageData;
-        blogTitle: string;
-        blogTime: string;
-        blogAurthor: string;
+        blogImage: StaticImageData,
+        blogTitle: string,
+        blogTime: string,
+        blogAurthor: string,
+        category: string,
+        date: string,
+        blogBody: string
     }[];
 }
