@@ -2,31 +2,32 @@
 import { Images } from '@/constants';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import BlogCard from './BlogCard';
+import BlogCardInterce from './BlogCardInterface';
 import "./KnowledgeHub.scss";
 import KnowledgeHubSelector from './KnowledgeHubSelector';
 import SearchBar from './SearchBar';
-import { Blog, Topic } from '@/models/Blog';
+import { Blog, BlogCardInterface, Topic } from '@/models/Blog';
 import pickRandomItem from '@/utils/pickRandomItem';
-
+import Link from 'next/link';
 import * as TempDb from '@/tempDb/db';
 
 interface Props {
     topic: string,
-    topics: Topic[]
+    topics: Topic[],
+    blogCardInterfaces: BlogCardInterface[]
 }
 
-const DefaultPage = ({ topic, topics }: Props) => {
+const DefaultPage = ({ topic, topics, blogCardInterfaces }: Props) => {
     const [selectedTopic, setSelectedTopic] = useState(topic ? topic : "All");
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedMainBlog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
 
     useEffect(() => {
-        
+
 
     }, []);
-    
+
 
 
     return (
@@ -50,7 +51,7 @@ const DefaultPage = ({ topic, topics }: Props) => {
                         <p className='italic text-[0.8rem] font-semibold text-right'>By {selectedMainBlog.author} | {selectedMainBlog.date}</p>
                     </div>
                 </Link>
-
+                {/* latest blogs */}
                 <div className='flex flex-col place-items-start w-full basis-[40%] justify-between'>
                     <h2 className='text-lg font-semibold underline text-[#4E4E4E] mb-0'>Latest Blogs</h2>
 
@@ -81,11 +82,15 @@ const DefaultPage = ({ topic, topics }: Props) => {
             </div>
 
             <div className='flex flex-col w-full place-items-center gap-2 mt-4'>
-                {TempDb.sampleBlogCards.map((card, i) => (
-                    <div key={i} className='w-full'>
-                        <BlogCard blogCard={card} category={card.category} />
-                    </div>
-                ))}
+                {blogCardInterfaces.map((card, i) => {
+                    if (card.blogs.length >= 2) {
+                        return (
+                            <div key={i} className='w-full'>
+                                <BlogCardInterce blogCard={card} category={card.category} />
+                            </div>
+                        )
+                    }
+                })}
             </div>
 
 

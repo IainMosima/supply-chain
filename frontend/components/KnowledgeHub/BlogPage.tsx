@@ -23,16 +23,16 @@ interface Props {
 
 const BlogPage = (props: Props) => {
   // remember to remove this
-  const [blog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
+  // const [blog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
 
-  // const [blog, setBlog] = useState<Blog | undefined>(props.blog);
+  const [blog, setBlog] = useState<Blog | undefined>(props.blog);
 
   useEffect(() => {
     async function fetchAblog(blogId = props.blogId) {
-      return await getBlog(blogId, false);
+      return await getBlog(blogId);
     }
 
-    // fetchAblog().then(res => setBlog(res));
+    fetchAblog().then(res => setBlog(res));
 
   }, [props.blogId]);
 
@@ -55,7 +55,7 @@ const BlogPage = (props: Props) => {
               <p className='italic text-[0.8rem] font-semibold text-right'>By {blog.author} | {dateConverter(blog.date)}</p>
             </div>
 
-            {blog.blogBody.split('\n').map((paragraph, index) =>
+            {blog.blogBody && blog.blogBody.split('\n').map((paragraph, index) =>
               <p key={index} className='text-lg'>{paragraph}</p>
             )}
 

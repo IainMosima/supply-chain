@@ -1,5 +1,5 @@
 "use client";
-import { Topic } from '@/models/Blog';
+import { BlogCardInterface, Topic } from '@/models/Blog';
 import { usePathname } from 'next/navigation';
 import BlogPage from './BlogPage';
 import DefaultPage from './DefaultPage';
@@ -7,7 +7,8 @@ import "./KnowledgeHub.scss";
 
 
 interface Props {
-    topics: Topic[]
+    topics: Topic[],
+    blogCardInterfaces: BlogCardInterface[]
 }
 
 const KnowledgeHub = (props: Props) => {
@@ -15,7 +16,7 @@ const KnowledgeHub = (props: Props) => {
     
     return (
         <>
-            <DefaultPage topic={topic} topics={props.topics} />
+            <DefaultPage topic={topic} topics={props.topics} blogCardInterfaces={props.blogCardInterfaces}/>
             
         </>        
     )

@@ -1,4 +1,4 @@
-import { Blog, Topic } from "@/models/Blog";
+import { Blog, BlogCardInterface, Topic } from "@/models/Blog";
 import { fetchData } from "./FetchData";
 
 // get all topics
@@ -10,6 +10,17 @@ export async function getTopics(): Promise<Topic[]> {
 
 // get blog based on id
 export async function getBlog(blogId: string, ssr = true): Promise<Blog> {
-    const response = await fetchData(`${ssr ? `${process.env.BACKENDIP}/api/unsecured/idblogs/${blogId}` : `/api/unsecured/idblogs/${blogId}`}`, { method: 'GET', cache: 'no-store' });
+    if (ssr) {
+        const response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/idblogs/${blogId}`, { method: 'GET', cache: 'no-store' }
+        );
+        return response.json();
+    }
+    const response = await fetchData(`/api/unsecured/idblogs/${blogId}`, { method: 'GET' });
+    return response.json();
+}
+
+// get sample topic blogs
+export async function getSampleBlogInterface(topic: string): Promise<BlogCardInterface> {
+    const response = await fetchData(`${process.env.BACKENDIP}/api/unsecured/categoryblogs/${topic}`, { method: 'GET', next: { revalidate: 3600 } });
     return response.json();
 }
