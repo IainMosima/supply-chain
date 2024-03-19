@@ -4,14 +4,37 @@ import { Blog } from '@/models/Blog';
 import pickRandomItem from '@/utils/pickRandomItem';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./KnowledgeHub.scss";
 import SearchBar from './SearchBar';
 import * as TempDb from '@/tempDb/db'
+import { getBlog } from '@/network/Blog';
+import { dateConverter } from '@/utils/dateConverter';
+import { dotWave } from 'ldrs';
 
-const BlogPage = () => {
-  // remembeer to remove this
-  const [selectedMainBlog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
+dotWave.register();
+
+
+
+interface Props {
+  blogId: string,
+  blog?: Blog
+}
+
+const BlogPage = (props: Props) => {
+  // remember to remove this
+  const [blog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
+
+  // const [blog, setBlog] = useState<Blog | undefined>(props.blog);
+
+  useEffect(() => {
+    async function fetchAblog(blogId = props.blogId) {
+      return await getBlog(blogId, false);
+    }
+
+    // fetchAblog().then(res => setBlog(res));
+
+  }, [props.blogId]);
 
   return (
     <div className='flex flex-col justify-start items-start gap-4 mt-3 w-full px-3 overflow-hidden'>
@@ -19,23 +42,35 @@ const BlogPage = () => {
 
       <div className='flex lg:flex-row flex-col justify-between place-items-start w-full gap-11'>
 
-        <div className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
+        {blog ?
+          <div className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
 
-          <div className='flex flex-col w-full h-full'>
-            <h1 className='text-[1.5rem] font-bold w-auto'>{selectedMainBlog.blogTitle}</h1>
+            <div className='flex flex-col w-full h-full'>
+              <h1 className='text-[1.5rem] font-bold w-auto'>{blog.blogTitle}</h1>
 
-            <div className='w-full overflow-hidden'>
-              <Image src={Images.blogSample} alt='sample' priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110' />
+              <div className='w-full overflow-hidden'>
+                <Image src={`${process.env.NEXT_PUBLIC_BLOGSBUKCET}/${blog.blogImageKey}`} width={1000} height={100} alt={blog.blogTitle} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110' />
+              </div>
+
+              <p className='italic text-[0.8rem] font-semibold text-right'>By {blog.author} | {dateConverter(blog.date)}</p>
             </div>
 
-            <p className='italic text-[0.8rem] font-semibold text-right'>By {selectedMainBlog.blogAurthor} | {selectedMainBlog.date}</p>
+            {blog.blogBody.split('\n').map((paragraph, index) =>
+              <p key={index} className='text-lg'>{paragraph}</p>
+            )}
+
+          </div>
+          :
+          <div className='flex place-items-start w-full justify-center h-screen pt-[6rem]'>
+            <l-dot-wave
+              size="47"
+              speed="1"
+              color="#4169E1"
+            ></l-dot-wave>
           </div>
 
-          {selectedMainBlog.blogBody.split('\n').map((paragraph, index) =>
-            <p key={index} className='text-lg'>{paragraph}</p>
-          )}
+        }
 
-        </div>
 
         <div className='sm:flex hidden flex-col h-full items-start w-full basis-[40%] '>
           <h2 className='text-lg font-semibold underline text-[#4E4E4E] mb-0'>Latest Blogs</h2>
@@ -69,10 +104,12 @@ const BlogPage = () => {
       <div className='w-full flex flex-col justify-center place-items-start gap-3 mt-[2rem] mb-3'>
         <h2 className='font-bold sm:text-xl text-md underline text-black'>More like this</h2>
         {/* <div className='flex w-full justify-between place-items-start gap-1 py-2 border-y-2'>
-        </div> */}
+          </div> */}
       </div>
 
     </div>
+
+
   )
 }
 

@@ -1,24 +1,21 @@
 "use client";
+import { Topic } from '@/models/Blog';
 import { usePathname } from 'next/navigation';
+import BlogPage from './BlogPage';
 import DefaultPage from './DefaultPage';
 import "./KnowledgeHub.scss";
-import BlogPage from './BlogPage';
-
-const topics = ["All", "Tech", "Climate", "Science", "Politics"];
 
 
-const KnowledgeHub = () => {
+interface Props {
+    topics: Topic[]
+}
+
+const KnowledgeHub = (props: Props) => {
     const topic = usePathname().split('/')[2];
-    const blog = usePathname().split('/')[3];
-
-    console.log(blog);
-
     
-    
-
     return (
         <>
-            {!blog ?  <DefaultPage topic={topic} topics={topics} /> : <BlogPage/>}
+            <DefaultPage topic={topic} topics={props.topics} />
             
         </>        
     )

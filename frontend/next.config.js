@@ -6,7 +6,7 @@ const nextConfig = {
     CAROUSELBUCKET: process.env.CAROUSELBUCKET,
     COUNTRIESBUCKET: process.env.COUNTRIESBUCKET,
     ENVIRONMENT: process.env.ENVIRONMENT,
-    DEFAULT_COUNTRY: process.env.DEFAULT_COUNTRY
+    DEFAULT_COUNTRY: process.env.DEFAULT_COUNTRY,
   },
   images: {
     remotePatterns: [
@@ -19,13 +19,22 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "supply-chain-solutions-hub-limited-carousel-bucket.s3.amazonaws.com",
+        hostname:
+          "supply-chain-solutions-hub-limited-carousel-bucket.s3.amazonaws.com",
         port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "supply-chain-solutions-hub-limited-country-bucket.s3.amazonaws.com",
+        hostname:
+          "supply-chain-solutions-hub-limited-country-bucket.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname:
+          "supply-chain-solutions-hub-limited-blog-bucket.s3.amazonaws.com",
         port: "",
         pathname: "/**",
       },
@@ -34,8 +43,9 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://ec2-35-171-84-134.compute-1.amazonaws.com:8080/api/:path*'
+        source: "/api/:path*",
+        destination:
+          "http://ec2-35-171-84-134.compute-1.amazonaws.com:8080/api/:path*",
       },
     ];
   },

@@ -6,17 +6,14 @@ import BlogCard from './BlogCard';
 import "./KnowledgeHub.scss";
 import KnowledgeHubSelector from './KnowledgeHubSelector';
 import SearchBar from './SearchBar';
-import { Blog } from '@/models/Blog';
+import { Blog, Topic } from '@/models/Blog';
 import pickRandomItem from '@/utils/pickRandomItem';
-import Link from 'next/link';
+
 import * as TempDb from '@/tempDb/db';
-
-
-
 
 interface Props {
     topic: string,
-    topics: string[]
+    topics: Topic[]
 }
 
 const DefaultPage = ({ topic, topics }: Props) => {
@@ -27,11 +24,6 @@ const DefaultPage = ({ topic, topics }: Props) => {
 
     useEffect(() => {
         
-        function pickMainBlog() {
-            let pickedMainBlog;
-            pickedMainBlog = pickRandomItem(TempDb.mainBlogs);
-            setSelectedMainBlog(pickedMainBlog);
-        }
 
     }, []);
     
@@ -45,7 +37,7 @@ const DefaultPage = ({ topic, topics }: Props) => {
 
             <div className='flex lg:flex-row flex-col justify-between place-items-center w-full gap-11'>
 
-                <Link href={`/knowledge-hub/${selectedMainBlog.category}/${selectedMainBlog.blogTitle}`} className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
+                <Link href={`/knowledge-hub/blog/${selectedMainBlog.blogTitle}`} className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
                     <h3 className='text-lg font-semibold  underline text-[#4E4E4E]'>{`Today's pick`}</h3>
 
                     <div className='flex flex-col w-full h-full'>
@@ -55,7 +47,7 @@ const DefaultPage = ({ topic, topics }: Props) => {
                             <Image src={Images.blogSample} alt='sample' priority={true} className='w-full h-auto ease-out transform duration-500 transition-transform group-hover:scale-110' />
                         </div>
 
-                        <p className='italic text-[0.8rem] font-semibold text-right'>By {selectedMainBlog.blogAurthor} | {selectedMainBlog.date}</p>
+                        <p className='italic text-[0.8rem] font-semibold text-right'>By {selectedMainBlog.author} | {selectedMainBlog.date}</p>
                     </div>
                 </Link>
 
@@ -64,7 +56,7 @@ const DefaultPage = ({ topic, topics }: Props) => {
 
                     <div className='flex flex-col gap-5'>
                         {TempDb.sampleBlogs.map((blog, index) =>
-                            <Link href={`/knowledge-hub/${blog.category}/${blog.blogTitle}`} key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
+                            <Link href={`/knowledge-hub/blog/${blog.blogTitle}`} key={index} className='group flex justify-between place-items-center items-center cursor-pointer gap-4 h-full border-b-2 pb-3'>
                                 <div className='w-full h-full overflow-hidden'>
                                     <Image src={blog.blogImage} alt={blog.blogTitle} priority={true} className='w-full h-auto rounded-sm object-cover' width={200} />
                                 </div>

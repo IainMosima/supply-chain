@@ -1,17 +1,19 @@
 import { StaticImageData } from "next/image";
 
 export interface Blog {
-    blogImage: StaticImageData,
+    blogId: string,
+    blogImageKey: string,
     blogTitle: string,
-    blogTime: string,
-    blogAurthor: string,
+    date: number
+    author: string,
     category: string,
-    date: string,
-    blogBody: string
+    blogBody: string,
+    blogTimeCreated: string,
 }
 
 export interface BlogCardInterface {
     category: string;
+
     mainBlog: {
         blogImage: StaticImageData,
         blogTitle: string,
@@ -21,6 +23,7 @@ export interface BlogCardInterface {
         date: string,
         blogBody: string
     };
+
     blogs: {
         blogImage: StaticImageData,
         blogTitle: string,
@@ -30,4 +33,9 @@ export interface BlogCardInterface {
         date: string,
         blogBody: string
     }[];
+}
+
+export interface Topic {
+    categoryId: string,
+    categoryName: string
 }
