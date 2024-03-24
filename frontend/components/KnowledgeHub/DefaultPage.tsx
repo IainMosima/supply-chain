@@ -22,9 +22,10 @@ const DefaultPage = ({ topic, topics, blogCardInterfaces }: Props) => {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedMainBlog, setSelectedMainBlog] = useState<Blog>(pickRandomItem(TempDb.mainBlogs));
+    const [sampleBlogs, setSampleBlogs] = useState(blogCardInterfaces);
 
     useEffect(() => {
-
+        
 
     }, []);
 
@@ -82,11 +83,11 @@ const DefaultPage = ({ topic, topics, blogCardInterfaces }: Props) => {
             </div>
 
             <div className='flex flex-col w-full place-items-center gap-2 mt-4'>
-                {blogCardInterfaces.map((card, i) => {
-                    if (card.blogs.length >= 2) {
+                {sampleBlogs.map((card, i) => {
+                    if (card.blogs.length) {
                         return (
                             <div key={i} className='w-full'>
-                                <BlogCardInterce blogCard={card} category={card.category} />
+                                <BlogCardInterce blogCard={card} />
                             </div>
                         )
                     }

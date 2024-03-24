@@ -1,16 +1,15 @@
 "use client";
 import { Images } from '@/constants';
 import { Blog } from '@/models/Blog';
-import pickRandomItem from '@/utils/pickRandomItem';
+import { getBlog } from '@/network/Blog';
+import * as TempDb from '@/tempDb/db';
+import { dateConverter } from '@/utils/dateConverter';
+import { dotWave } from 'ldrs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import "./KnowledgeHub.scss";
-import SearchBar from './SearchBar';
-import * as TempDb from '@/tempDb/db'
-import { getBlog } from '@/network/Blog';
-import { dateConverter } from '@/utils/dateConverter';
-import { dotWave } from 'ldrs';
+
 
 dotWave.register();
 
@@ -32,15 +31,15 @@ const BlogPage = (props: Props) => {
       return await getBlog(blogId);
     }
 
-    fetchAblog().then(res => setBlog(res));
+    if(!props.blog)  fetchAblog().then(res => setBlog(res));
 
-  }, [props.blogId]);
+  }, [props.blog, props.blogId]);
 
   return (
     <div className='flex flex-col justify-start items-start gap-4 mt-3 w-full px-3 overflow-hidden'>
       <SearchBar />
 
-      <div className='flex lg:flex-row flex-col justify-between place-items-start w-full gap-11'>
+      <div className='flex lg:flex-row flex-col justify-between place-items-start w-full gap-11 '>
 
         {blog ?
           <div className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
@@ -71,8 +70,8 @@ const BlogPage = (props: Props) => {
 
         }
 
-
-        <div className='sm:flex hidden flex-col h-full items-start w-full basis-[40%] '>
+        {/* div to stick */}
+        <div className='sm:flex hidden flex-col h-full items-start w-full basis-[40%] sticky top-0'>
           <h2 className='text-lg font-semibold underline text-[#4E4E4E] mb-0'>Latest Blogs</h2>
 
           <div className='flex flex-col gap-5'>
@@ -103,8 +102,6 @@ const BlogPage = (props: Props) => {
 
       <div className='w-full flex flex-col justify-center place-items-start gap-3 mt-[2rem] mb-3'>
         <h2 className='font-bold sm:text-xl text-md underline text-black'>More like this</h2>
-        {/* <div className='flex w-full justify-between place-items-start gap-1 py-2 border-y-2'>
-          </div> */}
       </div>
 
     </div>

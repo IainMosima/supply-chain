@@ -1,7 +1,6 @@
 "use client";
 import { BlogCardInterface, Topic } from '@/models/Blog';
 import { usePathname } from 'next/navigation';
-import BlogPage from './BlogPage';
 import DefaultPage from './DefaultPage';
 import "./KnowledgeHub.scss";
 

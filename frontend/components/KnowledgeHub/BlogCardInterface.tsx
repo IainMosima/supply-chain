@@ -7,10 +7,10 @@ import BlogCard from './BlogCard';
 
 interface Props {
   blogCard: BlogCardInterface,
-  category: string,
-}
+  }
 
-const BlogCardInterce = ({ blogCard, category }: Props) => {
+const BlogCardInterce = ({ blogCard }: Props) => {
+  
   return (
     <div className='w-full flex flex-col justify-center place-items-start gap-[1.2rem] mt-[2rem] mb-3'>
       <div className='flex w-full justify-between place-items-center gap-1 py-2 border-y-2'>

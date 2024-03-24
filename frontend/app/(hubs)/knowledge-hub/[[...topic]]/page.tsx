@@ -22,6 +22,7 @@ const Page = async ({ params }: { params: { topic: string } }) => {
   const topicsData = await fetchTopics();
   const blogCardInterfacesData = await fetchBlogCardInterfaces();
   const [topics, blogCardInterfaces] = await Promise.all([topicsData, blogCardInterfacesData]);
+
   return (
     <KnowledgeHub topics={topics} blogCardInterfaces={blogCardInterfaces}/>
   )
