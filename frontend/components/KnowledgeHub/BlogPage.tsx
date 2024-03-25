@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import "./KnowledgeHub.scss";
-
+import SearchBar from './SearchBar';
 
 dotWave.register();
 
@@ -31,7 +31,7 @@ const BlogPage = (props: Props) => {
       return await getBlog(blogId);
     }
 
-    if(!props.blog)  fetchAblog().then(res => setBlog(res));
+    if(!props.blog?.blogId)  fetchAblog().then(res => setBlog(res));
 
   }, [props.blog, props.blogId]);
 

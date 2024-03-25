@@ -1,6 +1,6 @@
 import KnowledgeHub from "@/components/KnowledgeHub/KnowledgeHub";
 import { BlogCardInterface, Topic } from "@/models/Blog";
-import { getSampleBlogInterface, getTopics } from "@/network/Blog";
+import { getMainBlog, getSampleBlogInterface, getTopics } from "@/network/Blog";
 
 const fetchTopics = async (): Promise<Topic[]> => {
   const topics = await getTopics();
@@ -20,11 +20,12 @@ const fetchBlogCardInterfaces = async (): Promise<BlogCardInterface[]> => {
 
 const Page = async ({ params }: { params: { topic: string } }) => {
   const topicsData = await fetchTopics();
+  const mainBlogData = await getMainBlog(params.topic);
   const blogCardInterfacesData = await fetchBlogCardInterfaces();
-  const [topics, blogCardInterfaces] = await Promise.all([topicsData, blogCardInterfacesData]);
+  const [topics, blogCardInterfaces, mainBlog] = await Promise.all([topicsData, blogCardInterfacesData, mainBlogData]);
 
   return (
-    <KnowledgeHub topics={topics} blogCardInterfaces={blogCardInterfaces}/>
+    <KnowledgeHub topics={topics} blogCardInterfaces={blogCardInterfaces} mainBlogData={mainBlogData}/>
   )
 }
 
