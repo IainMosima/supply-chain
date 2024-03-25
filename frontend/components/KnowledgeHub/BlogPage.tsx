@@ -31,7 +31,7 @@ const BlogPage = (props: Props) => {
       return await getBlog(blogId);
     }
 
-    if(!props.blog?.blogTitle)  fetchAblog().then(res => setBlog(res));
+    fetchAblog().then(res => setBlog(res));
 
   }, [props.blog, props.blogId]);
 
