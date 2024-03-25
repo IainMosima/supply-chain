@@ -41,7 +41,7 @@ const BlogPage = (props: Props) => {
 
       <div className='flex lg:flex-row flex-col justify-between place-items-start w-full gap-11 '>
 
-        {blog ?
+        {blog?.blogTitle ?
           <div className='flex flex-col w-full basis-[80%] h-full cursor-pointer group justify-between'>
 
             <div className='flex flex-col w-full h-full'>
