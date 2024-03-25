@@ -35,7 +35,6 @@ const BlogPage = (props: Props) => {
 
   }, [blog, props.blog, props.blogId]);
 
-  console.log(blog);
 
   return (
     <div className='flex flex-col justify-start items-start gap-4 mt-3 w-full px-3 overflow-hidden'>
