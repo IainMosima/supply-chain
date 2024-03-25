@@ -14,7 +14,7 @@ const page = async ({ params }: { params: {blogId: string} }) => {
 
     
   return (
-    <BlogPage blogId={params.blogId} />
+    <BlogPage blogId={params.blogId} blog={blog}/>
   )
 }
 

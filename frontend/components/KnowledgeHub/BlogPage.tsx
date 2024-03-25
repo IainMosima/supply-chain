@@ -28,14 +28,14 @@ const BlogPage = (props: Props) => {
 
   useEffect(() => {
     async function fetchAblog(blogId = props.blogId) {
-      return await getBlog(blogId);
+      return await getBlog(blogId).then(res => setBlog(res));
     }
 
-    if(!blog?.blogTitle)fetchAblog().then(res => setBlog(res));
+    if(!blog)fetchAblog();
 
-  }, [blog?.blogTitle, props.blog, props.blogId]);
+  }, [blog, props.blog, props.blogId]);
 
-  console.log(props.blogId);
+  console.log(blog);
 
   return (
     <div className='flex flex-col justify-start items-start gap-4 mt-3 w-full px-3 overflow-hidden'>
