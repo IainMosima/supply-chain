@@ -31,9 +31,11 @@ const BlogPage = (props: Props) => {
       return await getBlog(blogId);
     }
 
-    fetchAblog().then(res => setBlog(res));
+    if(!blog?.blogTitle)fetchAblog().then(res => setBlog(res));
 
-  }, [props.blog, props.blogId]);
+  }, [blog?.blogTitle, props.blog, props.blogId]);
+
+  console.log(blog);
 
   return (
     <div className='flex flex-col justify-start items-start gap-4 mt-3 w-full px-3 overflow-hidden'>
