@@ -24,7 +24,7 @@ const KnowledgeHubSelector = ({ selectedTopic, topics, setSelectedTopic, setResu
 
   const navigator = useRouter();
   const handleTopicSelector = async (topic: string) => {
-    return navigator.push(`/knowledge-hub/${topic}`);
+    return navigator.push(`/knowledge-hub/topic/${topic}`);
   }
 
 
